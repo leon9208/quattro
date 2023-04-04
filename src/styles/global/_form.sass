@@ -3,12 +3,61 @@ input, button, select, textarea
 	border-radius: 0
 	border: 0
 	background-color: transparent
-input
-	border: 0
-	padding: 0
-	margin: 0
-	background-color: transparent
-	border-radius: 0
 	outline: none
 	font-family: $baseFont
 	display: block
+
+textarea
+	min-height: 160px
+
+.form
+	&-controll
+		margin-bottom: 1rem
+	&-field
+		display: inline-flex
+		position: relative
+		min-height: 60px
+	&-input
+		display: block
+		color: #524C80
+		width: 100%
+		background-color: #EBF0F4
+		padding: 30px 20px 10px 20px
+		border-radius: 3px
+		font-size: 1rem
+		&.isfilled ~ .form-label,
+		&:focus ~ .form-label
+			font-size: 11px
+			transform: translateY(-10px)
+		&:required ~ .form-label
+			&::after
+				content: '*'
+		&::placeholder
+			opacity: 0
+	&-label
+		display: flex
+		align-items: center
+		font-size: 1rem
+		position: absolute
+		padding: 0 20px
+		top: 20px
+		user-select: none
+		pointer-events: none
+		color: #7771A6
+		transform-origin: left top
+		left: 0
+		font-weight: 500
+		transition: $trs
+
+select
+	position: relative
+	height: 60px
+	padding: 0 40px 0 20px
+	border-radius: 3px
+	background-color: #EBF0F4
+	font-weight: 500
+	font-size: 1rem
+	color: #524C80
+	background-image: url("data:image/svg+xml,%3Csvg width='11' height='7' viewBox='0 0 11 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L5.49961 6.11111L11 0L0 0Z' fill='%237771A6'/%3E%3C/svg%3E%0A")
+	background-repeat: no-repeat
+	background-position: center right 20px
