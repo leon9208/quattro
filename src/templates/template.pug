@@ -1,0 +1,25 @@
+include mixin.pug
+block vars
+	- var title = 'Title';
+	- var description = 'Description';
+	- var navTheme = 'undefined' ? 'transparent' : navTheme
+	- var pageType = 'main'
+- var company = 'Company name';
+- var phone = '+7 499 112-48-29';
+- var phoneLink = 'tel:'+phone.replace(/[-/ /]/g,'');
+- var email = 'info@sweetit.ru';
+- var emailLink = 'mailto:'+email+'';
+doctype html
+html(lang='ru' class="other-class")
+	include head
+	body
+		.page
+			//header
+			include ../blocks/header/header.pug
+			//End header
+			main.main
+				block content
+			//footer
+			include ../blocks/footer/footer.pug
+			//End footer
+		include scripts

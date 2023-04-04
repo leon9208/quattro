@@ -1,0 +1,65 @@
+=font-face($font-family, $file-path, $fweight, $style: normal)
+	@font-face
+		font-family: '#{$font-family}'
+		font-weight: $fweight
+		font-style: $style
+		font-display: swap
+		src: url('#{$file-path}.woff2') format('woff2')
+
+=xl()
+	@media (max-width: 1400px)
+		@content
+=lg()
+	@media (max-width: 1200px)
+		@content
+=md()
+	@media (max-width: 992px)
+		@content
+=sm()
+	@media (max-width: 767px)
+		@content
+=xs()
+	@media (max-width: 576px)
+		@content
+
+=from($from)
+	@media (min-width: $from)
+		@content
+
+=to($to)
+	@media (max-width: $to)
+		@content
+
+
+=mb($n)
+	margin-bottom: $n
+	&:last-child
+		margin-bottom: 0px
+=mr($n)
+	margin-right: $n
+	&:last-child
+		margin-right: 0px
+=ie()
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+		@content
+=ios()
+	@supports (-webkit-appearance:none)
+		@content
+
+=webp()
+	.webp-support-js &
+		@content
+=nowebp()
+	.webp-nosupport-js &
+		@content
+
+=parent($p)
+	.#{$p} &
+		@content
+
+
+@function pow($base)
+	$result: 0.8
+	$result: ceil($result * $base) + 0px
+
+	@return $result

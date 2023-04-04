@@ -1,0 +1,294 @@
+.container
+	+from(1400px)
+		max-width: 1460px
+	&-fluid
+		--bs-gutter-x: 2rem
+
+.slider
+	&-product
+		overflow: hidden
+		&-head
+			margin-bottom: 24px
+			+from(992px)
+				position: absolute
+				height: 100%
+				max-width: 400px
+				// margin-top: -3rem
+				z-index: 2
+				.section-lg__text
+					margin-top: 3em
+					max-width: 70%
+			.section-lg__text
+				margin-top: 2em
+			&__row
+				flex-direction: column
+				height: inherit
+				justify-content: space-between
+				+md()
+					flex-direction: row
+		&__container
+			max-width: 1460px
+			margin: 0 auto
+			position: relative
+			--bs-gutter-x: 1.5rem
+			--bs-gutter-y: 0
+			width: 100%
+			padding-right: calc(var(--bs-gutter-x) * .5)
+			padding-left: calc(var(--bs-gutter-x) * .5)
+		
+		&__carousel
+			position: relative
+			right: -250px
+			+to(1920px)
+				right: -200px
+				width: calc(100% - 200px)
+			+to(1600px)
+				right: -160px
+				width: calc(100% - 300px)
+			+md()
+				right: unset
+				width: 100%
+
+	&-single
+		position: relative
+		width: 100%
+		&__carousel
+			height: 100%
+		&__item
+			position: relative
+			img
+				position: absolute
+				height: 100%
+				width: 100%
+				object-fit: cover
+				object-position: center
+	&-base
+		.swiper-nav--row
+			+sm()
+				flex-direction: column
+	&-base, &-third, &-product
+		position: relative
+		width: 100%
+		.swiper-wrapper
+			transition: unset !important
+	&-third
+		display: flex
+		flex-direction: column
+
+
+	&-wide
+		&__carousel
+			overflow: unset
+		&-item
+			width: pow(870)
+			+md()
+				width: 80vw
+			&__link
+				display: inline-block
+				text-decoration: none
+				color: $text
+			&__content
+				position: relative
+				margin-top: -50px
+				margin-left: 70px
+				width: 50%
+				z-index: 2
+				+md()
+					width: 80%
+					margin-left: 40px
+				+xs()
+					width: 90%
+					margin-top: -20px
+					margin-left: 20px
+			&__img
+				position: relative
+				width: 100%
+				padding-bottom: 54%
+				overflow: hidden
+				+xs()
+					padding-bottom: 75%
+				&::before
+					content: ''
+					position: absolute
+					top: 0
+					right: 0
+					bottom: 0
+					left: 0
+					background: linear-gradient(180deg, rgba(255, 255, 255, 0) 29.34%, rgba(237, 237, 234, 0.67) 72.83%, #EDEDEA 100%)
+					z-index: 1
+				img
+					position: absolute
+					height: 100%
+					width: 100%
+					object-fit: cover
+					object-position: center
+			&__title
+				font-size: pow(50)
+				margin-bottom: 27px
+				+sm()
+					font-size: pow(36)
+					margin-bottom: 20px
+				+xs()
+					font-size: pow(25)
+			&__text
+				font-size: 17px
+				line-height: 1.4
+				width: 80%
+				margin-bottom: 0 !important
+				+xs()
+					width: 90%
+					font-size: 12px
+
+.swiper
+	.product
+		width: 100%
+	.next-product
+		position: absolute
+		height: 100%
+		width: inherit
+		top: 0
+		z-index: -1
+		pointer-events: none
+		display: inline-block
+
+
+
+		.product-content
+			display: none
+			opacity: 0
+	&.right-direction, &.left-direction
+		.swiper-slide
+			position: relative
+			overflow: hidden
+	&.right-direction
+		.next-product
+			transition: transform .5s ease
+		.swiper-slide-visible
+			.next-product
+				animation: ltrNextItem .4s ease forwards
+			.product
+				transform: translateX(-100%)
+				animation: rtl .4s ease forwards
+
+
+	&.left-direction
+		.next-product
+			transition: transform .5s ease
+		.swiper-slide-visible
+			.next-product
+				animation: rtlNextItem .4s ease forwards
+			.product
+				transform: translateX(100%)
+				animation: ltr .4s ease forwards
+
+
+	&-pagination
+		position: absolute
+		display: flex
+		width: 100%
+		align-items: center
+		justify-content: center
+		top: 50px
+		z-index: 2
+		&-bullet
+			background-color: #fff
+			height: 6px
+			width: 18px
+			margin: 0 8px
+			border-radius: 4px
+			transition: .3s ease
+			&-active
+				width: 36px
+	&-nav
+		display: flex
+		gap: 40px 100px
+		+xs()
+			gap: 40px 80px
+		&--row
+			flex-direction: row
+		&--col
+			flex-direction: column
+		&--center
+			align-items: center
+			justify-content: center
+		&--start
+			justify-content: flex-start
+		&__btn
+			width: 46px
+			height: 23px
+			cursor: pointer
+			background-size: contain
+			background-position: center
+			+xs()
+				width: 34px
+				height: 17px
+			&.swiper-button-disabled
+				opacity: 0.4
+		&--dark
+			.swiper-nav__btn
+				&--next
+					background-image: url("data:image/svg+xml,%3Csvg width='47' height='23' viewBox='0 0 47 23' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M41.015 12.8208H0.0351562V10.1792H41.015L32.7033 1.86758L34.5709 0L46.0709 11.5L34.5709 23L32.7033 21.1324L41.015 12.8208Z' fill='%23222222'/%3E%3C/svg%3E%0A")
+				&--prev
+					background-image: url("data:image/svg+xml,%3Csvg width='47' height='23' viewBox='0 0 47 23' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M5.05532 10.1792L46.0352 10.1792V12.8208L5.05532 12.8208L13.367 21.1324L11.4994 23L-0.000610352 11.5L11.4994 0L13.367 1.86758L5.05532 10.1792Z' fill='%233E3E39'/%3E%3C/svg%3E%0A")
+		&--white
+			.swiper-nav__btn
+				&--next
+					background-image: url("data:image/svg+xml,%3Csvg width='47' height='23' viewBox='0 0 47 23' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M41.015 12.8208H0.0351562V10.1792H41.015L32.7033 1.86758L34.5709 0L46.0709 11.5L34.5709 23L32.7033 21.1324L41.015 12.8208Z' fill='white'/%3E%3C/svg%3E%0A")
+				&--prev
+					background-image: url("data:image/svg+xml,%3Csvg width='47' height='23' viewBox='0 0 47 23' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M5.05532 10.1792L46.0352 10.1792V12.8208L5.05532 12.8208L13.367 21.1324L11.4994 23L-0.000610352 11.5L11.4994 0L13.367 1.86758L5.05532 10.1792Z' fill='white'/%3E%3C/svg%3E%0A")
+
+
+
+@keyframes ltr
+	0%
+		transform: translateX(calc(-100% - 40px))
+	to
+		transform: translateX(0%)
+@keyframes rtl
+	0%
+		transform: translateX(calc(100% - 40px))
+	to
+		transform: translateX(0%)
+
+@keyframes ltrNextItem
+	0%
+		transform: translateX(0%)
+	to
+		transform: translateX(-40px)
+@keyframes rtlNextItem
+	0%
+		transform: translateX(0%)
+	to
+		transform: translateX(40px)
+
+
+.noUi
+	&-target
+		cursor: pointer
+		&:focus
+			outline: none
+	&-horizontal
+		height: 5px
+		.noUi-handle
+			background-color: $dark
+			height: 13px
+			width: 13px
+			border-radius: 50px
+			box-shadow: none
+			border: 0
+			top: -5px
+			right: -6px
+			&::before, &::after
+				display: none
+		
+	&-base
+		background-color: #D3CDCD
+	&-connect
+		background-color: $dark
+	// &-handle
+
+// .container, .container-wide
+// 	+to(1800px)
+// 	& > *
+// 		transform: scale(0.8)
+// 		// transform-origin: left

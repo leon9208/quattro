@@ -1,0 +1,13 @@
+extends ../templates/template
+block vars
+	- var title = 'Main page Title';
+	- var description = 'Main page Description';
+	- var navTheme = 'transparent'
+	- var pageLink = '/'
+	- var pageType = 'main'
+block content
+	h1 Главная страница
+	button.btn.btn--xs.btn--primary Кнопка
+
+	+lazyJpg("img", "", "210", "315")
+	+lazyJpg("img2", "", "300", "190")
