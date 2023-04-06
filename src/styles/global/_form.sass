@@ -5,6 +5,7 @@ input, button, select, textarea
 	background-color: transparent
 	outline: none
 	font-family: $baseFont
+	font-weight: 500
 	display: block
 
 textarea
@@ -49,10 +50,21 @@ textarea
 		font-weight: 500
 		transition: $trs
 
+form
+	display: flex
+	flex-direction: column
+	gap: 10px
+
+.form
+	&-group
+		display: flex
+		gap: 4px
+
 select
+	min-width: 108px
 	position: relative
 	height: 60px
-	padding: 0 40px 0 20px
+	padding: 10px 40px 10px 20px
 	border-radius: 3px
 	background-color: #EBF0F4
 	font-weight: 500
@@ -61,3 +73,107 @@ select
 	background-image: url("data:image/svg+xml,%3Csvg width='11' height='7' viewBox='0 0 11 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L5.49961 6.11111L11 0L0 0Z' fill='%237771A6'/%3E%3C/svg%3E%0A")
 	background-repeat: no-repeat
 	background-position: center right 20px
+	&:invalid
+		padding: 10px 40px 10px 20px
+		& ~ .select-native__label
+			opacity: 0
+			transform: translateY(0)
+	&:valid[data-select-label]
+		padding: 30px 40px 10px 20px
+
+.isfilled ~ .form-label
+	font-size: 11px
+	transform: translateY(-10px)
+
+.select
+	position: relative
+	&-native
+		&__label
+			font-size: 11px
+			position: absolute
+			padding: 0 20px
+			top: 20px
+			user-select: none
+			pointer-events: none
+			color: #7771A6
+			transform-origin: left top
+			left: 0
+			font-weight: 500
+			transition: all 0.25s ease
+			transform: translateY(-10px)
+			opacity: 1
+	&-custom
+		display: none
+		position: relative
+		font-weight: 500
+		font-size: 1rem
+		color: #524C80
+		min-width: 130px
+		text-align: left
+		&.isopen
+			&::after
+				transform: rotate(-180deg)
+			.select-custom__options
+				opacity: 1
+				visibility: visible
+				pointer-events: auto
+		&::after
+			content: ''
+			pointer-events: none
+			position: absolute
+			right: 20px
+			top: 30px
+			flex: none
+			width: 12px
+			height: 7px
+			background-repeat: no-repeat
+			background-size: cover
+			background-image: url("data:image/svg+xml,%3Csvg width='11' height='7' viewBox='0 0 11 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L5.49961 6.11111L11 0L0 0Z' fill='%237771A6'/%3E%3C/svg%3E%0A")
+		&__current
+			position: relative
+			height: 60px
+			height: 60px
+			padding: 30px 40px 10px 20px
+			border-radius: 3px
+			background-color: #EBF0F4
+			font-weight: inherit
+			font-size: inherit
+			color: inherit
+			text-align: inherit
+			width: 100%
+			cursor: pointer
+
+				
+		&__options
+			margin-top: 6px
+			top: 100%
+			position: absolute
+			width: 100%
+			border-radius: 3px
+			font-size: inherit
+			background-color: $white
+			box-shadow: 0px 10px 32px rgba(8, 47, 146, 0.2)
+			z-index: 1
+			opacity: 0
+			visibility: hidden
+			pointer-events: none
+		&__item
+			font-weight: inherit
+			font-size: inherit
+			color: inherit
+			padding: 1em
+			width: 100%
+			display: block
+			text-align: inherit
+			cursor: pointer
+			&:hover, &:focus
+				background-color: #EBF0F4
+
+
+// @media (hover: hover)
+// 	select
+// 		opacity: 0
+// 		pointer-events: none
+// 	.select-custom
+// 		position: absolute
+// 		display: block

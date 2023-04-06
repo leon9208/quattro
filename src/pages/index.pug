@@ -8,17 +8,6 @@ block vars
 block content
 	.container
 		h1 Главная страница
-		form.form
-			label.form-field
-				input.form-input(type="text" required value="")
-				span.form-label First name
-			label.form-field
-				textarea.form-input(type="text" value="")
-				span.form-label First name
-			button.btn.btn--xs.btn--primary Кнопка
-			select(name="gender" data-placeholder="Gender" value="" required) 
-				option(value="male") Male
-				option(value="female") Female
 
-	+lazyJpg("img", "", "210", "315")
-	+lazyJpg("img2", "", "300", "190")
+		+lazyJpg("img", "", "210", "315")
+		+lazyJpg("img2", "", "300", "190")

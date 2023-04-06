@@ -24,26 +24,3 @@ formInputText.forEach(inp => {
 		inp.value != '' ? inp.classList.add('isfilled') : inp.classList.remove('isfilled')
 	})
 });
-
-const formSelect = document.querySelectorAll('select')
-
-formSelect.forEach(fSelect => {
-	let sValue = fSelect.value
-	let sPlaceholder = fSelect.dataset.placeholder
-	let sOptions = fSelect.querySelectorAll('option')
-	
-	let cSelect = document.createElement('div')
-	let cSelectCurrent = document.createElement('div')
-	let cSelectOptions = document.createElement('div')
-	cSelect.classList.add('select')
-	cSelectCurrent.classList.add('select-current')
-	cSelectOptions.classList.add('select-options')
-
-	let optionList = []
-
-	sOptions.forEach(option => {
-		optionList += `<button class="select-item" data-select-name="${option.value}">${option.textContent}</button>`
-	});
-
-	console.log(optionList);
-})

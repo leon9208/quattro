@@ -45,7 +45,7 @@ var paths = {
 			'./src/libs/*.js'],
 		src: ['./src/blocks/**/*.js'],
 		dest: './build/js',
-		watch: './src/blocks/**/*.js',
+		watch: ['./src/blocks/**/*.js', './src/libs/*.js'],
 		watchPlugins: './src/scripts/libs/*.js'
 	},
 	images: {
@@ -241,7 +241,7 @@ gulp.task('server', function () {
 	gulp.watch(paths.html.watch, gulp.parallel('templates'));
 	gulp.watch(paths.css.watch, gulp.parallel('styles'));
 	gulp.watch(paths.js.watch, gulp.parallel('scripts'));
-	gulp.watch(paths.js.watchPlugins, gulp.parallel('scripts'));
+	gulp.watch(paths.js.watch, gulp.parallel('libsJS'));
 	gulp.watch(paths.images.watch, gulp.parallel('imgDev'));
 	gulp.watch(paths.images.watch, gulp.parallel('imgBuild'));
 	gulp.watch(paths.fonts.watch, gulp.parallel('fonts'));
