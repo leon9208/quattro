@@ -44,9 +44,17 @@ a
 	+xs()
 		padding: 0 15px
 
+.row
+	display: flex
+
 .blur-up
 	filter: blur(5px)
 	transition: filter 400ms
 
 	&.lazyloaded
 		filter: blur(0)
+
+.hero
+	min-height: 100vh
+	background-color: $darkBlue
+	width: 100%
