@@ -6,11 +6,29 @@ block vars
 	- var pageType = 'main'
 block content
 	.hero
+	.section.top-games
+		.container
+			.section-head
+				h2.section-title Top Games
+				a.section-head__link(href="#") All Top Games
+				.swiper-nav
+					button.swiper-nav__btn.swiper-nav__btn--prev
+						+xlink('arrow-left', 'btn')
+					button.swiper-nav__btn.swiper-nav__btn--next
+						+xlink('arrow-right', 'btn')
+			.top-games__carousel
+				+game(true, "210", "315")
+				+game(true, "210", "315")
+				+game(true, "210", "315")
+				+game(true, "210", "315")
+				+game(true, "210", "315")
+				+game(true, "210", "315")
+				+game(true, "210", "315")
 	.container
 		h1 Главная страница
-
-		+lazyJpg("img", "", "210", "315")
-		+lazyJpg("img2", "", "300", "190")
+		+game(false, "300", "190")
+		//- +lazyJpg("img", "", "210", "315")
+		//- +lazyJpg("img2", "", "300", "190")
 	//faq
 	.faq.faq--index
 		.container
