@@ -30,6 +30,10 @@
 	@media (max-width: $to)
 		@content
 
+=heightTo($to)
+	@media (max-height: $to)
+		@content
+
 
 =mb($n)
 	margin-bottom: $n
@@ -63,3 +67,12 @@
 	$result: ceil($result * $base) + 0px
 
 	@return $result
+
+@function color($base, $hue: false)
+	// $result: $hue
+	@if $hue
+		@return rgb(var($base), $hue)
+	@else
+		@return rgb(var($base))
+
+	// @return $result
