@@ -1,0 +1,41 @@
+extends ../templates/template
+block vars
+	- var title = 'Info';
+	- var description = 'Info Description';
+	- var pageType = 'inner'
+block content
+	.inner__content
+		.container
+			.tab
+				.tab-nav
+					a.tab-nav__link.isactive(href="#about-us") About Us
+					a.tab-nav__link(href="#faq") Faq
+					a.tab-nav__link(href="#contact-us") Contact Us
+					a.tab-nav__link(href="#agreement") Agreement
+					a.tab-nav__link(href="#privacy-policy") Privacy Policy
+					a.tab-nav__link(href="#aml") AML
+					a.tab-nav__link(href="#kyc") KYC
+				.tab-content
+					.tab-content__item.isactive#about-us
+						h2.tab-content__title About Us
+						article
+							h3 Multi-currency
+							p Quattrocasino.com is the multi-currency online casino where you can play using bitcoin and other cryptocurrencies, as well as many traditional currencies, including rubles, dollars and euros.Quattrocasino.com is operated and licensed by Luckywayz Limited B.V., a company registered under the laws of Curacao under registration number 161054, registered address Abraham de Veerstraat 9, Willemstad, Curaçao, license Nr. 365/JAZ. support@quattrocasino.com.
+							p Quattrocasino.com is the multi-currency online casino where you can play using bitcoin and other cryptocurrencies, as well as many traditional currencies, including rubles, dollars and euros.Quattrocasino.com is operated and licensed by Luckywayz Limited B.V., a company registered under the laws of Curacao under registration number 161054, registered address Abraham de Veerstraat 9, Willemstad, Curaçao, license Nr. 365/JAZ. support@quattrocasino.com.
+							br
+							h3 Online Casino
+							p Quattrocasino.com is the multi-currency online casino where you can play using bitcoin and other cryptocurrencies, as well as many traditional currencies, including rubles, dollars and euros.Quattrocasino.com is operated and licensed by Luckywayz Limited B.V., a company registered under the laws of Curacao under registration number 161054, registered address Abraham de Veerstraat 9, Willemstad, Curaçao, license Nr. 365/JAZ. support@quattrocasino.com. 
+							p Quattrocasino.com is the multi-currency online casino where you can play using bitcoin and other cryptocurrencies, as well as many traditional currencies, including rubles, dollars and euros.Quattrocasino.com is operated and licensed by Luckywayz Limited B.V., a company registered under the laws of Curacao under registration number 161054, registered address Abraham de Veerstraat 9, Willemstad, Curaçao, license Nr. 365/JAZ. support@quattrocasino.com. 
+					.tab-content__item#faq
+						h2.tab-content__title Faq
+						include ../blocks/acc/acc.pug
+					.tab-content__item#contact-us
+						h2.tab-content__title Contact Us
+					.tab-content__item#agreement
+						h2.tab-content__title Agreement
+					.tab-content__item#privacy-policy
+						h2.tab-content__title Privacy Policy
+					.tab-content__item#aml
+						h2.tab-content__title AML
+					.tab-content__item#kyc
+						h2.tab-content__title KYC
