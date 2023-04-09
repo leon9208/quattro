@@ -39,5 +39,19 @@ mixin picMediaJpg(image, altTag)
 		img(src="img/"+image+".jpg" alt=altTag)
 
 mixin xlink(svg, sClass)
-	svg(class="icon "+sClass+"__icon")
+	svg(class=""+sClass+"__icon")
 		use(xlink:href="img/sprite.svg#"+svg+"")
+
+mixin logo(lClass, lText, lAfter)
+	a.logo(href="/" class=lClass data-logo-text=lAfter || false)
+		svg(xmlns="http://www.w3.org/2000/svg" class="logo-icon" viewBox="0 0 496 496" fill="none")
+			path(d="M347.19 352.056H491.383V495.999C443.558 447.778 395.491 399.802 347.19 352.056Z" class="logo-icon__yellow")
+			rect(x="175.467" y="352.057" width="144.192" height="143.943" class="logo-icon__green")
+			path(d="M0 352.056H144.192V495.999C96.3673 447.778 48.3007 399.802 0 352.056Z" class="logo-icon__mono")
+			rect(x="351.807" y="176.02" width="144.192" height="143.943" class="logo-icon__blue")
+			rect(y="176.02" width="144.192" height="143.943" class="logo-icon__mono")
+			path(d="M495.986 143.943H351.794V0C399.619 48.2214 447.686 96.197 495.986 143.943Z" class="logo-icon__mono")
+			rect(x="175.467" width="144.192" height="143.943" class="logo-icon__mono")
+			path(d="M144.192 0V143.943H0C48.3047 96.2011 96.3632 48.2174 144.192 0Z" class="logo-icon__pink")
+		if lText
+			span.logo-text=lText
