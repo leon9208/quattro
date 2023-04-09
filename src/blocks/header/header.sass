@@ -1,18 +1,137 @@
 .header
-	position: fixed
+	position: absolute
 	top: 0
 	left: $navWidth
-	height: $headerHeight
 	width: calc(100% - $navWidth)
-	border: 1px solid #fff
-	padding: 0 36px
-	&__row
-		align-items: center
-	&--main
+	padding: 0 36px 0 15px
+	display: flex
+	align-items: center
+	justify-content: space-between
+	z-index: 10
+	gap: 10px
+	background-repeat: no-repeat
+	background-position: center
+	+parent('main')
+		padding-top: 20px
+		padding-bottom: 20px
 		background-color: transparent
-		.header-logo--inner
-			display: none
-	&--inner
-		background: linear-gradient(180deg, rgba(247, 249, 251, 0.96) 17.36%, rgba(247, 249, 251, 0) 79.67%)
-		.header-logo--main
-			display: none
+		color: #EDE8FB
+	+parent('inner')
+		height: var(--header_height)
+		background-color: #F7F9FB
+		box-shadow: 0px 4px 15px rgba(10, 8, 27, 0.5)
+		background-image: url(../img/header-bg.svg)
+		&::after
+			content: ''
+			position: absolute
+			top: 0
+			left: 0
+			bottom: 0
+			right: 0
+			background: linear-gradient(180deg, rgba(247, 249, 251, 0.96) 17.36%, rgba(247, 249, 251, 0) 79.67%)
+			z-index: -1
+		+parent('_dark-theme')
+			background-color: #1E273B
+			box-shadow: 0px 4px 15px #0A0F1D
+			background-image: url(../img/header-bg--dark.svg)
+			&::after
+				display: none
+	&-center
+		flex: none
+		align-self: center
+	&-side
+		display: flex
+		align-items: center
+		flex: 1
+		gap: 10px
+		&--left
+			justify-content: flex-start
+		&--right
+			justify-content: flex-end
+	&-info
+		&__title
+			font-size: 15px
+			font-weight: 800
+			color: var(--dark_color)
+		&__text
+			font-size: 14px
+			font-weight: 500
+			color: var(--light_color)
+
+	&-account
+		display: flex
+		& > .btn
+			border-radius: 0 3px 3px 0
+
+.balance
+	position: relative
+	user-select: none
+	&.isopen
+		.balance-btn
+			&::after
+				transform: rotate(180deg)
+		.balance-content
+			opacity: 1
+			visibility: visible
+			pointer-events: unset
+	&-btn
+		position: relative
+		height: 48px
+		background-color: #DFDCF6
+		padding: 10px 15px
+		border-radius: 3px 0 0 3px
+		min-width: 150px
+		display: flex
+		flex-direction: column
+		align-items: flex-start
+		justify-content: center
+		cursor: pointer
+		&::after
+			content: ''
+			position: absolute
+			right: 15px
+			width: 11px
+			height: 11px
+			background-repeat: no-repeat
+			background-position: center
+			background-image: url("data:image/svg+xml,%3Csvg width='11' height='7' viewBox='0 0 11 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L5.49961 6.11111L11 0L0 0Z' fill='%234F4A81'/%3E%3C/svg%3E%0A")
+			transition: $trs
+		
+
+		&__label
+			font-size: 11px
+			color: #5A5489
+		&__text
+			font-weight: 800
+			color: #312C63
+
+	&-content
+		position: absolute
+		top: 100%
+		margin-top: 5px
+		background-color: #fff
+		border-radius: 3px
+		padding: 5px 11px 14px 11px
+		min-width: 264px
+		display: flex
+		flex-direction: column
+		gap: 10px
+		transition: $trs
+		opacity: 0
+		visibility: hidden
+		pointer-events: none
+	&-info
+		&__item
+			display: flex
+			align-items: center
+			justify-content: space-between
+			padding: 14px 7px
+			&:not(:last-of-type)
+				border-bottom: 1px solid #EAE8F4
+			span
+				color: #5A5489
+				font-size: 14px
+				font-weight: 500
+			b
+				font-weight: 800
+				text-align: right

@@ -1,9 +1,42 @@
-header.header(class=(pageType != 'main' ? 'header--inner' : 'header--main' ))
-	.header__container
-		.row.header__row
-			.header-side
-			.header-center
-				img.header-logo.header-logo--main(src="img/header-logo-main.svg", alt="")
-				img.header-logo.header-logo--inner(src="img/header-logo-inner.svg", alt="")
-			.header-side
-				
+header.header
+	.header-side.header-side--left
+		if pageType == 'game'
+			a.btn.btn--xs.btn--square.btn--light(href="/") 
+				+xlink('arrow-left', 'btn')
+			.header-info
+				.header-info__title Gates Of Olympus
+				.header-info__text Pragmatic
+
+	.header-center
+		if pageType != 'main'
+			+logo('logo--header', 'quattro', 'casino')
+		else
+			+logo('logo--header', 'quattro', 'casino & sportsbook')
+	.header-side.header-side--right
+		if pageType == 'main'
+			a.btn.btn--xs.btn--light(href="#")
+				+xlink('user', 'btn')
+				span Log In
+			a.btn.btn--xs.btn--primary(href="#")
+				span Register
+		else
+			.header-account
+				.balance
+					.balance-btn
+						.balance-btn__label Balance
+						.balance-btn__text 1245 €
+					.balance-content
+						.balance-info
+							.balance-info__item
+								span Balance
+								b EUR 1245
+							.balance-info__item
+								span Bonus balance
+								b EUR 122245
+						a.btn.btn--xs.btn--gray(href="#") Balance history
+						a.btn.btn--xs.btn--secondary(href="#") Cashier
+
+				a.btn.btn--xs.btn--primary(href="#")
+					span Deposit
+			a.btn.btn--xs.btn--square.btn--secondary(href="#")
+				+xlink('user', 'btn')

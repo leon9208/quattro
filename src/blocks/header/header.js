@@ -24,3 +24,30 @@ formInputText.forEach(inp => {
 		inp.value != '' ? inp.classList.add('isfilled') : inp.classList.remove('isfilled')
 	})
 });
+
+
+// header balace dropdown
+const headerBalance = document.querySelector('.balance')
+
+if (headerBalance) {
+	let el = headerBalance.querySelector('.balance-btn')
+	el.addEventListener('click', () => {
+		el.closest('.balance').classList.toggle('isopen')
+		hideOnClickOutside(headerBalance)
+	});
+};
+
+function hideOnClickOutside(element) {
+	const outsideClickListener = event => {
+			if (!element.contains(event.target)) {
+				element.classList.remove('isopen')
+				removeClickListener();
+			}
+	}
+
+	const removeClickListener = () => {
+			document.removeEventListener('click', outsideClickListener);
+	}
+
+	document.addEventListener('click', outsideClickListener);
+}
