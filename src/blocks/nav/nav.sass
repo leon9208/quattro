@@ -1,9 +1,11 @@
 .nav
 	position: fixed
+	top: 0
+	left: 0
 	display: flex
 	flex-direction: column
 	min-height: 100%
-	width: $navWidth
+	width: var(--nav_width)
 	background: #F7F9FB
 	box-shadow: 5px 0px 15px rgba(132, 123, 203, 0.2)
 	z-index: 10
@@ -11,11 +13,12 @@
 		display: flex
 		align-items: center
 		justify-content: center
-		height: $headerHeight
-		background-color: $darkBlue
-	&-list
-		padding: 10px 0
+		height: var(--header_height)
+		background-color: var(--dark_color)
+	// &-list
+	// 	padding: 10px 0
 	&-link
+		position: relative
 		display: flex
 		flex-direction: column
 		align-items: center
@@ -23,12 +26,35 @@
 		text-decoration: none
 		font-weight: 800
 		font-size: 10px
-		color: $darkBlue
+		color: var(--dark_color)
 		text-align: center
-		padding: 1em
+		padding: 2em 1em
 		text-transform: uppercase
-		&__text
-			margin-top: 1em
+		+heightTo(700px)
+			padding: 1em
+		+heightTo(560px)
+			padding: 2em 1em
+		&:hover, &.isactive
+			&::after
+				opacity: 1
+		&::after
+			content: ''
+			position: absolute
+			width: 7px
+			height: 100%
+			top: 0
+			right: -7px
+			pointer-events: none
+			background-color: color(--primary_color)
+			opacity: 0
+			transition: $trs
+		// &:hover
+
+		// &__text
+		&__icon
+			margin-bottom: 1em
+			+heightTo(560px)
+				display: none
 	&-lang
 		padding: 10px
 		margin-top: auto

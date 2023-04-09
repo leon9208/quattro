@@ -1,25 +1,15 @@
 nav.nav
-	a.nav-logo(href="#") 
-		<svg width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-			<rect y="9.58716" width="7.83974" height="7.83974" fill="#DFDCF6"/>
-			<rect x="19.127" y="9.58716" width="7.83974" height="7.83974" fill="#DFDCF6"/>
-			<rect x="9.54102" y="19.1743" width="7.83974" height="7.83974" fill="#DFDCF6"/>
-			<rect x="9.54102" width="7.83974" height="7.83974" fill="#DFDCF6"/>
-			<path d="M7.83974 0V7.83974H0C2.62633 5.2395 5.23927 2.62611 7.83974 0Z" fill="#DFDCF6"/>
-			<path d="M26.9683 7.83974L19.1285 7.83974V0C21.7288 2.62633 24.3422 5.23927 26.9683 7.83974Z" fill="#DFDCF6"/>
-			<path d="M0 19.1742H7.83974L7.83974 27.0139C5.2395 24.3876 2.62611 21.7746 0 19.1742Z" fill="#DFDCF6"/>
-			<path d="M18.8779 19.1742H26.7177V27.0139C24.1174 24.3876 21.504 21.7746 18.8779 19.1742Z" fill="#DFDCF6"/>
-			</svg>
+	+logo('nav-logo')
 	ul.nav-list
 		li.nav-item
-			a.nav-link(href="#")
+			a.nav-link(href="#" class=(pageType === 'inner' ? 'isactive' : ''))
 				img.nav-link__icon(src="img/icon-nav1.svg", alt="")
 				span.nav-link__text Casino
 		li.nav-item
 			a.nav-link(href="#")
 				img.nav-link__icon(src="img/icon-nav2.svg", alt="")
 				span.nav-link__text Live Casino
-		li.nav-item.bb-1
+		li.nav-item.bd-b
 			a.nav-link(href="#")
 				img.nav-link__icon(src="img/icon-nav3.svg", alt="")
 				span.nav-link__text Sport
