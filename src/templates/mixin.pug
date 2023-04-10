@@ -62,3 +62,20 @@ mixin acc(accTitle)
 		.acc-item__body
 			article.acc-item__content.
 				<p>Quattrocasino.com is the multi-currency online casino where you can play using bitcoin and other cryptocurrencies, as well as many traditional currencies, including rubles, dollars and euros.Quattrocasino.com is operated and licensed by Luckywayz Limited B.V., a company registered under the laws of Curacao under registration number 161054, registered address Abraham de Veerstraat 9, Willemstad, Curaçao, license Nr. 365/JAZ. support@quattrocasino.com.</p><p>Quattrocasino.com is the multi-currency online casino where you can play using bitcoin and other cryptocurrencies, as well as many traditional currencies, including rubles, dollars and euros.Quattrocasino.com is operated and licensed by Luckywayz Limited B.V., a company registered under the laws of Curacao under registration number 161054, registered address Abraham de Veerstraat 9, Willemstad, Curaçao, license Nr. 365/JAZ. support@quattrocasino.com.</p>
+
+mixin slider(sTitle, sBreakpoints, sVert = false)
+	.section
+		.container
+			.section-head
+				h2.section-title=sTitle
+				a.section-head__link(href="#") All #{sTitle}
+				.swiper-nav
+					button.swiper-button.swiper-button--prev
+						+xlink('arrow-left', 'btn')
+					button.swiper-button.swiper-button--next
+						+xlink('arrow-right', 'btn')
+			.swiper(data-breakpoint=''+sBreakpoints+'')
+				.swiper-wrapper
+					- for (let x = 0; x < 10; x++)
+						.swiper-slide
+							+game(sVert)

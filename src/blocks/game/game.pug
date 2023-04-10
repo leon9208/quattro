@@ -1,6 +1,6 @@
-mixin game(gVertical = false, gWidth, gHeight)
+mixin game(gVertical = false)
 	if gVertical === true
-		.game
+		.game.game--ver
 			.game-info
 				.game-head
 					.game-title Gates of Olympus
@@ -11,9 +11,9 @@ mixin game(gVertical = false, gWidth, gHeight)
 						span PLAY
 				.game-footer
 					a.game-link(href="#") DEMO PLAY
-			+lazyJpg("img", "Gates of Olympus", gWidth, gHeight)
+			+lazyJpg("img", "Gates of Olympus")
 	else
-		.game
+		.game.game--hor
 			.game-info
 				.game-head
 					.game-title Sweet Bonanza
@@ -24,4 +24,4 @@ mixin game(gVertical = false, gWidth, gHeight)
 						span PLAY
 				.game-footer
 					a.game-link(href="#") DEMO PLAY
-			+lazyJpg("img2", "Sweet Bonanza", gWidth, gHeight)
+			+lazyJpg("img2", "Sweet Bonanza")

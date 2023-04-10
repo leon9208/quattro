@@ -1,8 +1,40 @@
 .game
 	position: relative
-	display: inline-block
+	display: block
 	border-radius: 3px
 	overflow: hidden
+	max-width: 100%
+	flex: none
+	&--ver
+		max-width: 420px
+		width: 100%
+		&::after
+			content: ""
+			padding-bottom: 150%
+			display: block
+		img
+			position: absolute
+			top: 0
+			left: 0
+			height: 100%
+			width: 100%
+			object-fit: cover
+			object-position: center
+	&--hor
+		max-width: 600px
+		width: 100%
+		&::after
+			content: ""
+			padding-bottom: 63.33%
+			display: block
+		img
+			position: absolute
+			top: 0
+			left: 0
+			height: 100%
+			width: 100%
+			object-fit: cover
+			object-position: center
 	&:hover
 		.game-info
 			opacity: 1

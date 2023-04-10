@@ -50,4 +50,53 @@ function hideOnClickOutside(element) {
 	}
 
 	document.addEventListener('click', outsideClickListener);
-}
+};
+
+
+const bCarousel = () => {
+	let baseCarousel = document.querySelectorAll('.section .swiper')
+	let prevArrow = document.querySelectorAll('.section .swiper-button--prev')
+	let nextArrow = document.querySelectorAll('.section .swiper-button--next')
+	baseCarousel.forEach((slider, index)=>{
+			const swiper = new Swiper(slider, {
+				spaceBetween: 10,
+				mousewheel: {
+					forceToAxis: true,
+				},
+				freeMode: {
+					enabled: true,
+					sticky: true,
+				},
+				navigation: {
+						nextEl: nextArrow[index],
+						prevEl: prevArrow[index],
+				},
+				on: {
+					init: function() {
+						var data = slider.getAttribute('data-breakpoint') || {};
+						if (data) {
+							var dataOptions = JSON.parse(data);
+							this.params.breakpoints = {
+								320: {
+									slidesPerView: dataOptions.xs,
+								},
+								480: {
+									slidesPerView: dataOptions.sm,
+								},
+								780: {
+									slidesPerView: dataOptions.md,
+								},
+								960: {
+									slidesPerView: dataOptions.lg,
+								}
+							}
+						}
+					}
+				}
+		});
+	})
+};
+
+document.addEventListener("DOMContentLoaded", function(event) { 
+	bCarousel()
+});

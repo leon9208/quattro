@@ -2,18 +2,20 @@
 	&-nav
 		display: flex
 		gap: 6px
-		&__btn
-			cursor: pointer
-			border-radius: 3px
-			display: flex
-			align-items: center
-			justify-content: center
-			flex: none
-			height: 57px
-			width: 57px
-			background-color: #fff
-			color: var(--dark_color)
-			fill: currentColor
-			transition: $trs
-			&:hover
-				background-color: var(--gray_color)
+	&-button
+		cursor: pointer
+		border-radius: 3px
+		display: flex
+		align-items: center
+		justify-content: center
+		flex: none
+		height: 57px
+		width: 57px
+		background-color: #fff
+		color: var(--dark_color)
+		fill: currentColor
+		transition: $trs
+		&:hover
+			background-color: var(--gray_color)
+		&-disabled
+			opacity: 0.6
