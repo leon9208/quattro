@@ -79,3 +79,15 @@ mixin slider(sTitle, sBreakpoints, sVert = false)
 					- for (let x = 0; x < 10; x++)
 						.swiper-slide
 							+game(sVert)
+
+
+mixin search()
+	form.search
+		label.search-field
+			.search-field__icon
+				+xlink('search', 'search')
+			input.search-input(type="search" name="game-search" required placeholder="Search for Games (for example - Dog House)")
+			button.btn.btn--primary.btn--sm(type="submit")
+				+xlink('search', 'btn')
+				span I'll be lucky
+
