@@ -7,6 +7,38 @@ mixin cNav(cIcon, cValue, cTitle, cChecked = false)
 .category
 	.container
 		.category-head
+			.category-nav
+				.category-nav__item.category-nav__item--select
+					svg(width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg")
+						rect(y="16" width="14" height="14" fill="#423D72")
+						rect(x="16" width="14" height="14" fill="#63D4B4")
+						rect(width="14" height="14" fill="#EA3589")
+						path(d="M30 16V30C30 30 25.7337 25.7337 23 23C20.2663 20.2663 16 16 16 16H30Z" fill="#F4BA40")
+					.category-select
+						.category-select__current(data-placeholder="Providers") Providers
+						.category-select__list
+							label.category-select__item
+								input(type="radio" name="providers" value="pragmatic") 
+								span Pragmatic
+							label.category-select__item
+								input(type="radio" name="providers" value="hacksaw") 
+								span Hacksaw
+							label.category-select__item
+								input(type="radio" name="providers" value="spribe") 
+								span Spribe
+							label.category-select__item
+								input(type="radio" name="providers" value="bgaming") 
+								span Bgaming
+							label.category-select__item
+								input(type="radio" name="providers" value="betsoft") 
+								span Betsoft
+							label.category-select__item
+								input(type="radio" name="providers" value="endorphina") 
+								span Endorphina
+							label.category-select__item
+								input(type="radio" name="providers" value="amatic") 
+								span Amatic
+
 			+cNav('casino', 'all', 'All games', true)
 			+cNav('fire', 'top', 'Top')
 			+cNav('novelty', 'new', 'New')
@@ -17,23 +49,25 @@ mixin cNav(cIcon, cValue, cTitle, cChecked = false)
 			+cNav('blackjack', 'blackjack', 'Blackjack')
 			+cNav('g-shows', 'shows', 'Game shows')
 			+cNav('poker', 'poker', 'Poker')
-		.category-grid
-			- for (let x = 0; x < 2; x++)
-				+game(false, 'top')
-			- for (let x = 0; x < 3; x++)
-				+game(false, 'new')
-			- for (let x = 0; x < 4; x++)
-				+game(false, 'bonus')
-			- for (let x = 0; x < 7; x++)
-				+game(false, 'live')
-			- for (let x = 0; x < 5; x++)
-				+game(false, 'instant')
-			- for (let x = 0; x < 6; x++)
-				+game(false, 'roulette')
-			- for (let x = 0; x < 9; x++)
-				+game(false, 'blackjack')
-			- for (let x = 0; x < 8; x++)
-				+game(false, 'shows')
-			- for (let x = 0; x < 1; x++)
-				+game(false, 'poker')
+		.category-body
+			//- h2.category-body__title All games
+			.category-grid
+				- for (let x = 0; x < 2; x++)
+					+game(false, 'top')
+				- for (let x = 0; x < 3; x++)
+					+game(false, 'new')
+				- for (let x = 0; x < 4; x++)
+					+game(false, 'bonus')
+				- for (let x = 0; x < 7; x++)
+					+game(false, 'live')
+				- for (let x = 0; x < 5; x++)
+					+game(false, 'instant')
+				- for (let x = 0; x < 6; x++)
+					+game(false, 'roulette')
+				- for (let x = 0; x < 9; x++)
+					+game(false, 'blackjack')
+				- for (let x = 0; x < 8; x++)
+					+game(false, 'shows')
+				- for (let x = 0; x < 1; x++)
+					+game(false, 'poker')
 
