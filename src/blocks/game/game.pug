@@ -1,27 +1,30 @@
-mixin game(gVertical = false)
-	if gVertical === true
-		.game.game--ver
-			.game-info
-				.game-head
-					.game-title Gates of Olympus
-					.game-text Pragmatic
-				.game-body
-					a.btn.btn--primary.btn--md(href="#")
-						+xlink('play', 'btn')
-						span PLAY
-				.game-footer
-					a.game-link(href="#") DEMO PLAY
-			+lazyJpg("img", "Gates of Olympus")
-	else
-		.game.game--hor
-			.game-info
-				.game-head
-					.game-title Sweet Bonanza
-					.game-text Pragmatic
-				.game-body
-					a.btn.btn--primary.btn--md(href="#")
-						+xlink('play', 'btn')
-						span PLAY
-				.game-footer
-					a.game-link(href="#") DEMO PLAY
-			+lazyJpg("img2", "Sweet Bonanza")
+mixin game(gVertical = false, gAttr = false)
+	- var gClass = gVertical ? 'game--ver' : 'game--hor';
+	- var gTitle = gVertical ? 'Gates of Olympus' : 'Sweet Bonanza';
+	- var gImg = gVertical ? 'img' : 'img2';
+	//- if gVertical === true
+	.game(class=gClass data-category=gAttr)
+		.game-info
+			.game-head
+				.game-title=gTitle
+				.game-text Pragmatic
+			.game-body
+				a.game-btn(href="#")
+					+xlink('play', 'game-btn')
+					span PLAY
+			.game-footer
+				a.game-link(href="#") DEMO PLAY
+		+lazyJpg(gImg, gTitle)
+	//- else
+	//- 	.game.game--hor
+	//- 		.game-info
+	//- 			.game-head
+	//- 				.game-title Sweet Bonanza
+	//- 				.game-text Pragmatic
+	//- 			.game-body
+	//- 				a.game-btn(href="#")
+	//- 					+xlink('play', 'game-btn')
+	//- 					span PLAY
+	//- 			.game-footer
+	//- 				a.game-link(href="#") DEMO PLAY
+	//- 		+lazyJpg("img2", "Sweet Bonanza")

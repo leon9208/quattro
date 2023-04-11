@@ -35,4 +35,13 @@
 	&-grid
 		display: grid
 		gap: 10px
-		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))
+		// grid-template-columns: repeat(auto-fit, minmax(240px, calc(20% - 10px)))
+		grid-template-columns: repeat(5, 1fr)
+		+xl()
+			grid-template-columns: repeat(4, 1fr)
+		+lg()
+			grid-template-columns: repeat(3, 1fr)
+		+sm()
+			grid-template-columns: repeat(2, 1fr)
+		+xs()
+			grid-template-columns: 1fr
