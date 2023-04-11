@@ -1,0 +1,23 @@
+mixin cNav(cIcon, cValue, cTitle, cChecked = false)
+	label.category-nav
+		input.category-nav__input(type="radio", name="game-filter" value=cValue checked=cChecked)
+		.category-nav__item
+			+xlink(cIcon, 'category-nav')
+			span.category-nav__title=cTitle
+.category
+	.container
+		.category-head
+			+cNav('casino', 'all', 'All games', true)
+			+cNav('fire', 'top', 'Top')
+			+cNav('novelty', 'new', 'New')
+			+cNav('bonus', 'bonus', 'Bonus buy')
+			+cNav('live', 'live', 'Live games')
+			+cNav('instant', 'instant', 'Instant games')
+			+cNav('roulette', 'roulette', 'Roulette')
+			+cNav('blackjack', 'blackjack', 'Blackjack')
+			+cNav('g-shows', 'shows', 'Game shows')
+			+cNav('poker', 'poker', 'Poker')
+		.category-grid
+			- for (let x = 0; x < 30; x++)
+				+game()
+
