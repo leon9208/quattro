@@ -37,7 +37,6 @@
 			background-color: #fff
 			position: absolute
 			top: 100%
-			// margin-top: 4px
 			left: 0
 			min-width: 100%
 			z-index: 2
@@ -67,11 +66,17 @@
 			
 
 	&-nav
+		min-width: 100px
+		max-width: 115px
+		display: flex
+		flex: 1
 		&__input
 			&:checked ~ .category-nav__item
 				background-color: #DFDCF6
 		&__item
 			position: relative
+			width: 100%
+			text-align: center
 			display: flex
 			flex-direction: column
 			align-items: center
@@ -80,7 +85,6 @@
 			background-color: #fff
 			border-radius: 3px
 			padding: 14px 10px
-			min-width: 117px
 			cursor: pointer
 			transition: $trs
 			&:hover
