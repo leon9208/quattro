@@ -1,61 +1,56 @@
 .game
-	position: relative
 	display: block
-	border-radius: 3px
-	overflow: hidden
-	max-width: 100%
-	flex: none
+	&-title
+		margin-top: 10px
+		font-weight: 500
+		font-size: 14px
+		color: var(--dark_color)
+	&-content
+		position: relative
+		display: block
+		border-radius: 3px
+		overflow: hidden
+		max-width: 100%
+		flex: none
+		&:hover
+			.game-info
+				opacity: 1
+				pointer-events: unset
+				visibility: visible
 	&--ver
 		max-width: 420px
 		width: 100%
-		&::after
-			content: ""
-			padding-bottom: 150%
-			display: block
-		img
-			position: absolute
-			top: 0
-			left: 0
-			height: 100%
+		.game-content
 			width: 100%
-			object-fit: cover
-			object-position: center
+			&::after
+				content: ""
+				padding-bottom: 150%
+				display: block
+			img
+				position: absolute
+				top: 0
+				left: 0
+				height: 100%
+				width: 100%
+				object-fit: cover
+				object-position: center
 	&--hor
 		max-width: 600px
 		width: 100%
-		&::after
-			content: ""
-			padding-bottom: 63.33%
-			display: block
-		img
-			position: absolute
-			top: 0
-			left: 0
-			height: 100%
-			width: 100%
-			object-fit: cover
-			object-position: center
-	&:hover
-		.game-info
-			opacity: 1
-			pointer-events: unset
-			visibility: visible
-	&-title
-		font-weight: 800
-		color: #fff
-		font-size: 17px
-		margin-bottom: 3px
-	&-text
-		font-weight: 500
-		color: #B2B0E1
-		font-size: 13px
-	&-link
-		font-weight: 800
-		font-size: 12px
-		color: #E3D9FF
-		text-transform: uppercase
-		&:hover
-			text-decoration: none
+		.game-content
+			&::after
+				content: ""
+				padding-bottom: 63.33%
+				display: block
+			img
+				position: absolute
+				top: 0
+				left: 0
+				height: 100%
+				width: 100%
+				object-fit: cover
+				object-position: center
+	
 	&-info
 		top: 0
 		right: 0
@@ -75,6 +70,22 @@
 		visibility: hidden
 		pointer-events: none
 		transition: $trs
+		&__title
+			font-weight: 800
+			color: #fff
+			font-size: 17px
+			margin-bottom: 3px
+		&__text
+			font-weight: 500
+			color: #B2B0E1
+			font-size: 13px
+		&__link
+			font-weight: 800
+			font-size: 12px
+			color: #E3D9FF
+			text-transform: uppercase
+			&:hover
+				text-decoration: none
 	&-body
 		display: flex
 		align-items: center
