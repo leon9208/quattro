@@ -1,5 +1,5 @@
 .header
-	position: absolute
+	position: fixed
 	top: 0
 	left: $navWidth
 	width: calc(100% - $navWidth)
@@ -16,6 +16,13 @@
 		padding-bottom: 20px
 		background-color: transparent
 		color: #EDE8FB
+		height: auto
+		transition: height .35s ease
+		+parent('_window-scrolled')
+			padding-top: 0
+			padding-bottom: 0
+			height: var(--header_height)
+			background-color: var(--dark_color)
 	+parent('inner')
 		height: var(--header_height)
 		background-color: #F7F9FB

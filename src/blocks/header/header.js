@@ -103,3 +103,12 @@ const bCarousel = () => {
 document.addEventListener("DOMContentLoaded", function(event) { 
 	bCarousel()
 });
+
+
+//window onscroll function
+
+window.addEventListener('scroll', () => {
+
+	window.scrollY > 50 ? document.documentElement.classList.add('_window-scrolled') : document.documentElement.classList.remove('_window-scrolled')
+
+})
