@@ -14,7 +14,41 @@ if (categoryNav.length > 0) {
 	categoryNav.forEach(catNav => {
 		catNav.addEventListener('change', () => {
 			filterGames(catNav)
+			categorySelectValue()
 		})
 	})
+}
 
+var categorySelectValue = () => {
+	let catSelectValueChecked = document.querySelector('.category-select__item input:checked')
+
+	if(catSelectValueChecked) {
+		console.log(catSelectValueChecked.value)
+	}
+}
+
+const catSelectToggle = () => {
+	if (document.querySelector('.category-select').classList.contains('isopen')) {
+		document.querySelector('.category-select').classList.remove('isopen')
+	} else {
+		document.querySelector('.category-select').classList.add('isopen')
+	}
+
+	hideOnClickOutside(document.querySelector('.category-nav__item--select'))
+};
+
+if (document.querySelector('.category-nav__item--select')) {
+	document.querySelector('.category-nav__item--select').addEventListener('click', catSelectToggle)
+}
+
+const categorySelectOptions = document.querySelectorAll('.category-select__item input');
+
+if (categorySelectOptions.length > 0) {
+	categorySelectOptions.forEach(catOption => {
+		catOption.addEventListener('change', () => {
+			let catSelectCurrent = catOption.closest('.category-select').querySelector('.category-select__current')
+			catSelectCurrent.textContent = catOption.value
+			catSelectToggle()
+		})
+	})
 }

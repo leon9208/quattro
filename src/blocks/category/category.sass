@@ -13,13 +13,13 @@
 		font-weight: 800
 		font-size: 11px
 		color: #423D72
-		&:hover
+		&.isopen
 			.category-select__current::after
 				transform: rotate(180deg)
 			.category-select__list
 				opacity: 1
 				visibility: visible
-				pointer-events: unset
+				pointer-events: auto
 		&__current
 			display: flex
 			align-items: center
@@ -40,16 +40,12 @@
 			left: 0
 			min-width: 100%
 			z-index: 2
-			padding: .5em 0
 			box-shadow: 0px 14px 44px rgba(15, 0, 134, 0.14)
 			opacity: 0
 			visibility: hidden
 			pointer-events: none
 			transition: $trs
-			&:hover
-				opacity: 1
-				visibility: visible
-				pointer-events: unset
+			margin-top: 4px
 		&__item
 			cursor: pointer
 			input
@@ -58,7 +54,8 @@
 					
 			span
 				display: block
-				padding: 0.5em 1em
+				padding: 1em
+				text-align: left
 				transition: $trs
 				user-select: none
 				&:hover
@@ -87,7 +84,7 @@
 			padding: 14px 10px
 			cursor: pointer
 			transition: $trs
-			&:hover
+			&:not(.category-nav__item--select):hover
 				background-color: #DFDCF6
 				.category-select__current::after
 					transform: rotate(180deg)
@@ -105,6 +102,7 @@
 			font-weight: 800
 			font-size: 11px
 			color: #423D72
+			user-select: none
 	&-grid
 		display: grid
 		gap: 10px
