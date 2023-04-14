@@ -39,8 +39,11 @@ if (headerBalance) {
 
 function hideOnClickOutside(element) {
 	const outsideClickListener = event => {
+		var removeClass = document.querySelector('.isopen')
 			if (!element.contains(event.target)) {
-				element.classList.remove('isopen')
+				if(removeClass){
+					removeClass.classList.remove('isopen')
+				}
 				removeClickListener();
 			}
 	}
