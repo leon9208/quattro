@@ -40,6 +40,7 @@ var paths = {
 	},
 	js: {
 		libsJS: [
+			'./node_modules/smooth-scrollbar/dist/smooth-scrollbar.js',
 			'./node_modules/lazysizes/lazysizes.min.js',
 			'./node_modules/swiper/swiper-bundle.min.js',
 			'./src/libs/*.js'],

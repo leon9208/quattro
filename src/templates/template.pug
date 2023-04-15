@@ -10,7 +10,7 @@ block vars
 - var email = 'info@sweetit.ru';
 - var emailLink = 'mailto:'+email+'';
 doctype html
-html(lang='ru' class="other-class")
+html(lang='en')
 	include head
 	body(class=pageType)
 		.page
@@ -25,4 +25,5 @@ html(lang='ru' class="other-class")
 			//footer
 			include ../blocks/footer/footer.pug
 			//End footer
+		include ../blocks/modal/modal.pug
 		include scripts
