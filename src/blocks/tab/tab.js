@@ -19,17 +19,27 @@ if(tabLink.length > 0) {
 		tabItem.addEventListener('click', (e) => {
 			e.preventDefault()
 			let tabHref = tabItem.getAttribute('href')
+			// window.location.hash = tabHref
+			history.replaceState({}, '', tabHref)
 			activeTab(tabHref)
+			return false;
 		})
 	})
 };
 
 // open tab via hash (location.hash)
-window.addEventListener('DOMContentLoaded', () => {
+
+const activeTabHash = () => {
 	let winHash = window.location.hash
 	if(winHash != '') {
 		activeTab(winHash)
 	} else {
 		console.log('hash is empty')
 	}
-})
+	window.scroll(0, 0)
+}
+
+window.addEventListener('DOMContentLoaded', activeTabHash);
+window.addEventListener('hashchange', () => {
+	activeTabHash()
+});

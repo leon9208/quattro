@@ -51,4 +51,9 @@ if (categorySelectOptions.length > 0) {
 			catSelectToggle()
 		})
 	})
-}
+};
+
+// document.querySelector('.category-nav__select').addEventListener('mousedown', function() {
+// 	console.log(this.querySelector('select'))
+// 	this.querySelector('select').click()
+// })

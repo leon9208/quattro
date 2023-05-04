@@ -63,10 +63,28 @@
 			
 
 	&-nav
+		position: relative
 		min-width: 100px
 		max-width: 115px
 		display: flex
 		flex: 1
+		border-radius: 3px
+		overflow: hidden
+		&--live
+			&::after
+				content: ''
+				position: absolute
+				border-radius: 50px
+				height: 7px
+				width: 7px
+				top: 10px
+				right: 10px
+				background-color: color(--secondary_color)
+				animation: liveAnim .5s ease infinite alternate
+		img
+			height: 100%
+			width: 100%
+			object-fit: cover
 		&__input
 			&:checked ~ .category-nav__item
 				background-color: #DFDCF6
@@ -80,7 +98,6 @@
 			justify-content: center
 			gap: 15px
 			background-color: #fff
-			border-radius: 3px
 			padding: 14px 10px
 			cursor: pointer
 			transition: $trs
@@ -116,3 +133,9 @@
 			grid-template-columns: repeat(2, 1fr)
 		+xs()
 			grid-template-columns: 1fr
+
+@keyframes liveAnim
+	0%
+		box-shadow: none
+	100%
+		box-shadow: 0px 0px 11px 1px color(--secondary_color)

@@ -63,7 +63,7 @@
 // 		s.insertAdjacentHTML("beforebegin", cSelect);
 // 	})
 // }();
-const allSelect = document.querySelectorAll('select')
+const allSelect = document.querySelectorAll('.form-field select')
 
 if (allSelect.length > 0) {
 	allSelect.forEach(el => {
@@ -77,3 +77,23 @@ if (allSelect.length > 0) {
 		`;
 	})
 }
+
+const inpText = document.querySelectorAll('.form-input')
+
+if (inpText.length > 0) {
+	inpText.forEach(inp => {
+		let inpParrent = inp.closest('.form-field')
+		inp.addEventListener('focus', () => {
+			inpParrent.classList.add('isfocus')
+		})
+		inp.addEventListener('blur', () => {
+			if (inp.value != '') {
+				inpParrent.classList.add('isfocus')
+			} else {
+				inpParrent.classList.remove('isfocus')
+			}
+		})
+	})
+}
+
+// console.log(document.querySelector('[type="date"]').value)

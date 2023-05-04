@@ -11,7 +11,7 @@ header.header
 		if pageType != 'main'
 			+logo('logo--header', 'quattro', 'casino')
 		else
-			+logo('logo--header', 'quattro', 'casino & sportsbook')
+			+logo('logo--header', 'quattro')
 	.header-side.header-side--right
 		if pageType == 'main'
 			a.btn.btn--xs.btn--light(href="#")
@@ -33,10 +33,10 @@ header.header
 							.balance-info__item
 								span Bonus balance
 								b EUR 122245
-						a.btn.btn--xs.btn--gray(href="#") Balance history
+						a.btn.btn--xs.btn--gray(href="account.html#balance-history") Balance history
 						a.btn.btn--xs.btn--secondary(href="#") Cashier
 
 				a.btn.btn--xs.btn--primary(href="#")
 					span Deposit
-			a.btn.btn--xs.btn--square.btn--secondary(href="#")
+			a.btn.btn--xs.btn--square.btn--secondary(href="account.html")
 				+xlink('user', 'btn')

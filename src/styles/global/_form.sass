@@ -17,24 +17,43 @@ textarea
 	&-field
 		display: inline-flex
 		position: relative
-		min-height: 60px
+		// min-height: 60px
+		&.isfocus
+			.form-label
+				font-size: 11px
+				transform: translateY(-10px)
 	&-input
-		display: block
-		color: #524C80
+		display: flex
+		align-items: center
 		width: 100%
-		background-color: #EBF0F4
-		padding: 30px 20px 10px 20px
 		border-radius: 3px
 		font-size: 1rem
-		&.isfilled ~ .form-label,
-		&:focus ~ .form-label
-			font-size: 11px
-			transform: translateY(-10px)
-		&:required ~ .form-label
-			&::after
-				content: '*'
+		border: 1px solid transparent
+		padding: 10px 20px
+		// &[type="date"],
+		// &[type="text"],
+		// &[type="search"],
+		// &[type="password"],
+		// &[type="email"]
+		// 	min-height: 55px
+		// 	padding: 10px 20px
+		// &--lg
+		&--fill
+			color: #524C80
+			background-color: #EBF0F4
+			border-color: #EBF0F4
+		&--outline
+			background-color: transparent
+			border-color: #DFDCF6
+			color: #7771A6
 		&::placeholder
 			opacity: 0
+		&[type="date"]
+			user-select: none
+			padding-right: 30px
+			background-repeat: no-repeat
+			background-position: right 20px center
+			background-image: url("data:image/svg+xml,%3Csvg width='18' height='20' viewBox='0 0 18 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.9725 2.98625H4.1782C3.06579 2.98625 2.50917 2.98625 2.08429 3.20274C1.71055 3.39316 1.40691 3.6968 1.21649 4.07054C1 4.49542 1 5.05204 1 6.16445V6.95875M4.9725 2.98625H12.9175M4.9725 2.98625V1M1 6.95875V15.6984C1 16.8108 1 17.3668 1.21649 17.7917C1.40691 18.1654 1.71055 18.4696 2.08429 18.6599C2.50876 18.8762 3.0647 18.8762 4.17493 18.8762H13.7151C14.8253 18.8762 15.3805 18.8762 15.8049 18.6599C16.1786 18.4696 16.4833 18.1654 16.6737 17.7917C16.89 17.3672 16.89 16.812 16.89 15.7018V6.95875M1 6.95875H16.89M12.9175 2.98625H13.7122C14.8246 2.98625 15.3801 2.98625 15.8049 3.20274C16.1786 3.39316 16.4833 3.6968 16.6737 4.07054C16.89 4.49501 16.89 5.05095 16.89 6.16118V6.95875M12.9175 2.98625V1M12.9175 14.9037H12.9195V14.9057H12.9175V14.9037ZM8.945 14.9037H8.94699V14.9057H8.945V14.9037ZM4.9725 14.9037H4.97449L4.97444 14.9057H4.9725V14.9037ZM12.9195 10.9312V10.9332H12.9175V10.9312H12.9195ZM8.945 10.9312H8.94699V10.9332H8.945V10.9312ZM4.9725 10.9312H4.97449L4.97444 10.9332H4.9725V10.9312Z' stroke='%237771A6' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A")
 	&-label
 		display: flex
 		align-items: center
@@ -49,7 +68,8 @@ textarea
 		left: 0
 		font-weight: 500
 		transition: $trs
-
+		& ~ .form-input
+			padding: 30px 20px 10px 20px
 form
 	display: flex
 	flex-direction: column
@@ -59,27 +79,27 @@ form
 	&-group
 		display: flex
 		gap: 4px
-
-select
-	min-width: 108px
-	position: relative
-	height: 60px
-	padding: 10px 40px 10px 20px
-	border-radius: 3px
-	background-color: #EBF0F4
-	font-weight: 500
-	font-size: 1rem
-	color: #524C80
-	background-image: url("data:image/svg+xml,%3Csvg width='11' height='7' viewBox='0 0 11 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L5.49961 6.11111L11 0L0 0Z' fill='%237771A6'/%3E%3C/svg%3E%0A")
-	background-repeat: no-repeat
-	background-position: center right 20px
-	&:invalid
+.form-field
+	select
+		min-width: 108px
+		position: relative
+		height: 60px
 		padding: 10px 40px 10px 20px
-		& ~ .select-native__label
-			opacity: 0
-			transform: translateY(0)
-	&:valid[data-select-label]
-		padding: 30px 40px 10px 20px
+		border-radius: 3px
+		background-color: #EBF0F4
+		font-weight: 500
+		font-size: 1rem
+		color: #524C80
+		background-image: url("data:image/svg+xml,%3Csvg width='11' height='7' viewBox='0 0 11 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L5.49961 6.11111L11 0L0 0Z' fill='%237771A6'/%3E%3C/svg%3E%0A")
+		background-repeat: no-repeat
+		background-position: center right 20px
+		&:invalid
+			padding: 10px 40px 10px 20px
+			& ~ .select-native__label
+				opacity: 0
+				transform: translateY(0)
+		&:valid[data-select-label]
+			padding: 30px 40px 10px 20px
 
 .isfilled ~ .form-label
 	font-size: 11px
@@ -131,7 +151,6 @@ select
 			background-image: url("data:image/svg+xml,%3Csvg width='11' height='7' viewBox='0 0 11 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L5.49961 6.11111L11 0L0 0Z' fill='%237771A6'/%3E%3C/svg%3E%0A")
 		&__current
 			position: relative
-			height: 60px
 			height: 60px
 			padding: 30px 40px 10px 20px
 			border-radius: 3px
@@ -205,3 +224,17 @@ select
 // 	.select-custom
 // 		position: absolute
 // 		display: block
+
+// select
+// 	all: unset
+
+input[type="date"]::-webkit-calendar-picker-indicator
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	width: auto
+	height: auto
+	color: transparent
+	background: transparent

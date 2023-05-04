@@ -1,0 +1,38 @@
+.footer
+	background-color: #181A2B
+	&-top
+		border-bottom: 1px solid #2B294A
+	&-main
+		display: flex
+		justify-content: space-between
+		+sm()
+			flex-wrap: wrap
+		+xs()
+			flex-direction: column
+		&__col
+			display: flex
+			flex-direction: column
+			gap: 2rem
+	// &-bottom
+	&-nav
+		&__title
+			color: #EDE8FB
+			font-weight: 800
+			font-size: 18px
+			padding: 0.5em 0
+			text-decoration: none
+		&__list
+			display: flex
+			flex-direction: column
+			align-items: flex-start
+			+xs()
+				height: 0
+				overflow: hidden
+		&__link
+			color: #675E81
+			text-decoration: none
+			font-weight: 500
+			font-size: 16px
+			margin: 10px 0
+			&:hover
+				color: color(--primary_color)

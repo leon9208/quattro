@@ -12,15 +12,16 @@ html
 	-webkit-font-smoothing: antialiased
 	height: auto
 	min-height: 100%
-	background-color: var(--light_theme_bg)
-	color: var(--dark_color)
 	overflow-x: hidden
-	._dark-theme
-		background-color: var(--dark_theme_bg)
+	&._dark-theme
+		--theme_bg: #1B1C2F
 body
+	background-color: var(--theme_bg)
+	color: var(--dark_color)
 	height: auto
 	min-height: 100%
 	scroll-behavior: smooth
+	transition: color .25s ease, background-color .25s ease
 	&.inner
 		padding-top: var(--header_height)
 
@@ -46,8 +47,8 @@ a
 	max-width: 1540px
 	padding: 0 95px
 	margin: 0 auto
-	+to(1600px)
-		padding: 0 20px 0 95px
+	// +to(1600px)
+	// 	padding: 0 20px 0 95px
 	+xs()
 		padding: 0 15px
 
@@ -84,7 +85,12 @@ a
 	text-decoration: none
 	user-select: none
 	&-text
-		white-space: nowrap
+		fill: #fff
+		// font-style: italic
+		// white-space: nowrap
+		// font-size: 46px
+		// font-weight: 400
+		// text-transform: uppercase
 	&[data-logo-text]::after
 		content: attr(data-logo-text)
 		font-weight: 400
@@ -131,7 +137,16 @@ a
 
 .inner
 	&__content
-		padding-top: 50px
+		padding: 50px 0
+	&__head
+		display: flex
+		align-items: center
+		justify-content: space-between
+		margin-bottom: 40px
+		&-title
+			font-size: 30px
+			font-weight: 800
+			text-transform: uppercase
 
 .section
 	padding: 30px 0
@@ -149,3 +164,139 @@ a
 			margin-left: auto
 			&:hover
 				text-decoration: none
+
+.account
+	position: relative
+	background-color: #fff
+	border-radius: 3px
+	overflow: hidden
+	display: flex
+	flex-direction: column
+	gap: 20px
+	box-shadow: 0px 0px 15px rgba(132, 123, 203, 0.2)
+	z-index: 1
+	&-head
+		display: flex
+		align-items: center
+		justify-content: space-between
+		color: #DFDCF6
+		background-color: #151339
+		padding: 18px 33px
+		&__title
+			font-weight: 800
+			font-size: 18px
+		&__icon
+			height: 23px
+			width: 23px
+			flex: none
+			fill: currentColor
+	&-content
+		// position: relative
+		padding: 0 33px 30px 33px
+		display: flex
+		flex-direction: column
+		gap: 30px
+		&--half
+			// max-width: 700px
+			// width: 50%
+			&::after
+				content: ''
+				z-index: -1
+				right: 0
+				bottom: 0
+				width: 50%
+				height: calc(100% - 80px)
+				background-repeat: no-repeat
+				background-image: url("data:image/svg+xml,%3Csvg width='738' height='702' viewBox='0 0 738 702' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='82.0078' y='243.474' width='204.096' height='204.096' transform='rotate(10.3594 82.0078 243.474)' fill='%23F9FAFB'/%3E%3Crect x='571.844' y='333.026' width='204.096' height='204.096' transform='rotate(10.3594 571.844 333.026)' fill='%23F9FAFB'/%3E%3Crect x='281.52' y='533.633' width='204.096' height='204.096' transform='rotate(10.3594 281.52 533.633)' fill='%23F9FAFB'/%3E%3Crect x='371.309' y='42.6216' width='204.096' height='204.096' transform='rotate(10.3594 371.309 42.6216)' fill='%23F9FAFB'/%3E%3Cpath d='M327.671 34.645L290.97 235.414L90.2014 198.713C169.632 144.418 248.782 89.7236 327.671 34.645Z' fill='%23F9FAFB'/%3E%3Cpath d='M780.823 324.964L580.054 288.264L616.755 87.4949C671.05 166.926 725.744 246.075 780.823 324.964Z' fill='%23F9FAFB'/%3E%3Cpath d='M37.1345 488.989L237.903 525.69L201.202 726.459C146.907 647.028 92.2131 567.879 37.1345 488.989Z' fill='%23F9FAFB'/%3E%3Cpath d='M520.631 577.37L721.399 614.07L684.698 814.839C630.403 735.408 575.709 656.259 520.631 577.37Z' fill='%23F9FAFB'/%3E%3C/svg%3E%0A")
+				background-size: contain
+				background-position: right bottom
+				position: absolute
+				pointer-events: none
+
+table
+	font-size: 14px
+	text-align: left
+	color: #54517A
+	th, td
+		padding-bottom: 20px
+		&:not(:last-child)
+			padding-right: 50px
+	b
+		font-weight: 500
+		white-space: nowrap
+// thead
+// tbody
+
+.text
+	&-green
+		color: color(--secondary_color)
+	&-red
+		color: color(--primary_color)
+
+
+.lang
+	display: flex
+	align-items: center
+	justify-content: center
+	text-decoration: none
+	font-weight: 800
+	text-decoration: none
+	&-img
+		max-width: 30px
+	&--nav
+		text-transform: uppercase
+		flex-direction: column
+		font-size: 13px
+		gap: 7px
+		padding: 20px 0
+		border-top: 2px solid #E9E8F2
+		width: 100%
+	&--footer
+		font-size: 14px
+		gap: 12px
+
+.theme-switcher
+	display: block
+	flex: none
+	position: relative
+	width: 50px
+	height: 30px
+	border-radius: 50px
+	background: linear-gradient(318.26deg, #C4BFE6 2.77%, #DFDCF6 97.69%)
+	cursor: pointer
+	margin-bottom: 20px
+	+parent('_dark-theme')
+		background: #57548B
+	&::after, &::before
+		content: ''
+		height: 100%
+		width: 50%
+		position: absolute
+		pointer-events: none
+		background-repeat: no-repeat
+		top: 0
+	&::before
+		left: 0
+		background-position: center left 70%
+		background-image: url("data:image/svg+xml,%3Csvg fill='%23DFDCF6' width='15' height='15' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19,21.21A10,10,0,1,1,19,2.79a10,10,0,0,0,0,18.42Z'%3E%3C/path%3E%3C/svg%3E")
+	&::after
+		right: 0
+		background-position: center right 70%
+		background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.93142 7.59679C3.93142 9.61237 5.56537 11.2463 7.58094 11.2463C9.59652 11.2463 11.2305 9.61237 11.2305 7.59679C11.2305 5.58121 9.59652 3.94727 7.58094 3.94727C5.56537 3.94727 3.93142 5.58121 3.93142 7.59679Z' fill='%2357548B'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.57986 3.03505C8.08415 3.03505 8.49219 2.62702 8.49219 2.12273V1.21018C8.49219 0.705889 8.08415 0.297852 7.57986 0.297852C7.07558 0.297852 6.66754 0.705889 6.66754 1.21018V2.1225C6.66754 2.62702 7.07558 3.03505 7.57986 3.03505Z' fill='%2357548B'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.35763 3.08126L3.71148 2.43534C3.35522 2.07885 2.77771 2.07885 2.42145 2.43534C2.06519 2.7916 2.06519 3.3691 2.42145 3.72559L3.06738 4.37175C3.42364 4.72801 4.00137 4.72801 4.35763 4.37175C4.71412 4.01503 4.71412 3.43775 4.35763 3.08126Z' fill='%2357548B'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3.01953 7.59689C3.01953 7.09261 2.61149 6.68457 2.10721 6.68457H1.19465C0.690367 6.68457 0.28233 7.09261 0.28233 7.59689C0.28233 8.10118 0.690367 8.50922 1.19465 8.50922L2.10721 8.50831C2.61149 8.50922 3.01953 8.10027 3.01953 7.59689Z' fill='%2357548B'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.357 12.1122C4.71418 11.7566 4.71418 11.1791 4.35792 10.8229C4.00165 10.4666 3.42392 10.4666 3.06766 10.8229L2.42265 11.4681C2.06456 11.8244 2.06639 12.4019 2.42265 12.7581C2.77891 13.1144 3.3555 13.1153 3.71268 12.7581L4.357 12.1122Z' fill='%2357548B'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.49219 13.9841L8.49036 13.0697C8.49219 12.5672 8.08415 12.1592 7.57986 12.1592C7.07558 12.1574 6.66754 12.5672 6.66754 13.0697V13.9822C6.66571 14.4883 7.07558 14.8946 7.57986 14.8946C8.08324 14.8955 8.49219 14.4883 8.49219 13.9841Z' fill='%2357548B'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10.8081 12.1122L11.4533 12.7572C11.8105 13.1162 12.3871 13.1135 12.7436 12.7572C13.101 12.4016 13.101 11.8244 12.7445 11.4681L12.0976 10.8229C11.743 10.4666 11.1657 10.4666 10.8092 10.8229C10.4507 11.1773 10.4525 11.7566 10.8081 12.1122Z' fill='%2357548B'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.1438 7.59689C12.1401 8.10027 12.5518 8.50922 13.0543 8.50922H13.9666C14.4727 8.50922 14.8789 8.10118 14.8789 7.59689C14.8807 7.09261 14.4727 6.68457 13.9682 6.68457L13.054 6.68639C12.5518 6.68457 12.1438 7.09261 12.1438 7.59689Z' fill='%2357548B'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10.8057 3.08366C10.4495 3.43832 10.4495 4.014 10.8067 4.3714C11.1604 4.7304 11.7395 4.72858 12.0951 4.37323L12.7401 3.72799C13.0984 3.3699 13.0957 2.79422 12.7401 2.43773C12.3845 2.0785 11.8072 2.0785 11.4508 2.435L10.8057 3.08366Z' fill='%2357548B'/%3E%3C/svg%3E%0A")
+	&__input
+		height: 1px
+		width: 1px
+		opacity: 0
+		&:checked ~ .theme-switcher__icon
+			left: 50%
+	&__icon
+		position: absolute
+		height: 20px
+		width: 20px
+		background-color: #fff
+		border-radius: 50px
+		top: 50%
+		transform: translateY(-50%)
+		left: 4px
+		transition: .25s ease
+		z-index: 1

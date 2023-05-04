@@ -1,0 +1,184 @@
+extends ../templates/template
+block vars
+	- var title = 'Account';
+	- var description = 'Account Description';
+	- var pageType = 'inner'
+block content
+	.inner__content
+		.container
+			.inner__head
+				h1.inner__head-title My account
+				a.btn.btn--xs.btn--white(href="#") 
+					span Log Out
+					+xlink('logout', 'btn')
+			.tab
+				.tab-nav
+					a.tab-nav__link.isactive(href="#personal-info") Personal info
+					a.tab-nav__link(href="#bonuses") Bonuses
+					a.tab-nav__link(href="#balance-history") Balance history
+					a.tab-nav__link(href="#bets-history") Bets history
+					a.tab-nav__link(href="#alerts") Alerts
+				.tab-content
+					.tab-content__item.isactive#personal-info
+						.account
+							.account-head
+								h2.account-head__title Personal info
+								+xlink('logo', 'account-head')
+							.account-content
+					.tab-content__item#bonuses
+						.account
+							.account-head
+								h2.account-head__title Bonuses
+								+xlink('logo', 'account-head')
+							.account-content
+					.tab-content__item#balance-history
+						.account
+							.account-head
+								h2.account-head__title Balance history
+								+xlink('logo', 'account-head')
+							.account-content.account-content--half
+								.account-content__head
+									form.account-content__form
+										.row
+											.form-controll
+												p Start date
+												.form-field
+													input.form-input(type="date")
+											.form-controll
+												p End date
+												.form-field
+													input.form-input(type="date")
+											.form-controll
+												p Providers
+												.form-field
+													select(name="providers")
+														option(value="all") All
+														option(value="pragmatic") Pragmatic Play
+
+												
+								.account-content__body
+									table
+										thead
+											tr
+												th Transaction time
+												th Amount
+												th Status
+												th Method
+												th Type
+										tbody
+											tr
+												td 20:29:18 24-03-2023
+												td
+													b.text-green ₽860.80
+												td New
+												td Card
+												td Credit
+											tr
+												td 20:29:18 24-03-2023
+												td
+													b.text-red - ₽860.80
+												td Complete
+												td Visa/MC
+												td Debit
+											tr
+												td 20:29:18 24-03-2023
+												td
+													b.text-green ₽860.80
+												td New
+												td Card
+												td Credit
+											tr
+												td 20:29:18 24-03-2023
+												td
+													b.text-green ₽860.80
+												td New
+												td Card
+												td Credit
+											tr
+												td 20:29:18 24-03-2023
+												td
+													b.text-red - ₽860.80
+												td Canceled by user
+												td Visa/MC
+												td Debit
+											tr
+												td 20:29:18 24-03-2023
+												td
+													b.text-green ₽860.80
+												td New
+												td Card
+												td Credit
+											tr
+												td 20:29:18 24-03-2023
+												td
+													b.text-red - ₽860.80
+												td Rejected
+												td Visa/MC
+												td Debit
+											tr
+												td 20:29:18 24-03-2023
+												td
+													b.text-green ₽860.80
+												td New
+												td Card
+												td Credit
+											tr
+												td 20:29:18 24-03-2023
+												td
+													b.text-green ₽860.80
+												td New
+												td Card
+												td Credit
+					.tab-content__item#bets-history
+						.account
+							.account-head
+								h2.account-head__title Bets history
+								+xlink('logo', 'account-head')
+							.account-content.account-content--half
+								.account-content__head
+
+								.account-content__body
+									table
+										thead
+											tr
+												th Bet time
+												th Amount
+												th Provider
+												th Game
+										tbody
+											- for (let x = 0; x < 3; x++)
+												tr
+													td 20:29:18 24-03-2023
+													td
+														b.text-green ₽20.00
+													td Pragmatic Play
+													td Sugar Rush
+											- for (let x = 0; x < 3; x++)
+												tr
+													td 20:29:18 24-03-2023
+													td
+														b.text-red - ₽20.00
+													td Pragmatic Play
+													td Sugar Rush
+											- for (let x = 0; x < 3; x++)
+												tr
+													td 20:29:18 24-03-2023
+													td
+														b.text-green ₽20.00
+													td Pragmatic Play
+													td Sugar Rush
+											- for (let x = 0; x < 3; x++)
+												tr
+													td 20:29:18 24-03-2023
+													td
+														b.text-red - ₽20.00
+													td Pragmatic Play
+													td Sugar Rush
+								.account-content__footer
+									include ../blocks/pagination/pagination.pug
+					.tab-content__item#alerts
+						.account
+							.account-head
+								h2.account-head__title Alerts
+								+xlink('logo', 'account-head')
+							.account-content
