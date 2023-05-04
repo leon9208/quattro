@@ -6,29 +6,22 @@
 	flex-direction: column
 	min-height: 100%
 	width: var(--nav_width)
-	background: #F7F9FB
+	background: var(--base-bg)
 	box-shadow: 5px 0px 15px rgba(132, 123, 203, 0.2)
 	z-index: 10
 	+sm()
 		display: none
-	&-divider
-		width: 45px
-		height: 2px
-		background-color: #E2E0F3
-		margin: 8px 0
 	&-logo
 		display: flex
 		align-items: center
 		justify-content: center
 		height: var(--header_height)
-		background-color: var(--dark_color)
-	// &-list
-	// 	padding: 10px 0
+		background-color: var(--base-color)
 	&-list
-		padding: 20px 0
+		padding: 10px 0
 		display: flex
 		flex-direction: column
-		gap: 12px
+		gap: 6px
 	&-item
 		display: flex
 		justify-content: center
@@ -41,38 +34,55 @@
 		justify-content: center
 		text-decoration: none
 		border-radius: 3px
-		color: #272464
+		color: var(--base-color)
 		height: 45px
 		width: 45px
-		background: linear-gradient(318.26deg, #C4BFE6 2.77%, #DFDCF6 97.69%)
-		svg
+		background-color: #E9E9EA
+		transition: .25s ease
+		&__icon
 			fill: currentColor
+			height: 20px
+			width: 20px
 		&.isactive
-			color: #DFDCF6
-			background: linear-gradient(154.45deg, #151339 0%, #2B2861 100%)
+			background-color: var(--base-color)
+			color: var(--base-bg)
+		+parent('_dark-theme')
+			background-color: #1B1C2F
+			&:hover
+				&:not(.isactive)
+					background-color: #1f2137
+
 		&:hover
+			&:not(.isactive)
+				background-color: #D1D1D1
 			.nav-link__tooltip
 				left: calc(100% + 8px)
 				opacity: 1
-		&[data-nav-count]::after
-			content: attr(data-nav-count)
-			position: absolute
-			font-size: 12px
-			font-weight: 800
-			height: 23px
-			width: 23px
-			background-color: #EA4382
-			display: flex
-			align-items: center
-			justify-content: center
-			flex: none
-			border-radius: 50px
-			color: #fff
-			pointer-event: none
-			top: -8px
-			right: -8px
+		&[data-nav-count]
+			margin-top: 10px
+			&::after
+				content: attr(data-nav-count)
+				position: absolute
+				font-size: 12px
+				font-weight: 800
+				height: 23px
+				width: 23px
+				background-color: #EA4382
+				display: flex
+				align-items: center
+				justify-content: center
+				flex: none
+				border-radius: 50px
+				color: #fff
+				pointer-event: none
+				top: -8px
+				right: -8px
+				border: 2px solid
 			
-		&--accent
+		&--purple
+			background: linear-gradient(295.33deg, #A62EE0 -7.11%, rgba(228, 61, 232, 0.74) 42.74%, #5538F4 106.41%)
+			color: #fff
+		&--orange
 			color: #fff
 			background: linear-gradient(137.11deg, #EA4382 19.45%, #F4BA40 102.98%)
 		&__tooltip
@@ -80,16 +90,27 @@
 			opacity: 0
 			left: calc(100% + 15px)
 			border-radius: 3px
-			padding: 7px 11px 7px 15px
+			padding: 7px 11px
 			font-weight: 800
 			font-size: 15px
-			color: #F6F7FA
+			color: var(--base-bg)
+			background-color: var(--base-color)
 			white-space: nowrap
 			pointer-events: none
-			background-image: url("data:image/svg+xml,%3Csvg width='108' height='32' viewBox='0 0 108 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.6938 0C6.16909 0 4.93308 1.34315 4.93308 3V10.889C4.93308 11.1994 4.80048 11.4921 4.57418 11.6814L0.3589 15.2076C-0.119633 15.6079 -0.119633 16.3921 0.358899 16.7924L4.57418 20.3186C4.80048 20.5079 4.93308 20.8006 4.93308 21.111V29C4.93308 30.6569 6.1691 32 7.6938 32H105.239C106.764 32 108 30.6569 108 29V3C108 1.34315 106.764 0 105.239 0H7.6938Z' fill='url(%23paint0_linear_1_2068)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_1_2068' x1='0' y1='0' x2='6.56637' y2='46.3653' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23151339'/%3E%3Cstop offset='1' stop-color='%232B2861'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A")
 			background-position: left center
 			background-size: cover
 			transition: .25s ease
+			&::before
+				content: ''
+				position: absolute
+				width: 0
+				height: 0
+				left: -5px
+				top: 50%
+				transform: translateY(-50%)
+				border-style: solid
+				border-width: 6px 6px 6px 0
+				border-color: transparent var(--base-color) transparent transparent
 	&-bottom
 		display: flex
 		flex-direction: column
