@@ -45,8 +45,6 @@ a
 	max-width: 1540px
 	padding: 0 95px
 	margin: 0 auto
-	// +to(1600px)
-	// 	padding: 0 20px 0 95px
 	+xs()
 		padding: 0 15px
 
@@ -82,13 +80,12 @@ a
 	gap: 18px
 	text-decoration: none
 	user-select: none
+	&--footer
+		.logo-icon
+			width: 35px
+			height: 35px
 	&-text
 		fill: #fff
-		// font-style: italic
-		// white-space: nowrap
-		// font-size: 46px
-		// font-weight: 400
-		// text-transform: uppercase
 	&[data-logo-text]::after
 		content: attr(data-logo-text)
 		font-weight: 400
@@ -189,14 +186,11 @@ a
 			flex: none
 			fill: currentColor
 	&-content
-		// position: relative
 		padding: 0 33px 30px 33px
 		display: flex
 		flex-direction: column
 		gap: 30px
 		&--half
-			// max-width: 700px
-			// width: 50%
 			&::after
 				content: ''
 				z-index: -1
@@ -249,6 +243,8 @@ table
 		padding: 20px 0
 		border-top: 2px solid #E9E8F2
 		width: 100%
+		+parent('_dark-theme')
+			border-color: #1B1C2F
 	&--footer
 		font-size: 14px
 		gap: 12px
