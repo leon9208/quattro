@@ -34,10 +34,10 @@
 		justify-content: center
 		text-decoration: none
 		border-radius: 3px
-		color: var(--base-color)
+		color: var(--nav-color)
 		height: 45px
 		width: 45px
-		background-color: #E9E9EA
+		background-color: color(--nav-bg, .5)
 		transition: .25s ease
 		&__icon
 			fill: currentColor
@@ -47,14 +47,17 @@
 			background-color: var(--base-color)
 			color: var(--base-bg)
 		+parent('_dark-theme')
-			background-color: #1B1C2F
-			&:hover
-				&:not(.isactive)
+			&.isactive
+				background-color: color(--nav-bg, 1)
+				color: var(--nav-color)
+			&:not(.isactive)
+				background-color: #1B1C2F
+				&:hover
 					background-color: #1f2137
 
 		&:hover
 			&:not(.isactive)
-				background-color: #D1D1D1
+				background-color: color(--nav-bg, 1)
 			.nav-link__tooltip
 				left: calc(100% + 8px)
 				opacity: 1
@@ -74,9 +77,9 @@
 				flex: none
 				border-radius: 50px
 				color: #fff
-				pointer-event: none
-				top: -8px
-				right: -8px
+				pointer-events: none
+				top: -10px
+				right: -5px
 				border: 2px solid
 			
 		&--purple
@@ -92,7 +95,7 @@
 			border-radius: 3px
 			padding: 7px 11px
 			font-weight: 800
-			font-size: 15px
+			font-size: 14px
 			color: var(--base-bg)
 			background-color: var(--base-color)
 			white-space: nowrap

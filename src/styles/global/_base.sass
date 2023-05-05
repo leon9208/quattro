@@ -258,13 +258,15 @@ table
 	flex: none
 	position: relative
 	width: 50px
-	height: 30px
+	height: 25px
 	border-radius: 50px
-	background: linear-gradient(318.26deg, #C4BFE6 2.77%, #DFDCF6 97.69%)
+	background-color: #E9E9EA
 	cursor: pointer
 	margin-bottom: 20px
 	+parent('_dark-theme')
-		background: #57548B
+		background: #1B1C2F
+		.theme-switcher__icon
+			background-color: #424564
 	&::after, &::before
 		content: ''
 		height: 100%
@@ -275,8 +277,8 @@ table
 		top: 0
 	&::before
 		left: 0
-		background-position: center left 70%
-		background-image: url("data:image/svg+xml,%3Csvg fill='%23DFDCF6' width='15' height='15' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19,21.21A10,10,0,1,1,19,2.79a10,10,0,0,0,0,18.42Z'%3E%3C/path%3E%3C/svg%3E")
+		background-position: center left 50%
+		background-image: url("data:image/svg+xml,%3Csvg width='12' height='13' viewBox='0 0 12 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.92679 12.6349C4.66754 13.2404 1.95854 12.317 0.52179 10.5162C0.454284 10.4316 0.41167 10.3298 0.398719 10.2223C0.385769 10.1148 0.402992 10.0058 0.448461 9.90758C0.49393 9.80932 0.565851 9.72565 0.656172 9.66594C0.746493 9.60623 0.851651 9.57283 0.959873 9.56949C3.28387 9.50066 4.84604 8.70324 5.72571 7.17899C6.60654 5.65474 6.51554 3.90299 5.41362 1.85608C5.36223 1.76067 5.33843 1.65283 5.34489 1.54465C5.35135 1.43647 5.38782 1.33223 5.4502 1.24362C5.51259 1.155 5.59843 1.08552 5.69809 1.04296C5.79776 1.0004 5.90731 0.986446 6.01446 1.00266C8.29179 1.34683 10.446 3.23099 11.0515 5.49083C11.8857 8.60233 10.0383 11.8013 6.92679 12.6349Z' fill='%23B6B7CE'/%3E%3C/svg%3E%0A")
 	&::after
 		right: 0
 		background-position: center right 70%
@@ -286,15 +288,16 @@ table
 		width: 1px
 		opacity: 0
 		&:checked ~ .theme-switcher__icon
-			left: 50%
+			left: 27px
+			// right: 2px
 	&__icon
 		position: absolute
-		height: 20px
-		width: 20px
+		height: 21px
+		width: 21px
 		background-color: #fff
 		border-radius: 50px
 		top: 50%
 		transform: translateY(-50%)
-		left: 4px
+		left: 2px
 		transition: .25s ease
 		z-index: 1
