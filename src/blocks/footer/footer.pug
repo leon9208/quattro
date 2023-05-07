@@ -1,6 +1,7 @@
 mixin footerNav(nTitle, ...items)
 	.footer-nav
-		.footer-nav__title= nTitle
+		.footer-nav__head
+			a.footer-nav__title(href="#")= nTitle
 		.footer-nav__list
 			each item in items
 				a.footer-nav__link(href="#")= item
@@ -15,9 +16,10 @@ footer.footer
 				+footerNav('Security', 'Agreement', 'Privacy Policy', 'AML', 'KYC')
 			.footer-main__col
 				+footerNav('Casino', 'Top', 'New', 'Live Games', 'Slots', 'Instant Games', 'Crash Games', 'All Games')
-				a.footer-nav__title(href="#")  Payments
+				a.footer-nav__title.mt-auto(href="#") Lucky Spin
 			.footer-main__col
 				+footerNav('Live Casino', 'Roulette', 'BlackJack', 'Game Shows', 'Baccarat', 'Poker', 'All Live Casino')
+				a.footer-nav__title.mt-auto(href="#") Payments
 			.footer-main__col
 				+footerNav('Sport', 'Sportsbook', 'Live', 'Betting')
 				+footerNav('Promotions', 'Casino Promotions', 'Tournaments', 'VIP', 'Bonus Shop', 'Challenges')

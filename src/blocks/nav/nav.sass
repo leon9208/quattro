@@ -16,7 +16,9 @@
 		align-items: center
 		justify-content: center
 		height: var(--header_height)
-		background-color: var(--base-color)
+		background-color: #151339
+		+parent('_dark-theme')
+			background-color: #1B1C2F
 	&-list
 		padding: 10px 0
 		display: flex
@@ -35,29 +37,20 @@
 		text-decoration: none
 		border-radius: 3px
 		color: var(--nav-color)
+		background-color: var(--nav-bg-base)
 		height: 45px
 		width: 45px
-		background-color: color(--nav-bg, .5)
-		transition: .25s ease
+		transition: color .25s ease, background-color .25s ease
 		&__icon
 			fill: currentColor
 			height: 20px
 			width: 20px
 		&.isactive
-			background-color: var(--base-color)
-			color: var(--base-bg)
-		+parent('_dark-theme')
-			&.isactive
-				background-color: color(--nav-bg, 1)
-				color: var(--nav-color)
-			&:not(.isactive)
-				background-color: #1B1C2F
-				&:hover
-					background-color: #1f2137
-
+			background-color: var(--nav-bg-active)
+			color: var(--nav-color-active)
 		&:hover
 			&:not(.isactive)
-				background-color: color(--nav-bg, 1)
+				background-color: var(--nav-bg-hover)
 			.nav-link__tooltip
 				left: calc(100% + 8px)
 				opacity: 1
@@ -96,8 +89,8 @@
 			padding: 7px 11px
 			font-weight: 800
 			font-size: 14px
-			color: var(--base-bg)
-			background-color: var(--base-color)
+			color: var(--nav-tooltip-color)
+			background-color: var(--nav-tooltip-bg)
 			white-space: nowrap
 			pointer-events: none
 			background-position: left center
@@ -113,7 +106,7 @@
 				transform: translateY(-50%)
 				border-style: solid
 				border-width: 6px 6px 6px 0
-				border-color: transparent var(--base-color) transparent transparent
+				border-color: transparent var(--nav-tooltip-bg) transparent transparent
 	&-bottom
 		display: flex
 		flex-direction: column

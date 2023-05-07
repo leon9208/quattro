@@ -22,17 +22,19 @@
 	&--primary
 		color: $white
 		fill: currentColor
-		background-color: color(--primary_color)
-		box-shadow: 0px 6px 14px color(--primary_color, 0.6)
-		&:hover
-			box-shadow: 0px 6px 14px color(--primary_color, 0)
+		background-color: color(--primary-color)
+		&.shadow
+			box-shadow: 0px 6px 14px color(--primary-color, 0.6)
+			&:hover
+				box-shadow: 0px 6px 14px color(--primary-color, 0)
 	&--secondary
 		fill: #104945
 		color: #151339
 		background-color: color(--secondary_color)
-		box-shadow: 0px 6px 14px color(--secondary_color, 0.6)
-		&:hover
-			box-shadow: 0px 6px 14px color(--secondary_color, 0)
+		&.shadow
+			box-shadow: 0px 6px 14px color(--secondary_color, 0.6)
+			&:hover
+				box-shadow: 0px 6px 14px color(--secondary_color, 0)
 	&--light
 		fill: currentColor
 		color: #151339
