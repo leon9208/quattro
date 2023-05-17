@@ -58,6 +58,7 @@ function hideOnClickOutside(element) {
 
 const bCarousel = () => {
 	let baseCarousel = document.querySelectorAll('.section .swiper')
+	let pagination = document.querySelectorAll('.section .swiper-pagination')
 	let prevArrow = document.querySelectorAll('.section .swiper-button--prev')
 	let nextArrow = document.querySelectorAll('.section .swiper-button--next')
 	baseCarousel.forEach((slider, index)=>{
@@ -73,6 +74,11 @@ const bCarousel = () => {
 				navigation: {
 						nextEl: nextArrow[index],
 						prevEl: prevArrow[index],
+				},
+				pagination: {
+					el: pagination[index],
+					// type: 'bullets',
+					clickable: true
 				},
 				on: {
 					init: function() {
@@ -112,3 +118,20 @@ window.addEventListener('scroll', () => {
 	window.scrollY > 50 ? document.documentElement.classList.add('_window-scrolled') : document.documentElement.classList.remove('_window-scrolled')
 
 })
+
+
+var indexSearch = document.querySelector('.search-input')
+
+if (indexSearch) {
+	indexSearch.addEventListener('input', function() {
+		if (this.value != '') {
+			this.classList.add('isfilled')
+		} else {
+			this.classList.remove('isfilled')
+		}
+	});
+
+	document.querySelector('.search-clear').addEventListener('click', function() {
+		indexSearch.value = ''
+	})
+}

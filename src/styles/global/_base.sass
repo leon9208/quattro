@@ -6,7 +6,7 @@
 	box-sizing: border-box
 
 html
-	font-family: $baseFont
+	font-family: var(--base-font)
 	font-size: 16px
 	font-weight: 400
 	-webkit-font-smoothing: antialiased
@@ -21,7 +21,7 @@ body
 	scroll-behavior: smooth
 	transition: color .25s ease, background-color .25s ease
 	&.inner
-		padding-top: var(--header_height)
+		padding-top: var(--header-height)
 
 
 ul, ul ul
@@ -42,11 +42,13 @@ a
 	color: inherit
 
 .container
-	max-width: 1540px
+	max-width: 1920px
 	padding: 0 95px
 	margin: 0 auto
+	+sm()
+		padding: 0 20px
 	+xs()
-		padding: 0 15px
+		padding: 0 8px
 
 .row
 	display: flex
@@ -59,8 +61,8 @@ a
 		filter: blur(0)
 
 .hero
-	min-height: 100vh
-	background-color: var(--base-color)
+	min-height: 600px
+	background-color: var(--light-bg)
 	width: 100%
 
 .icon
@@ -73,62 +75,9 @@ a
 		height: inherit
 		width: inherit
 
-.logo
-	position: relative
-	display: flex
-	align-items: center
-	gap: 18px
-	text-decoration: none
-	user-select: none
-	&--footer
-		.logo-icon
-			width: 35px
-			height: 35px
-	&-text
-		fill: #fff
-	&[data-logo-text]::after
-		content: attr(data-logo-text)
-		font-weight: 400
-		max-width: 70px
-		font-size: 14px
-		+parent('inner')
-			color: #4F4A81
-			background-color: #DFDCF6
-			border-radius: 50px
-			padding: 0.3em 1em
-			height: 26px
-			text-align: center
-			font-weight: 500
-	+parent('main')
-		font-size: 38px
-	+parent('inner')
-		font-size: 30px
-	&-icon
-		flex: none
-		+parent('header')
-			height: 30px
-			width: 30px
-		+parent('nav')
-			height: 27px
-			width: 27px
-			rect, path
-				fill: #DFDCF6
-		&__mono
-			fill: #EDE8FB
-			+parent('inner')
-				fill: #151339
-		&__pink
-			fill: #EA3589
-		&__blue
-			fill: #6766F6
-		&__green
-			fill: #63D4B4
-		&__yellow
-			fill: #F4BA40
-
 .bd
 	&-b
-		border-bottom: 2px solid #E9E8F2
+		border-bottom: 2px solid var(--light-bg)
 
 .inner
 	&__content
@@ -145,20 +94,65 @@ a
 
 .section
 	padding: 30px 0
+	&-carousel
+		&--bg
+			padding: 20px
+			border-radius: 3px
+			background-color: var(--base-bg)
+			+xs()
+				padding: 0
+				background-color: transparent
 	&-title
+		display: flex
+		align-items: center
 		font-weight: 800
-		font-size: 30px
+		font-size: 19px
+		gap: 16px
+		text-transform: uppercase
+		+xs()
+			font-size: 17px
+		&[data-count]::after
+			content: attr(data-count)
+			font-weight: 800
+			font-size: 13px
+			padding: 7px 13px
+			background-color: var(--light-bg)
+			color: var(--base-color)
+			border-radius: 6px
 	&-head
 		display: flex
 		align-items: center
+		justify-content: space-between
 		gap: 30px
-		margin-bottom: 20px
+		margin-bottom: 16px
+		+sm()
+			gap: 16px
+		+xs()
+			gap: 6px
 		&__link
 			font-weight: 800
-			font-size: 20px
-			margin-left: auto
-			&:hover
-				text-decoration: none
+			font-size: 12px
+			text-transform: uppercase
+			text-decoration: none
+			padding: 10px 15px
+			border-radius: 6px
+			background-color: var(--light-bg)
+			color: var(--base-color)
+		&__side
+			&-left
+				display: flex
+				align-items: center
+				flex: 1
+				gap: 12px
+			&-center
+				+sm()
+					display: none
+			&-right
+				display: flex
+				align-items: center
+				flex: 1
+				justify-content: flex-end
+				gap: 12px
 
 .account
 	position: relative
@@ -220,6 +214,8 @@ table
 // tbody
 
 .text
+	&-uppercase
+		text-transform: uppercase
 	&-green
 		color: color(--secondary_color)
 	&-red
@@ -301,3 +297,30 @@ table
 
 .mt-auto
 	margin-top: auto
+
+.d
+	&-none
+		display: none !important
+	&-sm
+		&-block
+			+sm()
+				display: block !important
+		&-none
+			+sm()
+				display: none !important
+
+
+.pattern
+	position: relative
+	&::after
+		content: ''
+		height: 25px
+		width: 100%
+		left: 0
+		bottom: 0
+		position: absolute
+		background-size: contain
+		background-repeat: repeat-x
+		background-image: url("data:image/svg+xml,%3Csvg id='Vector' xmlns='http://www.w3.org/2000/svg' width='1143.792' height='143' viewBox='0 0 1143.792 143'%3E%3Cpath d='M143,0H331L286,143H143Z' transform='translate(-143)' fill='%23151339'/%3E%3Cpath d='M35.566,0H188L143,143H0Z' fill='%233aded4'/%3E%3Cpath d='M35.257.042,143,143H0Z' fill='%23ea3589'/%3E%3Cpath d='M188,0H331L286,143H143Z' fill='%23151339'/%3E%3Cpath d='M331,0H474L429,143H286Z' transform='translate(-0.044)' fill='%23ea3589'/%3E%3Cpath d='M331,0l98,143H286Z' transform='translate(-0.042)' fill='%236766f6'/%3E%3Cpath d='M474,0H617L572,143H429Z' transform='translate(-0.067)' fill='%233aded4'/%3E%3Cpath d='M617,0H760L715,143H572Z' transform='translate(-0.089)' fill='%23151339'/%3E%3Cpath d='M572,143,760,0,715,143Z' transform='translate(-0.089)' fill='%23f4ba40'/%3E%3Cpath d='M760,0H903L858,143H715Z' transform='translate(-0.111)' fill='%23ea3589'/%3E%3Cpath d='M903,0h143l-45,143H858Z' transform='translate(-0.146)' fill='%236766f6'/%3E%3Cpath d='M903,0l98,143H858Z' transform='translate(-0.146)' fill='%233aded4'/%3E%3Cpath d='M1035.214,0h108.725V143H1001Z' transform='translate(-0.146)' fill='%23151339'/%3E%3C/svg%3E%0A")
+		+xs()
+			height: 20px

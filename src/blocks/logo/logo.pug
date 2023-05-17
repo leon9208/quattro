@@ -1,0 +1,27 @@
+mixin logo(lClass, lText, lAfter, lLink= false)
+	if lLink
+		a.logo(href="/" class=lClass data-logo-text=lAfter || false)
+			svg(viewBox="0 0 31 27" class="logo-icon" fill="none" xmlns="http:www.w3.org2000svg")
+				path(d="M10.3246 0L7.78552 7.79936H0C10.3246 0 0 7.79936 10.3246 0Z" class="logo-icon__pink")
+				path(d="M12.8171 0H20.6026L18.0636 7.79936H10.278L12.8171 0Z" class="logo-icon__mono")
+				path(d="M28.3874 7.79936H20.6019L23.1409 0C28.3874 7.79936 23.141 0 28.3874 7.79936Z"  class="logo-icon__mono")
+				path(d="M3.34206 9.53365H11.1276L8.58854 17.333H0.803012L3.34206 9.53365Z" class="logo-icon__mono")
+				path(d="M22.3367 9.53793H30.1223L27.5832 17.3373H19.7977L22.3367 9.53793Z" class="logo-icon__blue")
+				path(d="M2.53903 19.0673H10.3246L7.7855 26.8666C2.53903 19.0673 7.7855 26.8666 2.53903 19.0673Z" class="logo-icon__mono")
+				path(d="M12.8212 19.0673H20.6067L18.0677 26.8667H10.2821L12.8212 19.0673Z" class="logo-icon__green")
+				path(d="M22.1112 19.0673H31L28.461 26.8667C22.1112 19.0673 28.461 26.8667 22.1112 19.0673Z" class="logo-icon__yellow")
+			if lText
+				span.logo-text=lText
+	else
+		.logo(href="/" class=lClass data-logo-text=lAfter || false)
+			svg(viewBox="0 0 31 27" class="logo-icon" fill="none" xmlns="http:www.w3.org2000svg")
+				path(d="M10.3246 0L7.78552 7.79936H0C10.3246 0 0 7.79936 10.3246 0Z" class="logo-icon__pink")
+				path(d="M12.8171 0H20.6026L18.0636 7.79936H10.278L12.8171 0Z" class="logo-icon__mono")
+				path(d="M28.3874 7.79936H20.6019L23.1409 0C28.3874 7.79936 23.141 0 28.3874 7.79936Z"  class="logo-icon__mono")
+				path(d="M3.34206 9.53365H11.1276L8.58854 17.333H0.803012L3.34206 9.53365Z" class="logo-icon__mono")
+				path(d="M22.3367 9.53793H30.1223L27.5832 17.3373H19.7977L22.3367 9.53793Z" class="logo-icon__blue")
+				path(d="M2.53903 19.0673H10.3246L7.7855 26.8666C2.53903 19.0673 7.7855 26.8666 2.53903 19.0673Z" class="logo-icon__mono")
+				path(d="M12.8212 19.0673H20.6067L18.0677 26.8667H10.2821L12.8212 19.0673Z" class="logo-icon__green")
+				path(d="M22.1112 19.0673H31L28.461 26.8667C22.1112 19.0673 28.461 26.8667 22.1112 19.0673Z" class="logo-icon__yellow")
+			if lText
+				span.logo-text=lText

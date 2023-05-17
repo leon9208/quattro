@@ -6,23 +6,80 @@ mixin footerNav(nTitle, ...items)
 			each item in items
 				a.footer-nav__link(href="#")= item
 
-footer.footer
+footer.footer.pattern
+	.swiper.footer-slider
+		.swiper-wrapper
+			.swiper-slide
+				img(src="img/p1.svg", alt="")
+			.swiper-slide
+				img(src="img/p2.svg", alt="")
+			.swiper-slide
+				img(src="img/p3.svg", alt="")
+			.swiper-slide
+				img(src="img/p4.svg", alt="")
+			.swiper-slide
+				img(src="img/p5.svg", alt="")
+			.swiper-slide
+				img(src="img/p6.svg", alt="")
+			.swiper-slide
+				img(src="img/p1.svg", alt="")
+			.swiper-slide
+				img(src="img/p2.svg", alt="")
+			.swiper-slide
+				img(src="img/p3.svg", alt="")
+			.swiper-slide
+				img(src="img/p4.svg", alt="")
+			.swiper-slide
+				img(src="img/p5.svg", alt="")
+			.swiper-slide
+				img(src="img/p6.svg", alt="")
+			.swiper-slide
+				img(src="img/p1.svg", alt="")
+			.swiper-slide
+				img(src="img/p2.svg", alt="")
+			.swiper-slide
+				img(src="img/p3.svg", alt="")
+			.swiper-slide
+				img(src="img/p4.svg", alt="")
+			.swiper-slide
+				img(src="img/p5.svg", alt="")
+			.swiper-slide
+				img(src="img/p6.svg", alt="")
 	.container
 		.footer-top
-			+logo('logo--footer', 'quattro', 'casino & sportsbook')
+			+logo('logo--footer d-sm-none', 'quattro', 'casino & sportsbook')
+			include ../social/social.pug
+			.footer-top__btns
+				a.footer-btn(href="#")
+					svg( width="31" height="29" viewBox="0 0 31 29" fill="none" xmlns="http://www.w3.org/2000/svg")
+						rect(y="10.6987" width="9.12373" height="9.12373" fill="white")
+						rect(x="10.6992" width="9.12373" height="9.12373" fill="white")
+						rect(width="9.12373" height="9.12373" fill="#EA3589")
+						rect(x="10.6992" y="10.6987" width="9.12373" height="9.12373" fill="#F4BA40")
+						rect(x="21.3984" width="9.12373" height="9.12373" fill="#63D4B4")
+						rect(x="21.3984" y="10.6987" width="9.12373" height="9.12373" fill="white")
+						path(d="M21.4414 21.4424H30.5132V29C25.8357 25.3091 25.8357 25.3091 21.4414 21.4424Z" fill="white")
+					span Live Support
+				a.footer-btn.lang(href="#")
+					img.lang-img(src="img/en-flag.svg", alt="")
+					span.lang-text English
+					
 		.footer-main
 			.footer-main__col
 				+footerNav('General Info', 'About QuattroCasino', 'FAQ', 'Contact Us')
 				+footerNav('Security', 'Agreement', 'Privacy Policy', 'AML', 'KYC')
 			.footer-main__col
-				+footerNav('Casino', 'Top', 'New', 'Live Games', 'Slots', 'Instant Games', 'Crash Games', 'All Games')
-				a.footer-nav__title.mt-auto(href="#") Lucky Spin
+				+footerNav('Casino', 'Top', 'New', 'Live Games', 'Slots', 'Instant Games', 'Crash Games', 'All Casino Games')
+				a.footer-nav__title.mt-auto.d-sm-none(href="#") 
+					+xlink('spinner', 'footer-nav')
+					span Lucky Spin
 			.footer-main__col
 				+footerNav('Live Casino', 'Roulette', 'BlackJack', 'Game Shows', 'Baccarat', 'Poker', 'All Live Casino')
-				a.footer-nav__title.mt-auto(href="#") Payments
+				a.footer-nav__title.mt-auto.d-sm-none(href="#") Payments
 			.footer-main__col
-				+footerNav('Sport', 'Sportsbook', 'Live', 'Betting')
-				+footerNav('Promotions', 'Casino Promotions', 'Tournaments', 'VIP', 'Bonus Shop', 'Challenges')
+				+footerNav('Sportsbook', 'Sport', 'Live')
+				+footerNav('Promotions', 'Quattro Coin', 'Promotions', 'Tournaments', 'VIP', 'Quattro Shop')
+				a.footer-nav__title.mt-auto.d-none.d-sm-block(href="#") Payments
 		.footer-bottom
 
 

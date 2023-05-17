@@ -69,10 +69,7 @@
 	@return $result
 
 @function color($base, $hue: false)
-	// $result: $hue
 	@if $hue
 		@return rgb(var($base), $hue)
 	@else
 		@return rgb(var($base))
-
-	// @return $result

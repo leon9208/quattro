@@ -6,14 +6,13 @@ block vars
 	- var pageType = 'main'
 block content
 	.hero
-	+slider('Top Games', '{"lg":7,"md":6,"sm":4,"xs":2}', true)
-	.section
-		.container
-			+search()
+	.container
+		+search()
+	+slider('section-carousel--bg', '🥇 Top Games', '{"lg":7,"md":6,"sm":4,"xs":2}', true)
 	//category
 	include ../blocks/category/category.pug
-	+slider('Live Games', '{"lg":4,"md":6,"sm":4,"xs":2}', false)
-	+slider('Bonus Buy Slots', '{"lg":5,"md":6,"sm":4,"xs":2}', false)
+	+slider('section-carousel--bg', '💸 bonus buy', '{"lg":5,"md":6,"sm":4,"xs":2}', false)
+	+slider('section-carousel--bg', '⚡️Instant games', '{"lg":5,"md":6,"sm":4,"xs":2}', false)
 	//faq
 	.faq.faq--index
 		.container

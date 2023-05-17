@@ -1,7 +1,26 @@
 .swiper
+	&-pagination
+		display: flex
+		align-items: center
+		justify-content: center
+		gap: 6px
+		&-bullet
+			width: 20px
+			height: 5px
+			border-radius: 22px
+			background-color: var(--light-bg)
+			transition: width .25s ease
+			cursor: pointer
+			&-active
+				width: 37px
+		+sm()
+			display: none
+		
 	&-nav
 		display: flex
-		gap: 6px
+		gap: 4px
+		+sm()
+			display: none
 	&-button
 		cursor: pointer
 		border-radius: 3px
@@ -9,13 +28,20 @@
 		align-items: center
 		justify-content: center
 		flex: none
-		height: 57px
-		width: 57px
-		background-color: #fff
+		height: 45px
+		width: 66px
+		background-color: var(--light-bg)
 		color: var(--base-color)
 		fill: currentColor
 		transition: $trs
+		&__icon
+			height: 18px
+			width: 18px
+		&--prev
+			border-radius: 6px 3px 3px 6px
+		&--next
+			border-radius: 3px 6px 6px 3px
 		&:hover
-			background-color: var(--gray_color)
+			opacity: 0.5
 		&-disabled
-			opacity: 0.6
+			opacity: 0.5

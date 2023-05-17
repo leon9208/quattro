@@ -1,0 +1,89 @@
+.logo
+	position: relative
+	display: flex
+	align-items: center
+	text-decoration: none
+	user-select: none
+	&--nav
+		justify-content: center
+		position: relative
+		height: var(--header-height)
+		width: var(--header-height)
+		background-color: var(--base-color)
+		+parent('_dark-theme')
+			background-color: var(--body-bg)
+		path
+			fill: #F1F2F4 !important
+	&--header
+		gap: 8px
+		font-size: 38px
+		+xs()
+			font-size: 30px
+		.logo-icon
+			height: 32px
+			width: 32px
+			&__mono
+				fill: #151339
+				+parent('_dark-theme')
+					fill: #F7F8F8
+		&[data-logo-text]::after
+			content: attr(data-logo-text)
+			font-weight: 400
+			font-size: 13px
+			+parent('inner')
+				color: var(--base-color)
+				background-color: var(--nav-bg-base)
+				border-radius: 3px
+				transform: skew(-10deg)
+				padding: 0.3em 1em
+				height: 26px
+				text-align: center
+				font-weight: 500
+				margin-left: 10px
+	&--footer
+		gap: 8px
+		color: #fff
+		font-size: 40px
+		flex-wrap: wrap
+		+lg()
+			font-size: 32px
+		.logo-icon
+			width: 36px
+			height: 36px
+			+lg()
+				width: 33px
+				height: 33px
+			&__mono
+				fill: #FFFFFF !important
+		&[data-logo-text]::after
+			content: attr(data-logo-text)
+			margin-left: 14px
+			opacity: 0.37
+			font-weight: 400
+			max-width: 70px
+			font-size: 13px
+			+md()
+				max-width: 100%
+				margin-left: 0
+	&-text
+		white-space: nowrap
+		font-weight: 400
+		font-family: var(--accen-font)
+		font-style: italic
+	&-icon
+		flex: none
+		+parent('header')
+			height: 30px
+			width: 30px
+		&__mono
+			fill: #EDE8FB
+			+parent('inner')
+				fill: #151339
+		&__pink
+			fill: #EA3589
+		&__blue
+			fill: #6766F6
+		&__green
+			fill: #63D4B4
+		&__yellow
+			fill: #F4BA40

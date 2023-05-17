@@ -4,7 +4,7 @@ input, button, select, textarea
 	border: 0
 	background-color: transparent
 	outline: none
-	font-family: $baseFont
+	font-family: var(--base-font)
 	font-weight: 500
 	display: block
 
@@ -70,10 +70,10 @@ textarea
 		transition: $trs
 		& ~ .form-input
 			padding: 30px 20px 10px 20px
-form
-	display: flex
-	flex-direction: column
-	gap: 10px
+// form
+// 	display: flex
+// 	flex-direction: column
+// 	gap: 10px
 
 .form
 	&-group
@@ -190,30 +190,52 @@ form
 
 
 .search
+	&--index
+		display: flex
+		gap: 8px
+		margin-top: -20px
+	&-clear
+		cursor: pointer
+		&__icon
+			height: 35px
+			width: 35px
+			fill: var(--light-bg)
+	&__btns
+		display: flex
+		gap: 25px
+		opacity: 0
+		pointer-events: none
+	&-btn
+		cursor: pointer
+		font-size: 17px
 	&__icon
 		height: 23px
 		width: 23px
 		flex: none
 	&-field
+		flex: 1
 		display: flex
 		justify-content: space-between
-		// align-items: center
-		background-color: var(--light_theme_bg)
+		background-color: var(--base-bg)
 		border-radius: 3px
-		box-shadow: 0px 14px 44px rgba(15, 0, 134, 0.14)
-		padding: 10px 13px 10px 0
+		padding: 4px
 		&__icon
 			height: inherit
 			display: flex
 			align-items: center
 			justify-content: center
-			width: 96px
-			border-right: 2px solid #E6E5F9
+			width: 60px
 			fill: #9693C8
 	&-input
 		flex: 1
 		font-size: 18px
-		padding: 0 28px
+		color: var(--base-color)
+		padding-right: 16px
+		&.isfilled ~ .search__btns
+			opacity: 1
+			pointer-events: auto
+		&:focus::placeholder
+			opacity: 0
 		&::placeholder
 			color: #9693C8
 

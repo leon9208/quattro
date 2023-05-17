@@ -1,5 +1,6 @@
 header.header
-	.header-side.header-side--left
+	.header-side.header-side--left.d-sm-none
+		+logo('logo--nav', false, false, true)
 		if pageType == 'game'
 			a.btn.btn--xs.btn--square.btn--light(href="/") 
 				+xlink('arrow-left', 'btn')
@@ -9,16 +10,16 @@ header.header
 
 	.header-center
 		if pageType != 'main'
-			+logo('logo--header', 'quattro', 'casino')
+			+logo('logo--header', 'quattro', 'live casino', true)
 		else
-			+logo('logo--header', 'quattro')
+			+logo('logo--header', 'quattro', false, true)
 	.header-side.header-side--right
 		if pageType == 'main'
-			a.btn.btn--xs.btn--light(href="#")
-				+xlink('user', 'btn')
-				span Log In
-			a.btn.btn--xs.btn--primary(href="#")
+			a.btn.btn--xs.btn--primary.text-uppercase(href="#")
 				span Register
+			a.btn.btn--xs.btn--secondary.text-uppercase(href="#")
+				+xlink('user', 'btn')
+				span Login
 		else
 			.header-account
 				.balance

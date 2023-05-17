@@ -3,11 +3,10 @@
 	align-items: center
 	justify-content: center
 	text-align: center
-	font-family: $baseFont
 	position: relative
 	cursor: pointer
 	border-radius: 3px
-	font-weight: 800
+	font-weight: 700
 	padding: 0 2em
 	transition: $trs
 	gap: 10px
@@ -52,7 +51,10 @@
 		width: 48px
 	&--xs
 		height: 48px
-		font-size: 16px
+		font-size: 13px
+		+xs()
+			height: 43px
+			font-size: 12px
 	&--sm
 		height: 54px
 		font-size: 16px

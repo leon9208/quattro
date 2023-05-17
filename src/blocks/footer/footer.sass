@@ -1,34 +1,124 @@
 .footer
 	background: var(--footer-bg)
+	padding-bottom: 60px
+	&-btn
+		height: 55px
+		display: inline-flex
+		align-items: center
+		justify-content: center
+		padding: 0 16px
+		font-size: 14px
+		font-weight: 800
+		color: #fff
+		text-decoration: none
+		gap: 14px
+		border-radius: 3px
+		background-color: #1F1D49
+		transition: background-color .25s ease
+		+to(480px)
+			flex: 1
+		&:hover
+			opacity: 0.8
+		+parent('_dark-theme')
+			background-color: #424564
 	&-top
-		border-bottom: 1px solid #2B294A
-	&-main
 		display: flex
-		justify-content: space-between
+		align-items: center
+		border-bottom: 1px solid #2B294A
+		padding: 45px 0
+		gap: 26px
+		+lg()
+			gap: 16px
 		+sm()
-			flex-wrap: wrap
+			align-items: flex-end
+			gap: 16px
+		+xs()
+			align-items: center
+			flex-direction: column
+		+to(480px)
+			padding: 28px 0
+			border-bottom: 0
+		&__btns
+			display: flex
+			gap: 16px
+			+to(1300px)
+				flex-direction: column
+			+sm()
+				flex-direction: row
+			+to(480px)
+				gap: 8px
+				width: 100%
+	&-main
+		padding: 40px 0
+		display: grid
+		grid-template-columns: 1fr 1fr 1fr auto
+		+sm()
+			grid-template-columns: 1fr
 		+xs()
 			flex-direction: column
+		+to(480px)
+			padding: 0 0 20px
 		&__col
 			display: flex
 			flex-direction: column
 			gap: 2rem
+			+sm()
+				gap: unset
+				padding: 0 10px
 	&-nav
+		&__icon
+			fill: #675E81
+			height: 22px
+			width: 22px
+			+parent('_dark-theme')
+				fill: #B6B7CE
 		&__head
+			display: flex
+			align-items: center
+			justify-content: space-between
+			position: relative
 			margin-bottom: 18px
-			display: block
+			+sm()
+				margin-bottom: 0
+				padding: 10px 0
+				&::after
+					content: ''
+					flex: none
+					height: 8px
+					width: 8px
+					border-right: 2px solid #fff
+					border-bottom: 2px solid #fff
+					right: 0
+					transform: rotate(45deg)
+					transition: transform .25s ease
+					will-change: transform
+				a
+					pointer-events: none
+				&.isactive
+					&::after
+						transform: rotate(225deg)
+					& ~ .footer-nav__list
+						max-height: 100%
 		&__title
+			position: relative
+			display: flex
+			align-items: center
+			gap: 16px
 			color: #EDE8FB
 			font-weight: 800
 			font-size: 18px
-			padding: 0.5em 0
 			text-decoration: none
+			+sm()
+				padding: 10px 0
+			+xs()
+				font-size: 16px
 		&__list
 			display: flex
 			flex-direction: column
 			align-items: flex-start
-			+xs()
-				height: 0
+			+sm()
+				transition: max-height .25s ease
+				max-height: 0px
 				overflow: hidden
 		&__link
 			color: #675E81
@@ -38,3 +128,38 @@
 			margin: 10px 0
 			&:hover
 				color: color(--primary-color)
+
+
+	&-slider
+		position: relative
+		width: calc(100% - var(--nav-width))
+		left: var(--nav-width)
+		margin: 0
+		background-color: #1C1A45
+		padding: 25px 20px
+		mix-blend-mode: luminosity
+		user-select: none
+		+sm()
+			left: 0
+			width: 100%
+		+parent('_dark-theme')
+			background-color: #25273E
+		&::after
+			pointer-events: none
+			content: ''
+			position: absolute
+			left: 0
+			top: 0
+			bottom: 0
+			right: 0
+			z-index: 2
+			background: linear-gradient(90deg, #1C1A45 2.41%, rgba(28, 26, 69, 0) 9.89%, rgba(28, 26, 69, 0) 93.93%, rgba(28, 26, 69, 0) 93.94%, #1C1A45 100%)
+			+parent('_dark-theme')
+				background: linear-gradient(90deg, #25273E 2.41%, rgba(37, 39, 62, 0) 9.89%, rgba(28, 26, 69, 0) 93.93%, rgba(37, 39, 62, 0) 93.94%, #25273E 100%)
+		.swiper
+			&-wrapper
+				align-items: center
+				transition-timing-function: linear !important
+			&-slide
+				opacity: 0.4
+				width: auto !important
