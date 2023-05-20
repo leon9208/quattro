@@ -62,8 +62,18 @@ const bCarousel = () => {
 	let prevArrow = document.querySelectorAll('.section .swiper-button--prev')
 	let nextArrow = document.querySelectorAll('.section .swiper-button--next')
 	baseCarousel.forEach((slider, index)=>{
+		var dataRow = slider.getAttribute('data-row');
+		var data = slider.getAttribute('data-breakpoint') || null;
+		var dataOptions = JSON.parse(data);
 			const swiper = new Swiper(slider, {
 				spaceBetween: 10,
+				slidesPerView: data != null ? dataOptions.xl : 'auto',
+				// slidesPerColumn: 2,
+				// autoHeight: true,
+				grid: {
+					rows: dataRow || 1,
+					fill: 'row'
+				},
 				mousewheel: {
 					forceToAxis: true,
 				},
@@ -72,34 +82,60 @@ const bCarousel = () => {
 					sticky: true,
 				},
 				navigation: {
-						nextEl: nextArrow[index],
-						prevEl: prevArrow[index],
+					nextEl: nextArrow[index],
+					prevEl: prevArrow[index],
 				},
 				pagination: {
+					enabled: true,
 					el: pagination[index],
-					// type: 'bullets',
+					dynamicBullets: true,
+					dynamicMainBullets: 4,
 					clickable: true
 				},
-				on: {
-					init: function() {
-						var data = slider.getAttribute('data-breakpoint') || {};
-						if (data) {
-							var dataOptions = JSON.parse(data);
-							this.params.breakpoints = {
-								320: {
-									slidesPerView: dataOptions.xs,
-								},
-								480: {
-									slidesPerView: dataOptions.sm,
-								},
-								780: {
-									slidesPerView: dataOptions.md,
-								},
-								960: {
-									slidesPerView: dataOptions.lg,
-								}
-							}
-						}
+				breakpoints: {
+					320: {
+						slidesPerView: data != null && dataOptions.xs ? dataOptions.xs : 2.3,
+						spaceBetween: 8,
+						grid: {
+							rows: 1,
+							fill: 'row'
+						},
+					},
+					480: {
+						slidesPerView: data != null && dataOptions.sm ? dataOptions.sm : 2.5,
+						spaceBetween: 8,
+						grid: {
+							rows: dataRow || 1,
+							fill: 'row'
+						},
+					},
+					780: {
+						slidesPerView: data != null && dataOptions.md ? dataOptions.md : 4,
+						grid: {
+							rows: dataRow || 1,
+							fill: 'row'
+						},
+					},
+					960: {
+						slidesPerView: data != null && dataOptions.lg ? dataOptions.lg : 'auto',
+						grid: {
+							rows: dataRow || 1,
+							fill: 'row'
+						},
+					},
+					1200: {
+						slidesPerView: data != null && dataOptions.xl ? dataOptions.xl : 'auto',
+						grid: {
+							rows: dataRow || 1,
+							fill: 'row'
+						},
+					},
+					1500: {
+						slidesPerView: data != null && dataOptions.xxl ? dataOptions.xxl : dataOptions.xl,
+						grid: {
+							rows: dataRow || 1,
+							fill: 'row'
+						},
 					}
 				}
 		});

@@ -1,0 +1,100 @@
+.event
+	border-radius: 3px
+	position: relative
+	padding: 18px 30px 37px
+	background-color: var(--base-bg)
+	+xs()
+		padding: 18px 20px 20px
+	&-img
+		display: flex
+	&-icon
+		display: flex
+		align-items: center
+		justify-content: center
+		padding: 15px
+		height: 80px
+		width: 80px
+		border-radius: 50px
+		flex: none
+		margin-left: -15px
+		background-color: var(--base-bg)
+		border: 2px solid var(--nav-bg-base)
+		img
+			height: 100%
+			width: 100%
+			object-fit: contain
+		+lg()
+			margin-left: -10px
+			height: 60px
+			width: 60px
+			padding: 10px
+	&-time
+		font-size: 25px
+		font-weight: 800
+		color: var(--base-color)
+		+lg()
+			font-size: 22px
+		+xs()
+			font-size: 18px
+	&-date
+		font-weight: 800
+		display: inline-flex
+		text-align: center
+		font-weight: 800
+		font-size: 13px
+		border-radius: 50px
+		padding: 6px 12px
+		background-color: var(--nav-bg-base)
+		+xs()
+			font-size: 11px
+	&-category
+		font-size: 13px
+		margin-bottom: 20px
+		+xs()
+			font-size: 11px
+	&-name
+		font-weight: 800
+		font-size: 18px
+		+xs()
+			font-size: 16px
+	&-main
+		display: flex
+		align-items: flex-start
+		justify-content: space-between
+		margin-bottom: 22px
+		gap: 10px
+		&__top
+			display: flex
+			align-items: center
+			gap: 16px
+			margin-bottom: 30px
+			+xs()
+				margin-bottom: 20px
+	&-bottom
+		display: flex
+		gap: 4px
+		align-items: center
+		&__col
+			flex: 1
+			display: flex
+			background-color: var(--nav-bg-base)
+			border-radius: 3px
+			display: flex
+			align-items: center
+			justify-content: space-between
+			font-weight: 800
+			font-size: 17px
+			text-transform: uppercase
+			padding: 12px 20px
+			cursor: pointer
+			color: var(--base-color)
+			transition: .25s ease
+			+xs()
+				padding: 12px
+				font-size: 14px
+			&:hover
+				background-color: var(--nav-bg-hover)
+			span:first-child
+				opacity: 0.6
+
+

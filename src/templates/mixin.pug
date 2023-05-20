@@ -5,7 +5,7 @@ mixin lazyJpg(image, altTag, lWidth, lHeight)
 	picture
 		source(data-srcset="img/"+image+".webp" type="image/webp")
 		source(data-srcset="img/"+image+".jpg" type="image/jpeg")
-		img.lazyload.blur-up(src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="img/"+image+".jpg" alt=altTag width=lWidth height=lHeight)
+		img.lazyload(src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="img/"+image+".jpg" alt=altTag width=lWidth height=lHeight)
 
 mixin picJpg(image, altTag)
 	picture
@@ -50,7 +50,7 @@ mixin acc(accTitle)
 			article.acc-item__content.
 				<p>Quattrocasino.com is the multi-currency online casino where you can play using bitcoin and other cryptocurrencies, as well as many traditional currencies, including rubles, dollars and euros.Quattrocasino.com is operated and licensed by Luckywayz Limited B.V., a company registered under the laws of Curacao under registration number 161054, registered address Abraham de Veerstraat 9, Willemstad, Curaçao, license Nr. 365/JAZ. support@quattrocasino.com.</p><p>Quattrocasino.com is the multi-currency online casino where you can play using bitcoin and other cryptocurrencies, as well as many traditional currencies, including rubles, dollars and euros.Quattrocasino.com is operated and licensed by Luckywayz Limited B.V., a company registered under the laws of Curacao under registration number 161054, registered address Abraham de Veerstraat 9, Willemstad, Curaçao, license Nr. 365/JAZ. support@quattrocasino.com.</p>
 
-mixin slider(sCLass, sTitle, sBreakpoints, sVert = false)
+mixin slider(sCLass, sTitle, sBreakpoints=false, sVert = false)
 	.section
 		.container
 			.section-carousel(class=sCLass)
@@ -60,13 +60,13 @@ mixin slider(sCLass, sTitle, sBreakpoints, sVert = false)
 					.section-head__side-center
 						.swiper-pagination
 					.section-head__side-right
-						a.section-head__link(href="#") see all
+						a.section-head__link(href="#" data-text-sm="all" data-text-md="see all") 
 						.swiper-nav
 							button.swiper-button.swiper-button--prev
 								+xlink('arrow-left', 'swiper-button')
 							button.swiper-button.swiper-button--next
 								+xlink('arrow-right', 'swiper-button')
-				.swiper(data-breakpoint=''+sBreakpoints+'')
+				.swiper(data-breakpoint=(sBreakpoints != false ? ''+sBreakpoints+'' : false))
 					.swiper-wrapper
 						- for (let x = 0; x < 10; x++)
 							.swiper-slide
@@ -83,7 +83,7 @@ mixin search()
 				button.search-clear(type="button")
 					+xlink('clear', 'search-clear')
 				button.btn.btn--primary.search-btn(type="submit") Search
-		a.btn.btn--primary.btn--lg(href="#") 
+		a.btn.btn--primary.search-btn(href="#") 
 			span I'll be lucky
-			+xlink('search', 'btn')
+			+xlink('clover', 'btn')
 

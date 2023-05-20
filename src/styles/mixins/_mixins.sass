@@ -6,6 +6,9 @@
 		font-display: swap
 		src: url('#{$file-path}.woff2') format('woff2')
 
+=xxl()
+	@media (max-width: 1600px)
+		@content
 =xl()
 	@media (max-width: 1400px)
 		@content
@@ -16,7 +19,7 @@
 	@media (max-width: 992px)
 		@content
 =sm()
-	@media (max-width: 767px)
+	@media (max-width: 780px)
 		@content
 =xs()
 	@media (max-width: 576px)
@@ -32,6 +35,10 @@
 
 =heightTo($to)
 	@media (max-height: $to)
+		@content
+
+=touch()
+	@media (hover: hover)
 		@content
 
 

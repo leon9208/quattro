@@ -194,11 +194,14 @@ textarea
 		display: flex
 		gap: 8px
 		margin-top: -20px
+		margin-bottom: 24px
+		+sm()
+			display: none
 	&-clear
 		cursor: pointer
 		&__icon
-			height: 35px
-			width: 35px
+			height: 24px
+			width: 24px
 			fill: var(--light-bg)
 	&__btns
 		display: flex
@@ -206,7 +209,6 @@ textarea
 		opacity: 0
 		pointer-events: none
 	&-btn
-		cursor: pointer
 		font-size: 17px
 	&__icon
 		height: 23px
@@ -219,12 +221,14 @@ textarea
 		background-color: var(--base-bg)
 		border-radius: 3px
 		padding: 4px
+		height: 74px
 		&__icon
 			height: inherit
 			display: flex
 			align-items: center
 			justify-content: center
 			width: 60px
+			height: 100%
 			fill: #9693C8
 	&-input
 		flex: 1
@@ -237,6 +241,7 @@ textarea
 		&:focus::placeholder
 			opacity: 0
 		&::placeholder
+			transition: opacity .25s ease
 			color: #9693C8
 
 // @media (hover: hover)

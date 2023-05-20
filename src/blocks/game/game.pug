@@ -1,10 +1,14 @@
-mixin game(gVertical = false, gAttr = false, gbTitle = false)
+mixin game(gVertical = false, gAttr = false, gbTitle = false, gFav = false)
 	- var gClass = gVertical ? 'game--ver' : 'game--hor';
 	- var gTitle = gVertical ? 'Gates of Olympus' : 'Sweet Bonanza';
 	- var gImg = gVertical ? 'img' : 'img2';
+	- var gFavor = gFav ? 'isactive' : '';
 	.game(class=gClass data-category=gAttr)
 		.game-content
+			a.game-link(href="#") 
 			.game-info
+				button.game-fav(class=gFavor)
+					+xlink('heart', 'game-fav')
 				.game-head
 					.game-info__title=gTitle
 					.game-info__text Pragmatic

@@ -5,6 +5,7 @@
 		justify-content: center
 		gap: 6px
 		&-bullet
+			flex: none
 			width: 20px
 			height: 5px
 			border-radius: 22px
@@ -13,14 +14,11 @@
 			cursor: pointer
 			&-active
 				width: 37px
-		+sm()
-			display: none
-		
+				+md()
+					width: 30px
 	&-nav
 		display: flex
 		gap: 4px
-		+sm()
-			display: none
 	&-button
 		cursor: pointer
 		border-radius: 3px
@@ -34,6 +32,9 @@
 		color: var(--base-color)
 		fill: currentColor
 		transition: $trs
+		+md()
+			height: pow(45)
+			width: pow(66)
 		&__icon
 			height: 18px
 			width: 18px

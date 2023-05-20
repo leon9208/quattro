@@ -1,5 +1,38 @@
 .game
 	display: block
+	&-link
+		position: absolute
+		height: 100%
+		width: 100%
+		top: 0
+		left: 0
+		z-index: 2
+		display: block
+		+touch()
+			display: none
+	&-fav
+		position: absolute
+		display: flex
+		align-items: center
+		justify-content: center
+		right: 0
+		top: 0
+		height: 36px
+		width: 36px
+		background: rgba(255, 255, 255, 0.2)
+		color: rgba(255, 255, 255, 0.4)
+		border-radius: 0 0 0 3px
+		cursor: pointer
+		fill: none
+		stroke: currentColor
+		&.isactive
+			fill: #e74c3c
+			stroke: #e74c3c
+		&__icon
+			stroke-width: 3px
+			height: 15px
+			width: 15px
+			
 	&-title
 		margin-top: 10px
 		font-weight: 500
@@ -12,30 +45,41 @@
 		overflow: hidden
 		max-width: 100%
 		flex: none
+		background-color: #E0E0E0
+		background-repeat: no-repeat
+		background-position: center
+		background-size: 40%
+		background-image: url("data:image/svg+xml,%3Csvg width='105' height='92' viewBox='0 0 105 92' fill='%23E8E8E8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.3199 32.3341H37.6902L29.0902 58.7863H2.71988L11.3199 32.3341Z'/%3E%3Cpath d='M75.6567 32.3487H102.027L93.427 58.8008H67.0567L75.6567 32.3487Z'/%3E%3Cpath d='M43.4266 64.6683H69.7969L61.1969 91.1205H34.8266L43.4266 64.6683Z'/%3E%3Cpath d='M43.4127 0H69.7831L61.1831 26.4522H34.8127L43.4127 0Z'/%3E%3Cpath d='M34.9703 0L26.3703 26.4522H0C34.9703 0 0 26.4522 34.9703 0Z'/%3E%3Cpath d='M96.151 26.4522H69.7806L78.3806 0C96.151 26.4522 78.3806 0 96.151 26.4522Z'/%3E%3Cpath d='M74.8928 64.6683H105L96.4 91.1205C74.8928 64.6683 96.4 91.1205 74.8928 64.6683Z'/%3E%3Cpath d='M8.59993 64.6682H34.9703L26.3703 91.1204C8.59993 64.6682 26.3703 91.1204 8.59993 64.6682Z'/%3E%3C/svg%3E")
+		+parent('_dark-theme')
+			background-image: url("data:image/svg+xml,%3Csvg width='105' height='92' viewBox='0 0 105 92' fill='%2321243A' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.3199 32.3341H37.6902L29.0902 58.7863H2.71988L11.3199 32.3341Z'/%3E%3Cpath d='M75.6567 32.3487H102.027L93.427 58.8008H67.0567L75.6567 32.3487Z'/%3E%3Cpath d='M43.4266 64.6683H69.7969L61.1969 91.1205H34.8266L43.4266 64.6683Z'/%3E%3Cpath d='M43.4127 0H69.7831L61.1831 26.4522H34.8127L43.4127 0Z'/%3E%3Cpath d='M34.9703 0L26.3703 26.4522H0C34.9703 0 0 26.4522 34.9703 0Z'/%3E%3Cpath d='M96.151 26.4522H69.7806L78.3806 0C96.151 26.4522 78.3806 0 96.151 26.4522Z'/%3E%3Cpath d='M74.8928 64.6683H105L96.4 91.1205C74.8928 64.6683 96.4 91.1205 74.8928 64.6683Z'/%3E%3Cpath d='M8.59993 64.6682H34.9703L26.3703 91.1204C8.59993 64.6682 26.3703 91.1204 8.59993 64.6682Z'/%3E%3C/svg%3E")
+			background-color: #25283E
 		&:hover
 			.game-info
 				opacity: 1
 				pointer-events: unset
 				visibility: visible
 	&--ver
-		max-width: 420px
+		max-width: 230px
 		width: 100%
-		.game-content
-			width: 100%
-			&::after
-				content: ""
-				padding-bottom: 150%
-				display: block
-			img
-				position: absolute
-				top: 0
-				left: 0
-				height: 100%
+		.game
+			&-info
+				padding: 40px 20px
+			&-content
 				width: 100%
-				object-fit: cover
-				object-position: center
+				&::after
+					content: ""
+					padding-bottom: 150%
+					display: block
+				img
+					position: absolute
+					top: 0
+					left: 0
+					height: 100%
+					width: 100%
+					object-fit: cover
+					object-position: center
 	&--hor
-		max-width: 600px
+		max-width: 365px
 		width: 100%
 		.game-content
 			&::after
@@ -50,7 +94,6 @@
 				width: 100%
 				object-fit: cover
 				object-position: center
-	
 	&-info
 		top: 0
 		right: 0
@@ -59,7 +102,6 @@
 		position: absolute
 		background: rgba(21, 19, 57, 0.9)
 		z-index: 1
-		display: flex
 		flex-direction: column
 		align-items: center
 		justify-content: space-between
@@ -70,6 +112,9 @@
 		visibility: hidden
 		pointer-events: none
 		transition: $trs
+		display: none
+		+touch()
+			display: flex
 		&__title
 			font-weight: 800
 			color: #fff
@@ -77,15 +122,17 @@
 			margin-bottom: 3px
 		&__text
 			font-weight: 500
-			color: #B2B0E1
+			color: #fff
 			font-size: 13px
+			opacity: 0.5
 		&__link
 			font-weight: 800
 			font-size: 12px
-			color: #E3D9FF
+			color: #fff
+			opacity: 0.5
 			text-transform: uppercase
-			&:hover
-				text-decoration: none
+			text-decoration: none
+			// &:hover
 	&-body
 		display: flex
 		align-items: center
@@ -100,7 +147,6 @@
 		text-decoration: none
 		font-weight: 800
 		background-color: color(--primary-color)
-		box-shadow: 0px 6px 40px 3px color(--primary-color)
 		border-radius: 3px
 		color: #fff
 		max-height: 57px

@@ -1,18 +1,69 @@
 .category
+	padding-bottom: 40px
+	&__btn
+		height: 54px
+		text-transform: uppercase
+		font-size: 13px
+		+xs()
+			font-size: 15px
+			width: 100%
 	&-head
 		display: flex
 		flex-wrap: wrap
 		gap: 12px
-		margin-bottom: 35px
+		margin-bottom: 30px
 	&-body
 		display: flex
 		flex-direction: column
 		gap: 1em
+		margin-bottom: 20px
+		+xs()
+			margin-bottom: 8px
+	&-footer
+		display: flex
+		align-items: center
+		justify-content: center
 	&-select
-		text-transform: uppercase
-		font-weight: 800
-		font-size: 11px
-		color: #423D72
+		position: relative
+		&__current
+			background-color: var(--base-bg)
+			color: var(--nav-color)
+			user-select: none
+			width: 117px
+			height: 97px
+			border-radius: 3px
+			display: flex
+			flex-direction: column
+			align-items: center
+			justify-content: flex-end
+			padding: 16px 8px
+			gap: 16px
+			cursor: pointer
+			+sm()
+				width: 107px
+				height: 89px
+			&-name
+				position: relative
+				text-transform: uppercase
+				font-weight: 800
+				font-size: 11px
+				display: flex
+				align-items: center
+				gap: 6px
+				user-select: none
+				+sm()
+					font-size: 10px
+				&::after
+					content: ''
+					flex: none
+					height: 6px
+					width: 6px
+					border-right: 2px solid var(--nav-color)
+					border-bottom: 2px solid var(--nav-color)
+					transform: rotate(45deg)
+		+sm()
+			width: 107px
+			
 		&.isopen
 			.category-select__current::after
 				transform: rotate(180deg)
@@ -20,19 +71,12 @@
 				opacity: 1
 				visibility: visible
 				pointer-events: auto
-		&__current
-			display: flex
-			align-items: center
-			gap: 10px
-			&::after
-				content: ''
-				flex: none
-				height: 10px
-				width: 10px
-				background-position: center
-				background-size: contain
-				background-repeat: no-repeat
-				background-image: url("data:image/svg+xml,%3Csvg width='11' height='7' viewBox='0 0 11 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L5.49961 6.11111L11 0L0 0Z' fill='%237771A6'/%3E%3C/svg%3E%0A")
+		&__icon
+			height: 30px
+			width: 30px
+			+sm()
+				height: 25px
+				width: 25px
 		&__list
 			background-color: #fff
 			position: absolute
@@ -61,15 +105,28 @@
 				&:hover
 					background-color: #DFDCF6
 			
-
+	&-filter
+		display: flex
+		gap: 16px
+		width: 100%
+		+sm()
+			gap: 12px
 	&-nav
 		position: relative
-		min-width: 100px
-		max-width: 115px
 		display: flex
-		flex: 1
-		border-radius: 3px
+		flex: none
 		overflow: hidden
+		user-select: none
+		width: 117px
+		height: 97px
+		border-radius: 3px
+		+sm()
+			width: 107px
+			height: 89px
+		&__list
+			width: 100%
+			flex: 1 1 100%
+			display: flex
 		&--live
 			&::after
 				content: ''
@@ -80,14 +137,20 @@
 				top: 10px
 				right: 10px
 				background-color: color(--secondary_color)
-				animation: liveAnim .5s ease infinite alternate
+				box-shadow: 0px 0px 11px 1px color(--secondary_color)
+				animation: blink .5s ease infinite alternate
 		img
 			height: 100%
 			width: 100%
 			object-fit: cover
 		&__input
 			&:checked ~ .category-nav__item
-				background-color: #DFDCF6
+				background-color: var(--nav-bg-active)
+				color: var(--nav-color-active)
+			&:not(:checked) ~ .category-nav__item:hover
+				background-color: rgba(21, 19, 57, 0.05)
+				+parent('_dark-theme')
+					background-color: #32354F
 		&__item
 			position: relative
 			width: 100%
@@ -95,48 +158,52 @@
 			display: flex
 			flex-direction: column
 			align-items: center
-			justify-content: center
-			gap: 15px
-			background-color: #fff
-			padding: 14px 10px
+			justify-content: flex-end
+			gap: 16px
+			background-color: var(--base-bg)
+			color: var(--nav-color)
+			padding: 16px 6px
 			cursor: pointer
-			transition: $trs
-			&:not(.category-nav__item--select):hover
-				background-color: #DFDCF6
-				.category-select__current::after
-					transform: rotate(180deg)
-				.category-select__list
-					opacity: 1
-					visibility: visible
-					pointer-events: unset
+			transition: background-color .25s ease
 		&__icon
 			height: 30px
 			width: 30px
 			flex: none
-			fill: #423D72
+			fill: currentColor
+			+sm()
+				height: 25px
+				width: 25px
 		&__title
 			text-transform: uppercase
 			font-weight: 800
 			font-size: 11px
-			color: #423D72
+			color: currentColor
 			user-select: none
+			+sm()
+				font-size: 10px
 	&-grid
 		display: grid
 		gap: 10px
-		// grid-template-columns: repeat(auto-fit, minmax(240px, calc(20% - 10px)))
-		grid-template-columns: repeat(5, 1fr)
+		grid-template-columns: repeat(6, 1fr)
+		+xxl()
+			grid-template-columns: repeat(5, 1fr)
 		+xl()
 			grid-template-columns: repeat(4, 1fr)
 		+lg()
 			grid-template-columns: repeat(3, 1fr)
-		+sm()
+		+md()
+			grid-template-columns: repeat(3, 1fr)
+		+to(920px)
 			grid-template-columns: repeat(2, 1fr)
-		+xs()
+		+sm()
+			grid-template-columns: repeat(4, 1fr)
 			gap: 8px
-		// 	grid-template-columns: 1fr
+		+xs()
+			grid-template-columns: repeat(2, 1fr)
+			gap: 8px
 
-@keyframes liveAnim
+@keyframes blink
 	0%
-		box-shadow: none
+		opacity: 0
 	100%
-		box-shadow: 0px 0px 11px 1px color(--secondary_color)
+		opacity: 1

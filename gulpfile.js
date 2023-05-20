@@ -31,7 +31,7 @@ var paths = {
 	},
 	css: {
 		libsCSS: [
-			'./node_modules/swiper/swiper.min.css',
+			'./node_modules/swiper/swiper-bundle.min.css',
 			'./src/styles/libs/**/*.css',
 		],
 		src: ['./src/styles/style.sass' ],

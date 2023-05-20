@@ -8,11 +8,13 @@ block content
 	.hero
 	.container
 		+search()
-	+slider('section-carousel--bg', '🥇 Top Games', '{"lg":7,"md":6,"sm":4,"xs":2}', true)
+	+slider('section-carousel--bg', '🥇 Top Games', '{"xxl":7,"xl":6,"lg":5,"md":4,"sm":4,"xs":2.3}', true)
 	//category
 	include ../blocks/category/category.pug
-	+slider('section-carousel--bg', '💸 bonus buy', '{"lg":5,"md":6,"sm":4,"xs":2}', false)
-	+slider('section-carousel--bg', '⚡️Instant games', '{"lg":5,"md":6,"sm":4,"xs":2}', false)
+	//sport events
+	include ../blocks/event/event.pug
+	+slider('section-carousel--bg', '💸 bonus buy', '{"xxl":5.5,"xl":4,"lg":3,"md":2.5,"sm":3.5,"xs":1.8}', false)
+	+slider('section-carousel--bg', '⚡️Instant games', '{"xxl":5.5,"xl":4,"lg":3,"md":2.5,"sm":3.5,"xs":1.8}', false)
 	//faq
 	.faq.faq--index
 		.container
