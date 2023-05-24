@@ -186,6 +186,7 @@
 			width: 100%
 			object-fit: cover
 		&__input
+			position: absolute
 			&:checked ~ .category-nav__item
 				background-color: var(--nav-bg-active)
 				color: var(--nav-color-active)
@@ -208,11 +209,6 @@
 			padding: 16px 6px
 			cursor: pointer
 			transition: background-color .25s ease
-			width: 117px
-			height: 97px
-			+sm()
-				width: 107px
-				height: 89px
 		&__icon
 			height: 30px
 			width: 30px
