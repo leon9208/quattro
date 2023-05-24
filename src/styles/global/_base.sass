@@ -413,11 +413,87 @@ a
 
 .fix-right
 	position: fixed
-	width: 50px
-	background-color: #fff
+	display: flex
+	flex-direction: column
 	right: 0
 	top: 50%
-	// max-height: 80vh
-	// height: 100%
 	transform: translateY(-50%)
 	z-index: 20
+	gap: 20px
+	+sm()
+		bottom: 14px
+		right: 14px
+		top: unset
+		transform: unset
+		gap: unset
+
+.inform
+	display: flex
+	flex-direction: column
+	box-shadow: 0px 0px 10px rgba(44, 52, 57, 0.05)
+	&--bd
+		.inform-btn:not(:last-child)
+				border-bottom: 2px solid var(--light-bg)
+
+	&-btn
+		position: relative
+		text-decoration: none
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: center
+		background-color: var(--base-bg)
+		color: var(--base-color)
+		padding: 20px 10px
+		font-weight: 800
+		font-size: 9px
+		text-transform: uppercase
+		text-align: center
+		gap: 10px
+		transition: $trs
+		width: 67px
+		&:not(.inform-btn--chat)
+			+sm()
+				display: none
+		&[data-count]
+			&::after
+				content: attr(data-count)
+				position: absolute
+				height: 23px
+				width: 23px
+				text-align: center
+				display: flex
+				align-items: center
+				justify-content: center
+				// line-height: 23px
+				border-radius: 50px
+				flex: none
+				left: -6px
+				top: -6px
+				background-color: color(--primary-color)
+				color: #fff
+				font-size: 12px
+				pointer-events: none
+		&:first-child:not(.inform-btn--chat)
+			border-radius: 3px 0 0 0
+		&:last-child:not(.inform-btn--chat)
+			border-radius: 0 0 0 3px
+		&--chat
+			+sm()
+				height: 54px
+				width: 54px
+				border-radius: 3px
+		&--primary
+			background-color: color(--primary-color)
+			color: #fff
+		&:hover
+			filter: brightness(96%)
+		&__icon
+			height: 24px
+			width: 24px
+			fill: currentColor
+		span
+			+sm()
+				display: none
+		b
+			font-size: 1.55em

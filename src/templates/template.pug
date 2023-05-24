@@ -13,24 +13,24 @@ doctype html
 html(lang='en')
 	include head
 	body(class=pageType)
-		//- .fix-right
+		.fix-right
 			.inform
-				a.inform-btn(href="" data-count="3")
+				a.inform-btn(href="#" data-count="3")
 					+xlink('cup', 'inform-btn')
 					span Tourneys
-				a.inform-btn(href="" data-count="3")
+				a.inform-btn.inform-btn--chat.inform-btn--primary(href="#")
 					+xlink('chat', 'inform-btn')
 					span players chat
-			.inform
-				a.inform-btn(href="" data-count="3")
+			.inform.inform--bd
+				a.inform-btn(href="#" )
 					.live-icon.live-icon--primary
 					b 239
 					span players online
-				a.inform-btn(href="" data-count="3")
+				a.inform-btn(href="#" )
 					.live-icon.live-icon--secondary
 					span live support
 					img(src="img/chat.svg", alt="", srcset="")
-				a.inform-btn(href="" data-count="3" data-modal)
+				a.inform-btn(href="#" data-modal)
 					+xlink('search', 'inform-btn')
 					span search games
 		.page
