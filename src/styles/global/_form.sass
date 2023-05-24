@@ -191,9 +191,11 @@ textarea
 
 .search
 	&--index
+		z-index: 2
+		position: relative
 		display: flex
 		gap: 8px
-		margin-top: -20px
+		margin-top: -50px
 		margin-bottom: 24px
 		+sm()
 			display: none
@@ -229,7 +231,12 @@ textarea
 			justify-content: center
 			width: 60px
 			height: 100%
-			fill: #9693C8
+			fill: var(--base-color)
+			opacity: 0.5
+			+parent('_dark-theme')
+				opacity: 1
+				fill: #4F516F
+
 	&-input
 		flex: 1
 		font-size: 18px
@@ -242,7 +249,11 @@ textarea
 			opacity: 0
 		&::placeholder
 			transition: opacity .25s ease
-			color: #9693C8
+			color: var(--base-color)
+			opacity: 0.5
+			+parent('_dark-theme')
+				color: #4F516F
+				opacity: 1
 
 // @media (hover: hover)
 // 	select

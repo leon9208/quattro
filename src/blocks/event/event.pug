@@ -16,30 +16,31 @@ mixin evt
 						img(src="img/evt-img2.png", alt="")
 
 		.event-bottom
-			.event-bottom__col
+			a.event-bottom__col(href="#") 
 				span 1
 				span 2.54
-			.event-bottom__col
+			a.event-bottom__col(href="#") 
 				span X
 				span 3.05
-			.event-bottom__col
+			a.event-bottom__col(href="#") 
 				span 2
 				span 3.21
 
-.section
+.section.events
 	.container
 		.section-carousel
 			.section-head
 				.section-head__side-left
 					h2.section-title ⚽️ Top Sport Events
 				.section-head__side-right
-					a.section-head__link(href="#" data-text-sm="sport" data-text-md="go to sport") 
+					a.section-head__link
+						span(href="#" data-text-sm="sport" data-text-md="go to sport") 
 					.swiper-nav
 						button.swiper-button.swiper-button--prev
 							+xlink('arrow-left', 'swiper-button')
 						button.swiper-button.swiper-button--next
 							+xlink('arrow-right', 'swiper-button')
-			.swiper(data-breakpoint='{"xxl":3.2,"xl":2.8,"lg":2.2,"md":1.6,"sm":1.4,"xs":1.1}' data-row='2')
+			.swiper(data-breakpoint='{"xxl":3,"xl":3,"lg":2.2,"md":1.6,"sm":1.4,"xs":1.1}' data-row='2')
 				.swiper-wrapper
 					- for (let x = 0; x < 10; x++)
 						.swiper-slide

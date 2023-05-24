@@ -1,0 +1,38 @@
+.hero
+	margin-bottom: 24px
+	+xs()
+		margin-bottom: 16px
+	&-item
+		position: relative
+		min-height: 670px
+		padding: 100px 0
+		z-index: 1
+		background-size: cover
+		background-position: center
+		background-repeat: no-repeat
+		&::after
+			content: ''
+			position: absolute
+			height: 100%
+			width: 100%
+			left: 0
+			top: 0
+			// background: linear-gradient(152.29deg, #2A035E -6.12%, rgba(69, 57, 130, 0.76) 42.72%, rgba(38, 26, 103, 0.81) 75.05%, #3B1C68 96.42%)
+			opacity: 0.68
+			+parent('_dark-theme')
+				background: linear-gradient(152.29deg, rgba(27, 28, 48, 0.5) -6.12%, rgba(37, 39, 62, 0.5) 42.72%, rgba(37, 39, 62, 0.5) 75.05%, rgba(27, 28, 48, 0.5) 96.42%)
+		&__content
+			position: relative
+			display: flex
+			align-items: center
+			justify-content: center
+			z-index: 1
+		&__title
+			font-family: var(--accen-font)
+			text-transform: uppercase
+			font-size: 8vw
+			color: #fff
+			text-align: center
+			font-weight: 400
+			+xs()
+				font-size: 10vw

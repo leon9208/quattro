@@ -1,0 +1,79 @@
+mixin tr(tBadge=false,tBadgeCLass, tBadgeText)
+	tr
+		td
+			.bet-content
+				.bet-img
+					+lazyJpg('img2', '')
+				.bet-cat
+					+xlink('cherry', 'bet-cat')
+				.bet-info
+					a.bet-info__name(href="#") Midas Gloden Touch
+					.bet-info__cat Pragmatic
+		td
+			.bet-player De*** Iva***
+		td
+			.bet-amount 15€
+		td
+			.bet-multi
+				.bet-multi__text 10.0x
+				if tBadge != false
+					.bet-multi__badge(class=tBadgeCLass)=tBadgeText
+		td
+			.bet-payout 150€
+		td
+			.bet-time 15:31
+.bets
+	.bets-head
+		.bets-head__col
+			form.bets-form
+				.bets-form__row
+					.bets-form__switcher.bets-form__switcher--bg
+						label.bets-form__label
+							input.bets-form__input(type="radio" name="betCategory" value="live-bets" checked)
+							.bets-form__btn
+								i.live-icon.live-icon--primary
+								span Live bets
+						label.bets-form__label
+							input.bets-form__input(type="radio" name="betCategory" value="top-wins")
+							.bets-form__btn 
+								span top wins
+					.bets-form__switcher
+						label.bets-form__label
+							input.bets-form__input(type="radio" name="betType" value="all" checked)
+							.bets-form__text
+								span All Bets
+						label.bets-form__label
+							input.bets-form__input(type="radio" name="betType" value="lucky")
+							.bets-form__text
+								span Lucky bets
+						label.bets-form__label
+							input.bets-form__input(type="radio" name="betType" value="hugh-rollers")
+							.bets-form__text
+								span High rollers
+
+		.bets-head__info
+			.bets-live
+				.live-icon.live-icon--primary
+				p
+					b 239 
+					| online
+
+	.bets-body
+		table.bets-table
+			thead.bets-table__head
+				tr
+					th Game
+					th Player
+					th BET amount
+					th multiplier
+					th payout
+					th Time
+			tbody.bets-table__body
+				+tr(false)
+				+tr(true, 'bet-multi__badge--primary', 'Mega Win')
+				+tr(true, 'bet-multi__badge--secondary', 'Big win')
+				+tr(true, 'bet-multi__badge--tertiary', 'huge win')
+				+tr(false)
+				+tr(false)
+				+tr(false)
+				+tr(false)

@@ -1,6 +1,5 @@
-header.header
+header.header.header--fixed
 	.header-side.header-side--left.d-sm-none
-		+logo('logo--nav', false, false, true)
 		if pageType == 'game'
 			a.btn.btn--xs.btn--square.btn--light(href="/") 
 				+xlink('arrow-left', 'btn')
@@ -14,30 +13,47 @@ header.header
 		else
 			+logo('logo--header', 'quattro', false, true)
 	.header-side.header-side--right
-		if pageType == 'main'
-			a.btn.btn--xs.btn--primary.text-uppercase(href="#")
-				span Register
-			a.btn.btn--xs.btn--secondary.text-uppercase(href="#")
-				+xlink('user', 'btn')
-				span Login
-		else
-			.header-account
-				.balance
-					.balance-btn
-						.balance-btn__label Balance
-						.balance-btn__text 1245 €
-					.balance-content
-						.balance-info
-							.balance-info__item
-								span Balance
-								b EUR 1245
-							.balance-info__item
-								span Bonus balance
-								b EUR 122245
-						a.btn.btn--xs.btn--gray(href="account.html#balance-history") Balance history
-						a.btn.btn--xs.btn--secondary(href="#") Cashier
-
-				a.btn.btn--xs.btn--primary(href="#")
-					span Deposit
-			a.btn.btn--xs.btn--square.btn--secondary(href="account.html")
-				+xlink('user', 'btn')
+		.header-account
+			if pageType != 'main'
+				a.btn.header-btn.btn--square.btn--secondary(href="#")
+					+xlink('user', 'btn')
+			else
+				.btn.header-btn.btn--secondary.header-mnu
+					+xlink('user', 'btn')
+			.header-dropdown
+				.header-dropdown__head 
+					+xlink('user', 'btn')
+					span Hello, denis
+				a.btn.btn--xs.btn--gray(href="#") Balances
+				a.btn.btn--xs.btn--gray(href="#") Personal info
+				a.btn.btn--xs.btn--primary(href="#" data-count="6") Bonuses
+				a.btn.btn--xs.btn--gray(href="#") History
+				a.btn.btn--xs.btn--gray(href="#") Settings
+		.header-balance
+			.balance
+				.balance-btn.header-mnu
+					.balance-btn__text 1245.03€
+				.header-dropdown
+					.balance-info
+						.balance-info__item
+							span Main balance
+							b 1245 €
+						.balance-info__item
+							span Casino bonus
+							b 122245 €
+						.balance-info__item
+							span Sport bonus
+							b 122245 €
+						.balance-info__item
+							span Quattro Coins
+							b.coin 122245
+					a.btn.btn--xs.btn--secondary(href="#") Cashier
+					a.btn.btn--xs.btn--primary(href="#" data-count="6") Bonuses
+					a.btn.btn--xs.btn--gray(href="#") Balance history
+			a.btn.header-btn.btn--primary.text-uppercase(href="#")
+				span.d-sm-none Deposit
+				+xlink('plus', 'd-none d-sm-block btn')
+		a.btn.header-btn.btn--square.btn--gray.d-sm-none(href="#")
+			+xlink('heart', 'btn')
+		a.btn.btn--xs.btn--gray.text-uppercase.d-none.d-sm-flex(href="#")
+			+xlink('menu', 'btn')

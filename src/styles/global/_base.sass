@@ -44,7 +44,7 @@ a
 
 .container
 	max-width: 1920px
-	padding: 0 95px
+	padding: 0 94px
 	margin: 0 auto
 	+sm()
 		padding: 0 20px
@@ -75,7 +75,15 @@ a
 		display: block
 		height: inherit
 		width: inherit
-
+.gr
+	&--violet
+		background: linear-gradient(283.35deg, #A62EE0 -3.42%, #EA3589 44.81%, #5538F4 101.83%)
+	&--orange
+		background: linear-gradient(312.69deg, #D4315E -1.33%, #EE9F3E 111.07%)
+	&--green
+		background: linear-gradient(304.38deg, #3ADED4 -5.98%, #72F49F 103.49%)
+	&--blue
+		background: linear-gradient(225.4deg, #52B9F8 11.2%, #235DD7 84.07%)
 .bd
 	&-b
 		border-bottom: 2px solid var(--light-bg)
@@ -95,6 +103,8 @@ a
 
 .section
 	margin-bottom: 14px
+	+xs()
+		margin-bottom: 24px
 	&-carousel
 		.section-head__side-center, .swiper-nav
 			+sm()
@@ -109,6 +119,10 @@ a
 		.swiper
 			+sm()
 				overflow: unset
+			&-pagination
+				position: relative
+				&-bullet:not(.swiper-pagination-bullet-active-main)
+					opacity: 0
 	&-title
 		display: flex
 		align-items: center
@@ -128,7 +142,6 @@ a
 			border-radius: 6px
 			+sm()
 				background-color: var(--base-bg)
-
 	&-head
 		display: flex
 		align-items: center
@@ -138,24 +151,31 @@ a
 		+sm()
 			gap: 16px
 		+xs()
+			margin-bottom: 20px
 			gap: 6px
 		&__link
 			display: flex
 			align-items: center
 			gap: 4px
 			position: relative
-			font-weight: 800
-			font-size: 12px
 			text-transform: uppercase
 			text-decoration: none
 			padding: 10px 15px
 			border-radius: 6px
 			background-color: var(--light-bg)
 			color: var(--base-color)
-			&::before
-				content: attr(data-text-md)
+			&-icon
+				flex: none
+				margin-right: 5px
 				+sm()
-					content: attr(data-text-sm)
+					display: none
+			span
+				font-weight: 800
+				font-size: 12px
+				&::before
+					content: attr(data-text-md)
+					+sm()
+						content: attr(data-text-sm)
 				
 			+sm()
 				background-color: var(--base-bg)
@@ -176,6 +196,8 @@ a
 				+sm()
 					flex: unset
 			&-center
+				position: relative
+				flex: 1
 				+sm()
 					display: none
 			&-right
@@ -231,26 +253,40 @@ a
 				background-position: right bottom
 				position: absolute
 				pointer-events: none
+.account
+	table
+		font-size: 14px
+		text-align: left
+		color: #54517A
+		th, td
+			padding-bottom: 20px
+			&:not(:last-child)
+				padding-right: 50px
+		b
+			font-weight: 500
+			white-space: nowrap
 
-table
-	font-size: 14px
-	text-align: left
-	color: #54517A
-	th, td
-		padding-bottom: 20px
-		&:not(:last-child)
-			padding-right: 50px
-	b
-		font-weight: 500
-		white-space: nowrap
-// thead
-// tbody
+.coin
+	position: relative
+	display: flex
+	align-items: center
+	&::before
+		content: ''
+		margin-right: 6px
+		height: 24px
+		width: 24px
+		background-size: contain
+		background-repeat: no-repeat
+		background-position: center
+		background-image: url("data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.5 24.207C18.6873 24.207 23.7031 19.1912 23.7031 13.0039C23.7031 6.81659 18.6873 1.80078 12.5 1.80078C6.31269 1.80078 1.29688 6.81659 1.29688 13.0039C1.29688 19.1912 6.31269 24.207 12.5 24.207Z' fill='%23D68F30'/%3E%3Cpath d='M2.05859 15.9141V17.0586C2.17578 17.3613 2.30664 17.6602 2.44922 17.9492V15.9141H2.05859ZM3.33594 18.0684V19.4434C3.49219 19.6641 3.6543 19.8809 3.82422 20.0898V18.0684H3.33594ZM5.02735 19.8652V21.3477C5.2168 21.5176 5.41211 21.6797 5.61328 21.8359V19.8652H5.02735ZM7.10938 21.2305V22.8242C7.30078 22.9297 7.4961 23.0293 7.69532 23.125V21.2305H7.10938ZM9.47071 22.0996V23.7871C9.66407 23.8418 9.85938 23.8906 10.0566 23.9356V22.0996H9.47071ZM12.2344 22.4004V24.1992C12.3223 24.2012 12.4102 24.2051 12.5 24.2051C12.6074 24.2051 12.7149 24.1992 12.8203 24.1973V22.4004H12.2344ZM14.9981 22.0859V23.9219C15.1953 23.877 15.3906 23.8262 15.584 23.7715V22.0859H14.9981ZM17.3535 21.2051V23.1016C17.5527 23.0059 17.7481 22.9023 17.9395 22.7949V21.2051H17.3535ZM19.4297 19.8281V21.8008C19.6307 21.6437 19.8262 21.4795 20.0156 21.3086V19.8281H19.4297ZM21.6973 18.0254H21.209V20.0469C21.3789 19.8359 21.543 19.6191 21.6973 19.3965V18.0254ZM22.9668 15.8633H22.5762V17.9023C22.7188 17.6074 22.8496 17.3047 22.9668 16.998V15.8633Z' fill='%23BC6F00'/%3E%3Cpath d='M12.5 23.1992C18.6873 23.1992 23.7031 18.1834 23.7031 11.9961C23.7031 5.80878 18.6873 0.792969 12.5 0.792969C6.31269 0.792969 1.29688 5.80878 1.29688 11.9961C1.29688 18.1834 6.31269 23.1992 12.5 23.1992Z' fill='%23FFF176'/%3E%3Cpath d='M12.5 22.2012C18.1361 22.2012 22.7051 17.6322 22.7051 11.9961C22.7051 6.35999 18.1361 1.79102 12.5 1.79102C6.86389 1.79102 2.29492 6.35999 2.29492 11.9961C2.29492 17.6322 6.86389 22.2012 12.5 22.2012Z' fill='%23F2BC1A'/%3E%3Cpath d='M2.27469 12.3867C2.20242 11.043 2.43485 9.67969 2.9036 8.40235C3.39188 7.12891 4.13992 5.95117 5.08328 4.95117C6.97781 2.94727 9.72781 1.78516 12.4993 1.77148C15.2708 1.78711 18.0227 2.94727 19.9133 4.95313C20.8587 5.95117 21.6048 7.13086 22.093 8.40235C22.5637 9.68164 22.7962 11.043 22.7219 12.3867H22.6829C22.679 11.0462 22.4137 9.71934 21.9016 8.48047C21.3887 7.243 20.6397 6.11724 19.6966 5.16602C18.7528 4.21573 17.6312 3.46049 16.3958 2.94336C15.1607 2.4277 13.8357 2.16219 12.4973 2.16219C11.159 2.16219 9.83393 2.4277 8.5989 2.94336C7.36347 3.46049 6.24189 4.21573 5.29813 5.16602C4.3543 6.11672 3.60525 7.24262 3.09305 8.48047C2.58102 9.71934 2.31564 11.0462 2.3118 12.3867H2.27469Z' fill='%23E08F00'/%3E%3Cpath d='M12.5 0.794922C6.3125 0.794922 1.29688 5.81055 1.29688 11.998C1.29688 18.1855 6.3125 23.2012 12.5 23.2012C18.6875 23.2012 23.7031 18.1855 23.7031 11.998C23.7031 5.81055 18.6875 0.794922 12.5 0.794922ZM12.5 22.2031C6.86328 22.2031 2.29492 17.6348 2.29492 11.998C2.29492 6.35938 6.86328 1.79102 12.5 1.79102C18.1367 1.79102 22.7051 6.35937 22.7051 11.9961C22.7051 17.6328 18.1367 22.2031 12.5 22.2031Z' fill='%23FFF176'/%3E%3Crect x='7.93164' y='10.748' width='2.62871' height='2.59116' fill='%23FFF176'/%3E%3Crect x='14.3457' y='10.748' width='2.62871' height='2.59116' fill='%23FFF176'/%3E%3Crect x='11.1309' y='13.917' width='2.62871' height='2.59116' fill='%23FFF176'/%3E%3Crect x='11.1309' y='7.5791' width='2.62871' height='2.59116' fill='%23FFF176'/%3E%3Cpath d='M10.5604 7.5791V10.1703H7.93164C8.81227 9.31084 9.6884 8.44707 10.5604 7.5791Z' fill='%23FFF176'/%3E%3Cpath d='M16.9746 10.1703H14.3459V7.5791C15.2178 8.44715 16.0941 9.31077 16.9746 10.1703Z' fill='%23FFF176'/%3E%3Cpath d='M7.93164 13.9167H10.5604V16.5078C9.68848 15.6398 8.81219 14.7761 7.93164 13.9167Z' fill='%23FFF176'/%3E%3Cpath d='M14.2617 13.9167H16.8904V16.5078C16.0186 15.6398 15.1423 14.7761 14.2617 13.9167Z' fill='%23FFF176'/%3E%3C/svg%3E%0A")
 
 .text
 	&-uppercase
 		text-transform: uppercase
+	&-primary
+		color: color(--primary-color)
 	&-green
-		color: color(--secondary_color)
+		color: color(--secondary-color)
 	&-red
 		color: color(--primary-color)
 
@@ -307,7 +343,7 @@ table
 	&::after
 		right: 0
 		background-position: center right 70%
-		background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.93142 7.59679C3.93142 9.61237 5.56537 11.2463 7.58094 11.2463C9.59652 11.2463 11.2305 9.61237 11.2305 7.59679C11.2305 5.58121 9.59652 3.94727 7.58094 3.94727C5.56537 3.94727 3.93142 5.58121 3.93142 7.59679Z' fill='%2357548B'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.57986 3.03505C8.08415 3.03505 8.49219 2.62702 8.49219 2.12273V1.21018C8.49219 0.705889 8.08415 0.297852 7.57986 0.297852C7.07558 0.297852 6.66754 0.705889 6.66754 1.21018V2.1225C6.66754 2.62702 7.07558 3.03505 7.57986 3.03505Z' fill='%2357548B'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.35763 3.08126L3.71148 2.43534C3.35522 2.07885 2.77771 2.07885 2.42145 2.43534C2.06519 2.7916 2.06519 3.3691 2.42145 3.72559L3.06738 4.37175C3.42364 4.72801 4.00137 4.72801 4.35763 4.37175C4.71412 4.01503 4.71412 3.43775 4.35763 3.08126Z' fill='%2357548B'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3.01953 7.59689C3.01953 7.09261 2.61149 6.68457 2.10721 6.68457H1.19465C0.690367 6.68457 0.28233 7.09261 0.28233 7.59689C0.28233 8.10118 0.690367 8.50922 1.19465 8.50922L2.10721 8.50831C2.61149 8.50922 3.01953 8.10027 3.01953 7.59689Z' fill='%2357548B'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.357 12.1122C4.71418 11.7566 4.71418 11.1791 4.35792 10.8229C4.00165 10.4666 3.42392 10.4666 3.06766 10.8229L2.42265 11.4681C2.06456 11.8244 2.06639 12.4019 2.42265 12.7581C2.77891 13.1144 3.3555 13.1153 3.71268 12.7581L4.357 12.1122Z' fill='%2357548B'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.49219 13.9841L8.49036 13.0697C8.49219 12.5672 8.08415 12.1592 7.57986 12.1592C7.07558 12.1574 6.66754 12.5672 6.66754 13.0697V13.9822C6.66571 14.4883 7.07558 14.8946 7.57986 14.8946C8.08324 14.8955 8.49219 14.4883 8.49219 13.9841Z' fill='%2357548B'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10.8081 12.1122L11.4533 12.7572C11.8105 13.1162 12.3871 13.1135 12.7436 12.7572C13.101 12.4016 13.101 11.8244 12.7445 11.4681L12.0976 10.8229C11.743 10.4666 11.1657 10.4666 10.8092 10.8229C10.4507 11.1773 10.4525 11.7566 10.8081 12.1122Z' fill='%2357548B'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.1438 7.59689C12.1401 8.10027 12.5518 8.50922 13.0543 8.50922H13.9666C14.4727 8.50922 14.8789 8.10118 14.8789 7.59689C14.8807 7.09261 14.4727 6.68457 13.9682 6.68457L13.054 6.68639C12.5518 6.68457 12.1438 7.09261 12.1438 7.59689Z' fill='%2357548B'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10.8057 3.08366C10.4495 3.43832 10.4495 4.014 10.8067 4.3714C11.1604 4.7304 11.7395 4.72858 12.0951 4.37323L12.7401 3.72799C13.0984 3.3699 13.0957 2.79422 12.7401 2.43773C12.3845 2.0785 11.8072 2.0785 11.4508 2.435L10.8057 3.08366Z' fill='%2357548B'/%3E%3C/svg%3E%0A")
+		background-image: url("data:image/svg+xml,%3Csvg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.17958 6.39275C3.17958 8.1581 4.60341 9.5892 6.35981 9.5892C8.1162 9.5892 9.54004 8.1581 9.54004 6.39275C9.54004 4.62739 8.1162 3.19629 6.35981 3.19629C4.60341 3.19629 3.17958 4.62739 3.17958 6.39275Z' fill='%23151339' fill-opacity='0.5'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.36124 2.39739C6.80068 2.39739 7.15625 2.04001 7.15625 1.59833V0.799064C7.15625 0.357382 6.80068 0 6.36124 0C5.9218 0 5.56623 0.357382 5.56623 0.799064V1.59813C5.56623 2.04001 5.9218 2.39739 6.36124 2.39739Z' fill='%23151339' fill-opacity='0.5'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3.54924 2.43761L2.98617 1.87187C2.67572 1.55964 2.17248 1.55964 1.86203 1.87187C1.55158 2.18391 1.55158 2.68971 1.86203 3.00195L2.4249 3.56789C2.73535 3.87992 3.23879 3.87992 3.54924 3.56789C3.85989 3.25545 3.85989 2.74984 3.54924 2.43761Z' fill='%23151339' fill-opacity='0.5'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2.38574 6.39281C2.38574 5.95113 2.03017 5.59375 1.59073 5.59375H0.795527C0.356086 5.59375 0.00051856 5.95113 0.00051856 6.39281C0.00051856 6.8345 0.356086 7.19188 0.795527 7.19188L1.59073 7.19108C2.03017 7.19188 2.38574 6.8337 2.38574 6.39281Z' fill='%23151339' fill-opacity='0.5'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3.54869 10.3467C3.85994 10.0353 3.85994 9.52946 3.54949 9.21742C3.23904 8.90539 2.7356 8.90539 2.42515 9.21742L1.86308 9.78256C1.55104 10.0946 1.55263 10.6004 1.86308 10.9124C2.17353 11.2245 2.67597 11.2253 2.98722 10.9124L3.54869 10.3467Z' fill='%23151339' fill-opacity='0.5'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.15625 11.987L7.15466 11.1861C7.15625 10.7461 6.80068 10.3887 6.36124 10.3887C5.9218 10.3871 5.56623 10.7461 5.56623 11.1861V11.9854C5.56464 12.4287 5.9218 12.7845 6.36124 12.7845C6.79989 12.7853 7.15625 12.4287 7.15625 11.987Z' fill='%23151339' fill-opacity='0.5'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.17053 10.3467L9.7328 10.9116C10.044 11.2261 10.5465 11.2237 10.8571 10.9116C11.1686 10.6002 11.1686 10.0946 10.8579 9.78256L10.2943 9.21742C9.98521 8.90539 9.48217 8.90539 9.17152 9.21742C8.85908 9.52786 8.86067 10.0353 9.17053 10.3467Z' fill='%23151339' fill-opacity='0.5'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10.3363 6.39281C10.3331 6.8337 10.6919 7.19188 11.1297 7.19188H11.9247C12.3657 7.19188 12.7197 6.8345 12.7197 6.39281C12.7213 5.95113 12.3657 5.59375 11.9261 5.59375L11.1295 5.59535C10.6919 5.59375 10.3363 5.95113 10.3363 6.39281Z' fill='%23151339' fill-opacity='0.5'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.17094 2.43971C8.86049 2.75034 8.86049 3.25455 9.17174 3.56759C9.48 3.88202 9.98463 3.88042 10.2945 3.56918L10.8566 3.00405C11.1688 2.69041 11.1664 2.1862 10.8566 1.87397C10.5467 1.55934 10.0437 1.55934 9.73301 1.87157L9.17094 2.43971Z' fill='%23151339' fill-opacity='0.5'/%3E%3C/svg%3E%0A")
 	&__input
 		height: 1px
 		width: 1px
@@ -335,6 +371,9 @@ table
 	&-none
 		display: none !important
 	&-sm
+		&-flex
+			+sm()
+				display: flex !important
 		&-block
 			+sm()
 				display: block !important
@@ -357,3 +396,28 @@ table
 		background-image: url("data:image/svg+xml,%3Csvg id='Vector' xmlns='http://www.w3.org/2000/svg' width='1143.792' height='143' viewBox='0 0 1143.792 143'%3E%3Cpath d='M143,0H331L286,143H143Z' transform='translate(-143)' fill='%23151339'/%3E%3Cpath d='M35.566,0H188L143,143H0Z' fill='%233aded4'/%3E%3Cpath d='M35.257.042,143,143H0Z' fill='%23ea3589'/%3E%3Cpath d='M188,0H331L286,143H143Z' fill='%23151339'/%3E%3Cpath d='M331,0H474L429,143H286Z' transform='translate(-0.044)' fill='%23ea3589'/%3E%3Cpath d='M331,0l98,143H286Z' transform='translate(-0.042)' fill='%236766f6'/%3E%3Cpath d='M474,0H617L572,143H429Z' transform='translate(-0.067)' fill='%233aded4'/%3E%3Cpath d='M617,0H760L715,143H572Z' transform='translate(-0.089)' fill='%23151339'/%3E%3Cpath d='M572,143,760,0,715,143Z' transform='translate(-0.089)' fill='%23f4ba40'/%3E%3Cpath d='M760,0H903L858,143H715Z' transform='translate(-0.111)' fill='%23ea3589'/%3E%3Cpath d='M903,0h143l-45,143H858Z' transform='translate(-0.146)' fill='%236766f6'/%3E%3Cpath d='M903,0l98,143H858Z' transform='translate(-0.146)' fill='%233aded4'/%3E%3Cpath d='M1035.214,0h108.725V143H1001Z' transform='translate(-0.146)' fill='%23151339'/%3E%3C/svg%3E%0A")
 		+xs()
 			height: 20px
+
+.live-icon
+	flex: none
+	height: 7px
+	width: 7px
+	border-radius: 50px
+	animation: blink 0.5s ease infinite alternate
+	&--primary
+		background: #EA4382
+		box-shadow: 0px 0px 11px 1px #EA4382
+	&--secondary
+		background: #3ADED4
+		box-shadow: 0px 0px 11px 1px #63D4B4
+
+
+.fix-right
+	position: fixed
+	width: 50px
+	background-color: #fff
+	right: 0
+	top: 50%
+	// max-height: 80vh
+	// height: 100%
+	transform: translateY(-50%)
+	z-index: 20

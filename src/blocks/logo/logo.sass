@@ -4,24 +4,45 @@
 	align-items: center
 	text-decoration: none
 	user-select: none
+	white-space: nowrap
+	&--index
+		gap: 8px
+		font-size: 40px
+		color: #fff
+		+sm()
+			font-size: 24px
+		.logo-icon
+			height: 36px
+			width: 36px
+			+sm()
+				height: 24px
+				width: 24px
 	&--nav
 		justify-content: center
 		position: relative
 		height: var(--header-height)
 		width: var(--header-height)
 		background-color: var(--base-color)
+		.logo-icon
+			height: 27px
+			width: 27px
 		+parent('_dark-theme')
 			background-color: var(--body-bg)
+			path
+				fill: #7E7F9E !important
 		path
 			fill: #F1F2F4 !important
 	&--header
 		gap: 8px
-		font-size: 38px
-		+xs()
-			font-size: 30px
+		font-size: 30px
+		+sm()
+			font-size: 24px
 		.logo-icon
 			height: 32px
 			width: 32px
+			+sm()
+				height: 28px
+				width: 28px
 			&__mono
 				fill: #151339
 				+parent('_dark-theme')
@@ -72,9 +93,6 @@
 		font-style: italic
 	&-icon
 		flex: none
-		+parent('header')
-			height: 30px
-			width: 30px
 		&__mono
 			fill: #EDE8FB
 			+parent('inner')

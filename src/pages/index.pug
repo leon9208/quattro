@@ -5,18 +5,93 @@ block vars
 	- var pageLink = '/'
 	- var pageType = 'main'
 block content
-	.hero
+	//hero
+	include ../blocks/hero/hero.pug
 	.container
 		+search()
 	+slider('section-carousel--bg', '🥇 Top Games', '{"xxl":7,"xl":6,"lg":5,"md":4,"sm":4,"xs":2.3}', true)
+	//category-slider
+	.section
+		.container
+			.section-carousel.category-slide
+				.swiper(data-breakpoint='{"xxl":3,"xl":2.4,"lg":2,"md":2.1,"sm":1.9,"xs":1.05}')
+					.swiper-wrapper
+						.swiper-slide
+							a.category-slide__item.gr--violet(href="#") 
+								.category-slide__img
+									+lazyPng('cat-img1', '')
+								.category-slide__content
+									.category-slide__badge Slots, Live, Instant games
+									.category-slide__text More than 3000 licensed games for each taste
+						.swiper-slide
+							a.category-slide__item.gr--orange(href="#") 
+								.category-slide__img
+									+lazyPng('cat-img2', '')
+								.category-slide__content
+									.category-slide__badge Sportsbook
+									.category-slide__text Sports and Live betting with QuattroSportsbook
+						.swiper-slide
+							a.category-slide__item.gr--green(href="#") 
+								.category-slide__img
+									+lazyPng('cat-img3', '')
+								.category-slide__content
+									.category-slide__badge Quattro Lucky Spin
+									.category-slide__text Earn QuattroCoin, make spins, win money and prizes
+						.swiper-slide
+							a.category-slide__item.gr--blue(href="#") 
+								.category-slide__img
+									+lazyPng('cat-img1', '')
+								.category-slide__content
+									.category-slide__badge Slots, Live, Instant games
+									.category-slide__text More than 3000 licensed games for each taste
+				.swiper-pagination.swiper-pagination--relative
 	//category
 	include ../blocks/category/category.pug
+	//bets
+	.bets-index
+		.container
+			.row.bets-index__row
+				include ../blocks/bets/bets.pug
+				.swiper.bets-slider
+					.swiper-wrapper
+						a.swiper-slide.bets-slider__item.gr--green(href="#") 
+							.bets-slider__content
+								.bets-slider__badge Сashback
+								.bets-slider__text vip cashback up to 10%
+							.bets-slider__img
+								+lazyPng('bs1', '')
+						a.swiper-slide.bets-slider__item.gr--orange(href="#") 
+							.bets-slider__content
+								.bets-slider__badge Quattro Coin
+								.bets-slider__text more coins, more prizes
+							.bets-slider__img
+								+lazyPng('bs2', '')
+						a.swiper-slide.bets-slider__item.gr--violet(href="#") 
+							.bets-slider__content
+								.bets-slider__badge Tourneys
+								.bets-slider__text weekly tournaments
+							.bets-slider__img
+								+lazyPng('bs3', '')
+						a.swiper-slide.bets-slider__item.gr--blue(href="#") 
+							.bets-slider__content
+								.bets-slider__badge Bonus Shop
+								.bets-slider__text bonuses, freespins 
+									br
+									| and prizes
+							.bets-slider__img
+								+lazyPng('bs4', '')
+					.swiper-pagination.swiper-pagination--relative
 	//sport events
 	include ../blocks/event/event.pug
-	+slider('section-carousel--bg', '💸 bonus buy', '{"xxl":5.5,"xl":4,"lg":3,"md":2.5,"sm":3.5,"xs":1.8}', false)
-	+slider('section-carousel--bg', '⚡️Instant games', '{"xxl":5.5,"xl":4,"lg":3,"md":2.5,"sm":3.5,"xs":1.8}', false)
+	+slider('section-carousel--bg', '✨ live games and shows', '{"xxl":4,"xl":4,"lg":3,"md":2.5,"sm":3.5,"xs":1.8}', false, '2')
+	+slider('section-carousel--bg', '💸 bonus buy', '{"xxl":5,"xl":4,"lg":3,"md":2.5,"sm":3.5,"xs":1.8}', false)
+	+slider('section-carousel--bg', '⚡️Instant games', '{"xxl":5,"xl":4,"lg":3,"md":2.5,"sm":3.5,"xs":1.8}', false)
+	//provider carousel
+	+prCarousel()
 	//faq
 	.faq.faq--index
 		.container
 			include ../blocks/acc/acc.pug
+	
+	
 	//End faq

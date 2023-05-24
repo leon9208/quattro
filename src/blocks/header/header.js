@@ -1,22 +1,3 @@
-// collapse content
-var collapseContent = document.querySelectorAll('.collapse')
-
-if(collapseContent.length > 0) {
-	collapseContent.forEach(collapse => {
-		let collapseBtn = collapse.querySelector('.collapse-btn')
-		let collapseBtnFirstText = collapseBtn.textContent
-		let collapseBtnLastText = collapseBtn.getAttribute('data-text')
-
-		collapseBtn.addEventListener('click', ()=> {
-			collapse.classList.toggle('isopen')
-			collapse.classList.contains("isopen") ? collapseBtn.textContent = collapseBtnLastText : collapseBtn.textContent = collapseBtnFirstText
-		})
-	})
-};
-
-// END collapse content
-
-
 const formInputText = document.querySelectorAll('.form-input')
 
 formInputText.forEach(inp => {
@@ -26,15 +7,15 @@ formInputText.forEach(inp => {
 });
 
 
-// header balace dropdown
-const headerBalance = document.querySelector('.balance')
+// header dropdown
+const headerDropdown = document.querySelectorAll('.header-mnu')
 
-if (headerBalance) {
-	let el = headerBalance.querySelector('.balance-btn')
-	el.addEventListener('click', () => {
-		el.closest('.balance').classList.toggle('isopen')
-		hideOnClickOutside(headerBalance)
-	});
+if (headerDropdown) {
+	headerDropdown.forEach(el => {
+		el.addEventListener('click', () => {
+			el.classList.contains('isopen') ? el.classList.remove('isopen') : el.classList.add('isopen')
+		});
+	})
 };
 
 function hideOnClickOutside(element) {
@@ -57,37 +38,40 @@ function hideOnClickOutside(element) {
 
 
 const bCarousel = () => {
-	let baseCarousel = document.querySelectorAll('.section .swiper')
-	let pagination = document.querySelectorAll('.section .swiper-pagination')
-	let prevArrow = document.querySelectorAll('.section .swiper-button--prev')
-	let nextArrow = document.querySelectorAll('.section .swiper-button--next')
-	baseCarousel.forEach((slider, index)=>{
-		var dataRow = slider.getAttribute('data-row');
+	document.querySelectorAll('.section-carousel .swiper').forEach((slider)=>{
+		let carouselParent = slider.closest('.section-carousel')
+		let caouselPagination = carouselParent.querySelector('.swiper-pagination')
+		let carouselNav = carouselParent.querySelector('.swiper-nav')
+		let prevArrow = carouselNav ? carouselNav.querySelector('.swiper-button--prev') : null
+		let nextArrow = carouselNav ? carouselNav.querySelector('.swiper-button--next') : null
+		let dataRow = slider.getAttribute('data-row');
 		var data = slider.getAttribute('data-breakpoint') || null;
 		var dataOptions = JSON.parse(data);
 			const swiper = new Swiper(slider, {
-				spaceBetween: 10,
+				spaceBetween: 8,
 				slidesPerView: data != null ? dataOptions.xl : 'auto',
-				// slidesPerColumn: 2,
-				// autoHeight: true,
 				grid: {
 					rows: dataRow || 1,
 					fill: 'row'
 				},
+				touchMoveStopPropagation: true,
+				touchReleaseOnEdges: true,
 				mousewheel: {
 					forceToAxis: true,
 				},
+				freeModeSticky: true,
 				freeMode: {
 					enabled: true,
 					sticky: true,
 				},
 				navigation: {
-					nextEl: nextArrow[index],
-					prevEl: prevArrow[index],
+					enabled: carouselNav != null ? true : false,
+					nextEl: nextArrow,
+					prevEl: prevArrow,
 				},
 				pagination: {
-					enabled: true,
-					el: pagination[index],
+					enabled: caouselPagination != null ? true : false,
+					el: caouselPagination,
 					dynamicBullets: true,
 					dynamicMainBullets: 4,
 					clickable: true
@@ -97,7 +81,7 @@ const bCarousel = () => {
 						slidesPerView: data != null && dataOptions.xs ? dataOptions.xs : 2.3,
 						spaceBetween: 8,
 						grid: {
-							rows: 1,
+							rows: dataRow || 1,
 							fill: 'row'
 						},
 					},
@@ -151,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 window.addEventListener('scroll', () => {
 
-	window.scrollY > 50 ? document.documentElement.classList.add('_window-scrolled') : document.documentElement.classList.remove('_window-scrolled')
+	window.scrollY > 80 ? document.documentElement.classList.add('_window-scrolled') : document.documentElement.classList.remove('_window-scrolled')
 
 })
 

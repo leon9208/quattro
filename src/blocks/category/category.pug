@@ -8,32 +8,13 @@ mixin cNav(cIcon, cValue, cTitle, cChecked = false, cClass = false)
 	.container
 		.category-head
 			.category-filter
-				.category-select
-					.category-select__current
-						img.category-select__current-icon(src="img/providers.svg", alt="")
-						.category-select__current-name Providers
-					.category-select__list
-						label.category-select__item
-							input(type="radio" name="providers" value="pragmatic") 
-							span Pragmatic
-						label.category-select__item
-							input(type="radio" name="providers" value="hacksaw") 
-							span Hacksaw
-						label.category-select__item
-							input(type="radio" name="providers" value="spribe") 
-							span Spribe
-						label.category-select__item
-							input(type="radio" name="providers" value="bgaming") 
-							span Bgaming
-						label.category-select__item
-							input(type="radio" name="providers" value="betsoft") 
-							span Betsoft
-						label.category-select__item
-							input(type="radio" name="providers" value="endorphina") 
-							span Endorphina
-						label.category-select__item
-							input(type="radio" name="providers" value="amatic") 
-							span Amatic
+				.category-filter__top
+					a.category-btn(href="#")
+						+xlink('search', 'category-btn')
+						span search
+					a.category-provider(href="#") 
+						img.category-provider__icon(src="img/providers.svg", alt="")
+						.category-provider__name Providers
 				.swiper.category-nav__list
 					.swiper-wrapper
 						+cNav('casino', 'all', 'All games', true)

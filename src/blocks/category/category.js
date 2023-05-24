@@ -14,7 +14,7 @@ if (categoryNav.length > 0) {
 	categoryNav.forEach(catNav => {
 		catNav.addEventListener('change', () => {
 			filterGames(catNav)
-			categorySelectValue()
+			// categorySelectValue()
 		})
 	})
 }

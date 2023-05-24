@@ -1,0 +1,323 @@
+.bets
+	width: 100%
+	&-slider
+		width: 100%
+		+from(1201px)
+			max-width: 270px
+			.swiper-wrapper
+				flex-direction: column
+				padding-bottom: 8px
+		+sm()
+			overflow: unset
+		&__item
+			position: relative
+			border-radius: 3px
+			width: 270px
+			color: #fff
+			overflow: hidden
+			text-decoration: none
+			+from(1201px)
+				flex: 1
+				margin-bottom: 7px
+		&__content
+			position: relative
+			padding: 20px
+			display: flex
+			flex-direction: column
+			max-width: 70%
+			gap: 16px
+			align-items: flex-start
+			justify-content: space-between
+			z-index: 2
+		&__badge
+			font-weight: 700
+			font-size: 14px
+			text-transform: capitalize
+			padding: 1em
+			background-color: rgba(#fff, .2)
+			border-radius: 6px
+		&__img
+			position: absolute
+			bottom: 0
+			right: 0
+			pointer-events: none
+			// z-index: -1
+		&__text
+			font-weight: 900
+			font-size: 18px
+			text-transform: uppercase
+	&-index
+		margin-bottom: 43px
+		&__row
+			gap: 23px
+			+lg()
+				flex-direction: column
+	&-head
+		display: flex
+		align-items: center
+		justify-content: space-between
+		margin-bottom: 26px
+		+sm()
+			justify-content: center
+			margin-bottom: 10px
+		&__info
+			+sm()
+				display: none
+	&-live
+		border-radius: 6px
+		display: flex
+		align-items: center
+		justify-content: center
+		font-size: 16px
+		background-color: var(--light-bg)
+		padding: 1em 1.3em
+		height: 50px
+		gap: 16px
+		font-size: 16px
+		white-space: nowrap
+		+md()
+			display: none
+	&-form
+		&__row
+			display: flex
+			gap: 0 40px
+			flex-wrap: wrap
+		&__input
+			position: absolute
+			&:checked ~ .bets-form__btn
+				background-color: var(--nav-bg-active)
+				span
+					color: #fff
+					opacity: 1
+			&:checked ~ .bets-form__text
+				text-decoration: underline
+				opacity: 1
+		&__switcher
+			display: inline-flex
+			overflow: hidden
+			&--bg
+				border-radius: 6px
+				background-color: var(--nav-bg-base)
+				+parent('_dark-theme')
+					background-color: #333651
+			+sm()
+				width: 100%
+		&__text
+			cursor: pointer
+			font-size: 16px
+			display: inline-flex
+			align-items: center
+			justify-content: center
+			text-align: center
+			padding: 0 1em
+			height: 55px
+			font-weight: 700
+			opacity: 0.5
+			width: 100%
+			+xs()
+				font-size: 13px
+		&__label
+			+sm()
+				flex: 1
+		&__btn
+			display: flex
+			align-items: center
+			justify-content: center
+			text-align: center
+			gap: 14px
+			font-weight: 800
+			text-transform: uppercase
+			font-size: 13px
+			height: 55px
+			padding: 1.5em 2.3em
+			border-radius: 6px
+			cursor: pointer
+			transition: $trs
+			width: 100%
+			&:hover
+				span
+					opacity: 1
+			span
+				color: var(--base-color)
+				opacity: 0.5
+				transition: $trs
+	&-body
+		overflow-x: auto
+	&-table
+		width: 100%
+		border-collapse: collapse
+		border-collapse: separate
+		border-spacing: 0 8px
+		+xs()
+			border-spacing: 0 4px
+		&__head
+			text-align: left
+			th
+				padding: 8px 6px
+				font-size: 10px
+				text-transform: uppercase
+				color: var(--base-color)
+				opacity: 0.36
+				+xs()
+					&:nth-child(3), &:nth-child(6)
+						display: none
+		&__body
+			width: 100%
+			tr
+				&:nth-child(even)
+					td::before
+						opacity: 0.4
+						+xs()
+							opacity: 1
+			td
+				overflow: hidden
+				position: relative
+				padding: 6px
+				margin-bottom: 6px
+				+xs()
+					padding: 5px
+					&:nth-child(3), &:nth-child(6)
+						display: none
+				&::before
+					background-color: var(--base-bg)
+					content: ''
+					position: absolute
+					top: 0
+					left: 0
+					bottom: 0
+					right: 0
+					z-index: -1
+				&:first-child
+					border-top-left-radius: 3px
+					border-bottom-left-radius: 3px
+				&:last-child
+					border-top-right-radius: 3px
+					border-bottom-right-radius: 3px
+
+
+.bet
+	&-content
+		display: flex
+		align-items: center
+		gap: 40px
+		font-weight: 500
+		color: var(--base-color)
+		+sm()
+			gap: 13px
+	&-info
+		&__name
+			font-size: 14px
+			margin-bottom: 6px
+			display: block
+			+xs()
+				overflow: hidden
+				width: 60px
+				white-space: nowrap
+				text-overflow: ellipsis
+				font-size: 12px
+		&__cat
+			font-size: 12px
+			opacity: 0.5
+			+xs()
+				font-size: 10px
+				overflow: hidden
+				width: 60px
+				white-space: nowrap
+				text-overflow: ellipsis
+				display: block
+	&-player
+		font-weight: 500
+		font-size: 14px
+		+xs()
+			overflow: hidden
+			width: 60px
+			white-space: nowrap
+			text-overflow: ellipsis
+			display: block
+	&-amount
+		font-weight: 700
+		font-size: 16px
+		+xs()
+			font-size: 14px
+	&-multi
+		display: flex
+		align-items: center
+		flex-wrap: wrap
+		gap: 5px 20px
+		font-size: 16px
+		+xs()
+			align-items: flex-start
+			flex-direction: column
+			font-size: 14px
+		&__text
+			font-weight: 700
+		&__badge
+			flex: none
+			font-size: inherit
+			border-radius: 3px
+			padding: .5em 
+			transform: scale(.8)
+			font-weight: 800
+			text-transform: capitalize
+			transform-origin: left center
+			white-space: nowrap
+			&--primary
+				background-color: #3ADED4
+				color: #151339
+			&--secondary
+				background-color: #745AE1
+				color: #fff
+			&--tertiary
+				background-color: #EA3589
+				color: #fff
+	&-payout
+		font-weight: 700
+		font-size: 16px
+		color: color(--primary-color)
+		+xs()
+			font-size: 14px
+	&-time
+		font-weight: 500
+		font-size: 14px
+		+xs()
+			font-size: 12px
+	&-img
+		max-width: 80px
+		border-radius: 3px
+		overflow: hidden
+		flex: none
+		+xs()
+			max-width: 52px
+			height: 52px
+			img
+				height: 100%
+				width: 100%
+				object-fit: cover
+				object-position: center
+	&-cat
+		flex: none
+		position: relative
+		height: 37px
+		width: 37px
+		display: flex
+		align-items: center
+		justify-content: center
+		+sm()
+			display: none
+		&::before
+			content: ''
+			position: absolute
+			top: 0
+			left: 0
+			border-radius: 3px
+			height: 100%
+			width: 110%
+			background-color: var(--light-bg)
+			transform: skew(-10deg)
+		&__icon
+			position: relative
+			height: 20px
+			width: 20px
+			fill: var(--base-color)
+
+

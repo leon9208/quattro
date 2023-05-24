@@ -1,11 +1,18 @@
 include ../blocks/game/game.pug
 include ../blocks/logo/logo.pug
+include ../blocks/providers/providers.pug
 
 mixin lazyJpg(image, altTag, lWidth, lHeight)
 	picture
 		source(data-srcset="img/"+image+".webp" type="image/webp")
 		source(data-srcset="img/"+image+".jpg" type="image/jpeg")
 		img.lazyload(src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="img/"+image+".jpg" alt=altTag width=lWidth height=lHeight)
+
+mixin lazyPng(image, altTag, lWidth, lHeight)
+	picture
+		source(data-srcset="img/"+image+".webp" type="image/webp")
+		source(data-srcset="img/"+image+".png" type="image/png")
+		img.lazyload(src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="img/"+image+".png" alt=altTag width=lWidth height=lHeight)
 
 mixin picJpg(image, altTag)
 	picture
@@ -50,7 +57,7 @@ mixin acc(accTitle)
 			article.acc-item__content.
 				<p>Quattrocasino.com is the multi-currency online casino where you can play using bitcoin and other cryptocurrencies, as well as many traditional currencies, including rubles, dollars and euros.Quattrocasino.com is operated and licensed by Luckywayz Limited B.V., a company registered under the laws of Curacao under registration number 161054, registered address Abraham de Veerstraat 9, Willemstad, Curaçao, license Nr. 365/JAZ. support@quattrocasino.com.</p><p>Quattrocasino.com is the multi-currency online casino where you can play using bitcoin and other cryptocurrencies, as well as many traditional currencies, including rubles, dollars and euros.Quattrocasino.com is operated and licensed by Luckywayz Limited B.V., a company registered under the laws of Curacao under registration number 161054, registered address Abraham de Veerstraat 9, Willemstad, Curaçao, license Nr. 365/JAZ. support@quattrocasino.com.</p>
 
-mixin slider(sCLass, sTitle, sBreakpoints=false, sVert = false)
+mixin slider(sCLass, sTitle, sBreakpoints=false, sVert = false, sRow=false)
 	.section
 		.container
 			.section-carousel(class=sCLass)
@@ -60,15 +67,16 @@ mixin slider(sCLass, sTitle, sBreakpoints=false, sVert = false)
 					.section-head__side-center
 						.swiper-pagination
 					.section-head__side-right
-						a.section-head__link(href="#" data-text-sm="all" data-text-md="see all") 
+						a.section-head__link
+							span(href="#" data-text-sm="all" data-text-md="see all") 
 						.swiper-nav
 							button.swiper-button.swiper-button--prev
 								+xlink('arrow-left', 'swiper-button')
 							button.swiper-button.swiper-button--next
 								+xlink('arrow-right', 'swiper-button')
-				.swiper(data-breakpoint=(sBreakpoints != false ? ''+sBreakpoints+'' : false))
+				.swiper(data-breakpoint=(sBreakpoints != false ? ''+sBreakpoints+'' : false) data-row=sRow)
 					.swiper-wrapper
-						- for (let x = 0; x < 10; x++)
+						- for (let x = 0; x < 16; x++)
 							.swiper-slide
 								+game(sVert)
 
@@ -83,7 +91,7 @@ mixin search()
 				button.search-clear(type="button")
 					+xlink('clear', 'search-clear')
 				button.btn.btn--primary.search-btn(type="submit") Search
-		a.btn.btn--primary.search-btn(href="#") 
-			span I'll be lucky
+		a.btn.btn--primary.search-btn(href="#" data-tooltip="Play random game") 
+			span I'm feeling lucky
 			+xlink('clover', 'btn')
 

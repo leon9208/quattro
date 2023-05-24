@@ -6,34 +6,50 @@
 	position: relative
 	cursor: pointer
 	border-radius: 3px
-	font-weight: 700
+	font-weight: 800
 	padding: 0 2em
 	transition: $trs
-	gap: 10px
+	gap: 8px
+	+sm()
+		padding: 0 1em
 	&[href]
 		text-decoration: none
+	&:hover
+		filter: brightness(90%)
+	&[data-count]
+		&::after
+			content: attr(data-count)
+			height: 24px
+			width: 24px
+			line-height: 24px
+			text-align: center
+			background-color: #fff
+			border-radius: 50px
+			flex: none
 	&__icon
 		flex: none
-		height: 24px
-		width: 24px
-	&:hover
-		opacity: 0.9
+		height: 20px
+		width: 20px
 	&--primary
-		color: $white
+		color: #fff
 		fill: currentColor
 		background-color: color(--primary-color)
+		&[data-count]
+			&::after
+				background-color: #fff
+				color: color(--primary-color)
 		&.shadow
 			box-shadow: 0px 6px 14px color(--primary-color, 0.6)
 			&:hover
 				box-shadow: 0px 6px 14px color(--primary-color, 0)
 	&--secondary
-		fill: #104945
+		fill: currentColor
 		color: #151339
-		background-color: color(--secondary_color)
+		background-color: color(--secondary-color)
 		&.shadow
-			box-shadow: 0px 6px 14px color(--secondary_color, 0.6)
+			box-shadow: 0px 6px 14px color(--secondary-color, 0.6)
 			&:hover
-				box-shadow: 0px 6px 14px color(--secondary_color, 0)
+				box-shadow: 0px 6px 14px color(--secondary-color, 0)
 	&--light
 		fill: currentColor
 		color: #151339
@@ -44,18 +60,21 @@
 		fill: currentColor
 	&--base
 		background-color: var(--nav-bg-active)
-		color: #B6B7CE
+		color: #fff
 	&--gray
-		color: #151339
+		color: var(--nav-color)
 		fill: currentColor
-		background-color: var(--gray_color)
+		background-color: #E9E9EA
+		+parent('_dark-theme')
+			background-color: var(--base-bg)
+
 	&--square
 		padding: 0
 		width: 48px
 	&--xs
 		height: 48px
 		font-size: 13px
-		+xs()
+		+sm()
 			height: 43px
 			font-size: 12px
 	&--sm

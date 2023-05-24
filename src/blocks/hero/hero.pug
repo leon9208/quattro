@@ -1,0 +1,26 @@
+.hero
+	.header.header--index
+		.header-side.header-side--left.d-sm-none
+		.header-center
+			+logo('logo--index', 'quattro', false, true)
+		.header-side.header-side--right
+			a.btn.btn--xs.btn--primary.text-uppercase(href="#")
+				span Register
+			a.btn.btn--xs.btn--secondary.text-uppercase(href="#")
+				span.d-sm-none Login
+				+xlink('user', 'btn')
+			a.btn.btn--xs.btn--gray.text-uppercase.d-none.d-sm-flex(href="#")
+				+xlink('menu', 'btn')
+			
+			
+
+	.hero-item(style="background-image: url(img/hero-img.jpg)")
+		.container
+			.hero-item__content
+				h2.hero-item__title.text-uppercase make 
+					span.text-green deposit 
+					| and 
+					span.text-primary win now!
+				.hero-form
+					.form-registration
+						

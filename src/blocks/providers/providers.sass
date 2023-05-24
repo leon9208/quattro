@@ -1,0 +1,14 @@
+.providers
+	&-slide
+		width: auto !important
+		min-width: 160px
+		background-color: var(--body-bg)
+		border-radius: 3px
+		display: flex
+		align-items: center
+		justify-content: center
+		height: 60px
+		+parent('_dark-theme')
+			background-color: var(--nav-bg-active)
+		+sm()
+			background-color: var(--base-bg)
