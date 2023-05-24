@@ -171,8 +171,11 @@
 		margin: 0
 		background-color: #1C1A45
 		padding: 25px 20px
-		mix-blend-mode: luminosity
-		user-select: none
+		// mix-blend-mode: luminosity
+		// transform: transalte3d(0,0,0)
+		// -webkit-backface-visibility: visible
+		// user-select: none
+		// filter: grayscale(1)
 		+sm()
 			left: 0
 			width: 100%
@@ -197,3 +200,5 @@
 			&-slide
 				opacity: 0.4
 				width: auto !important
+				img
+					filter: grayscale(1)
