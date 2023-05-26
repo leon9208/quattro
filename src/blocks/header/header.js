@@ -1,9 +1,11 @@
 const formInputText = document.querySelectorAll('.form-input')
 
 formInputText.forEach(inp => {
-	inp.addEventListener('blur', () => {
+	function inpFilled() {
 		inp.value != '' ? inp.classList.add('isfilled') : inp.classList.remove('isfilled')
-	})
+	}
+	inp.addEventListener('blur', inpFilled)
+	inpFilled()
 });
 
 
@@ -14,6 +16,7 @@ if (headerDropdown) {
 	headerDropdown.forEach(el => {
 		el.addEventListener('click', () => {
 			el.classList.contains('isopen') ? el.classList.remove('isopen') : el.classList.add('isopen')
+			hideOnClickOutside(el)
 		});
 	})
 };
@@ -155,3 +158,30 @@ if (indexSearch) {
 		indexSearch.value = ''
 	})
 }
+
+/* custom select */
+
+const customSelect = document.querySelectorAll('.form-select')
+
+if (customSelect) {
+	customSelect.forEach(cs => {
+		cs.addEventListener('click', (e) => {
+			cs.classList.toggle('isopen')
+			hideOnClickOutside(cs)
+		});
+	
+		let csCurrent = cs.querySelector('.form-select__current span')
+		let csInput = cs.querySelector('input')
+		let csItems = cs.querySelectorAll('.form-select__item')
+	
+		csItems.forEach(csI => {
+			csI.addEventListener('click', () => {
+				let csInputValue = csI.dataset.selectValue
+				csInput.value = csInputValue
+				csCurrent.textContent = csI.textContent
+				csItems.forEach(csi => csi.classList.remove('selected'))
+				csI.classList.add('selected')
+			})
+		});
+	});
+};
