@@ -23,7 +23,15 @@ body
 	overflow-x: hidden
 	&.inner
 		padding-top: var(--header-height)
-
+*
+	// scrollbar-width: thin
+	// scrollbar-color: #6969dd #e0e0e0
+::-webkit-scrollbar
+	width: 8px
+::-webkit-scrollbar-track
+	background-color: var(--nav-bg-base)
+::-webkit-scrollbar-thumb
+	background-color: var(--nav-bg-hover)
 
 ul, ul ul
 	padding: 0
@@ -61,11 +69,6 @@ a
 	&.lazyloaded
 		filter: blur(0)
 
-.hero
-	min-height: 600px
-	background-color: var(--light-bg)
-	width: 100%
-
 .icon
 	flex: none
 	height: 25px
@@ -84,6 +87,8 @@ a
 		background: linear-gradient(304.38deg, #3ADED4 -5.98%, #72F49F 103.49%)
 	&--blue
 		background: linear-gradient(225.4deg, #52B9F8 11.2%, #235DD7 84.07%)
+	&--pink
+		background: linear-gradient(352.78deg, #EA3589 -15.59%, #FF7EBA 110.86%)
 .bd
 	&-b
 		border-bottom: 2px solid var(--light-bg)
