@@ -13,14 +13,59 @@
 				+xlink('menu', 'btn')
 			
 			
+	.swiper.hero-slider
+		.swiper-wrapper
+			- for (let x = 0; x < 3; x++)
+				.swiper-slide
+					.hero-item(style="background-image: url(img/hero-img.jpg)")
+						.container
+							.hero-item__content
+								h2.hero-item__title.text-uppercase make 
+									span.text-green deposit 
+									| and 
+									span.text-primary win now!
+								form.hero-form
+									.promo-select.promo-select--lg
+										.promo-select__current
+											.promo-select__list
+												.promo-select__item.promo-select__item--orange.isactive
+													.promo-select__content
+														.promo-select__label First deposit casino bonus
+														.promo-select__text +150% up to €1000 + 120FS
+													.promo-select__radiobtn
+												.promo-select__item.promo-select__item--green
+													.promo-select__content
+														.promo-select__label First deposit casino bonus
+														.promo-select__text +100% up to €1000 + 120FS
+													.promo-select__radiobtn
+												.promo-select__item.promo-select__item--pink
+													+xlink('promo', 'promo-select')
+													.form-field.form-field--light
+														input.form-input(type="text")
+														.form-label Promocode
+													.promo-select__content
+														.promo-select__text I have promocode
+													.promo-select__radiobtn
+												.promo-select__item.promo-select__item--gray
+													+xlink('cross', 'promo-select')
+													.promo-select__content
+														.promo-select__text Without Bonus
+													.promo-select__radiobtn
+									.form-group
+										label.form-field
+											input.form-input.form-input--xl.form-input--light(type="tel" value="50" maxlength="7")
+											span.form-label Deposit amount
+										.form-select.form-select--xl.form-select--light
+											input(type="hidden" name="currency")
+											.form-select__current
+												.form-select__label Currency
+												span EUR
+											.form-select__list
+												.form-select__item(data-select-value="rub") RUB
+												.form-select__item.selected(data-select-value="eur") EUR
+												.form-select__item(data-select-value="usd") USD
+												.form-select__item(data-select-value="kzt") KZT
+									
+									button.btn.btn--lg.btn--secondary(type="submit") Play with €125 and 120FS
 
-	.hero-item(style="background-image: url(img/hero-img.jpg)")
-		.container
-			.hero-item__content
-				h2.hero-item__title.text-uppercase make 
-					span.text-green deposit 
-					| and 
-					span.text-primary win now!
-				.hero-form
-					.form-registration
-						
+		.swiper-pagination
