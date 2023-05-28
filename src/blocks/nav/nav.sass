@@ -8,7 +8,7 @@
 	width: var(--nav-width)
 	background: var(--base-bg)
 	box-shadow: 5px 0px 15px rgba(132, 123, 203, 0.2)
-	+parent('_dark-theme')
+	+dark()
 		box-shadow: 4px 0px 5px rgba(44, 52, 57, 0.04)
 	z-index: 10
 	+sm()
@@ -19,7 +19,7 @@
 		justify-content: center
 		height: var(--header-height)
 		background-color: #151339
-		+parent('_dark-theme')
+		+dark()
 			background-color: #1B1C2F
 	&-list
 		padding: 10px 0

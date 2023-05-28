@@ -26,7 +26,7 @@
 		.logo-icon
 			height: 27px
 			width: 27px
-		+parent('_dark-theme')
+		+dark()
 			background-color: var(--body-bg)
 			path
 				fill: #7E7F9E !important
@@ -45,7 +45,7 @@
 				width: 28px
 			&__mono
 				fill: #151339
-				+parent('_dark-theme')
+				+dark()
 					fill: #F7F8F8
 		&[data-logo-text]::after
 			content: attr(data-logo-text)

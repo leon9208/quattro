@@ -18,11 +18,11 @@
 		display: none
 		+xs()
 			display: inline-flex
-		+parent('_dark-theme')
+		+dark()
 			background-color: var(--base-bg)
 		&:hover
 			background-color: rgba(21, 19, 57, 0.05)
-			+parent('_dark-theme')
+			+dark()
 				background-color: #32354F
 		&__icon
 			height: 18px
@@ -192,7 +192,7 @@
 				color: var(--nav-color-active)
 			&:not(:checked) ~ .category-nav__item:hover
 				background-color: rgba(21, 19, 57, 0.05)
-				+parent('_dark-theme')
+				+dark()
 					background-color: #32354F
 		&__item
 			position: relative
