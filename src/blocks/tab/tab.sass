@@ -47,3 +47,75 @@
 			font-size: 24px
 			line-height: 1.25
 			margin-bottom: 40px
+
+	&-switcher
+		position: relative
+		display: flex
+		align-items: center
+		z-index: 1
+		border-radius: 6px
+		+xs()
+			width: 100%
+			justify-content: center
+		&--bg
+			background-color: rgba(21, 19, 57, 0.1)
+			+dark()
+				background-color: #333651
+			.tab-switcher
+				&__indicator
+					top: 0
+					height: 100%
+					background-color: var(--base-color)
+					+dark()
+						background-color: var(--nav-bg-active)
+				&__item
+					font-weight: 800
+					font-size: 13px
+					color: var(--base-color)
+					padding: 0 30px
+					height: 55px
+					&.is-active
+						color: var(--nav-color-active)
+						span
+							opacity: 1
+					&:hover:not(.is-active)
+						span
+							opacity: 0.8
+					+xs()
+						flex: 1
+		&--bd
+			gap: 34px
+			.tab-switcher
+				&__indicator
+					bottom: 0
+					height: 2px
+					background-color: var(--base-color)
+				&__item
+					font-weight: 700
+					font-size: 16px
+					padding: 5px 0
+					+xs()
+						font-size: 15px
+					&.is-active
+						span
+							opacity: 1
+					&:hover:not(.is-active)
+						span
+							opacity: 0.8
+
+		&__indicator
+			position: absolute
+			left: 0
+			border-radius: 6px
+			z-index: -1
+			transition: .25s ease
+		&__item
+			cursor: pointer
+			display: flex
+			align-items: center
+			justify-content: center
+			gap: 14px
+		span
+			transition: .25s ease
+			color: inherit
+			opacity: 0.5

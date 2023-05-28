@@ -43,3 +43,35 @@ window.addEventListener('DOMContentLoaded', activeTabHash);
 window.addEventListener('hashchange', () => {
 	activeTabHash()
 });
+
+
+
+// sliding animation active nav link
+const slideTabNav = document.querySelectorAll('.tab-switcher');
+
+if (slideTabNav) {
+	slideTabNav.forEach(tabNav => {
+
+	const tabItem = tabNav.querySelectorAll('.tab-switcher__item');
+	const tabItemIndicator = tabNav.querySelector('.tab-switcher__indicator');
+
+	function handleIndicator(el) {
+		tabItem.forEach(item => {
+			item.classList.remove('is-active');
+			item.removeAttribute('style');
+		});
+
+		tabItemIndicator.style.width = `${el.offsetWidth}px`;
+		tabItemIndicator.style.left = `${el.offsetLeft}px`;
+		tabItemIndicator.style.backgroundColor = el.getAttribute('active-color');
+		
+		el.classList.add('is-active');
+		el.style.color = el.getAttribute('active-color');
+	}
+
+	tabItem.forEach((item, index) => {
+		item.addEventListener('click', (e) => { handleIndicator(item)});
+		item.classList.contains('is-active') && handleIndicator(item);
+	});
+})
+}

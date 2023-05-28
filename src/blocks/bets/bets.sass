@@ -59,7 +59,7 @@
 		margin-bottom: 26px
 		+sm()
 			justify-content: center
-			margin-bottom: 10px
+			margin-bottom: 40px
 		&__info
 			+sm()
 				display: none
@@ -77,70 +77,14 @@
 		white-space: nowrap
 		+md()
 			display: none
-	&-form
+	&-nav
 		&__row
 			display: flex
-			gap: 0 40px
+			gap: 18px 40px
 			flex-wrap: wrap
-		&__input
-			position: absolute
-			&:checked ~ .bets-form__btn
-				background-color: var(--nav-bg-active)
-				span
-					color: #fff
-					opacity: 1
-			&:checked ~ .bets-form__text
-				text-decoration: underline
-				opacity: 1
-		&__switcher
-			display: inline-flex
-			overflow: hidden
-			&--bg
-				border-radius: 6px
-				background-color: var(--nav-bg-base)
-				+parent('_dark-theme')
-					background-color: #333651
-			+sm()
-				width: 100%
-		&__text
-			cursor: pointer
-			font-size: 16px
-			display: inline-flex
 			align-items: center
-			justify-content: center
-			text-align: center
-			padding: 0 1em
-			height: 55px
-			font-weight: 700
-			opacity: 0.5
-			width: 100%
-			+xs()
-				font-size: 13px
-		&__label
 			+sm()
-				flex: 1
-		&__btn
-			display: flex
-			align-items: center
-			justify-content: center
-			text-align: center
-			gap: 14px
-			font-weight: 800
-			text-transform: uppercase
-			font-size: 13px
-			height: 55px
-			padding: 1.5em 2.3em
-			border-radius: 6px
-			cursor: pointer
-			transition: $trs
-			width: 100%
-			&:hover
-				span
-					opacity: 1
-			span
-				color: var(--base-color)
-				opacity: 0.5
-				transition: $trs
+				justify-content: center
 	&-body
 		overflow-x: auto
 	&-table
