@@ -185,3 +185,17 @@ if (customSelect) {
 		});
 	});
 };
+
+const tooltips = document.querySelectorAll('[data-tooltip]')
+
+if (tooltips) {
+	tooltips.forEach(tooltip => {
+		let tooltipContent = tooltip.dataset.tooltip
+
+		let tooltipMarkup = `
+			<div class="tooltip tooltip--bottom tooltip--center">${tooltipContent}</div>
+		`
+		// tooltip.appendChild(tooltipMarkup)
+		tooltip.insertAdjacentHTML('beforeend', tooltipMarkup)
+	});
+};
