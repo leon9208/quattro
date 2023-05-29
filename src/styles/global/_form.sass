@@ -295,14 +295,14 @@ input[type="date"]::-webkit-calendar-picker-indicator
 		content: ''
 		position: absolute
 		left: -30px
-		top: 50%
+		top: 30%
 		transform: translateY(-50%)
 		user-select: none
 		pointer-events: none
 		z-index: 2
-		height: 55px
+		height: 100%
 		width: 55px
-		background-image: url(../img/gft.png)
+		background-image: url(../img/bonus-casino-anim.svg)
 		background-repeat: no-repeat
 		background-size: contain
 
@@ -336,6 +336,9 @@ input[type="date"]::-webkit-calendar-picker-indicator
 		opacity: 0.8
 		margin-bottom: 6px
 		white-space: nowrap
+		text-transform: uppercase
+		font-weight: 700
+		opacity: 0.8
 	&__icon
 		height: 24px
 		width: 24px
@@ -396,13 +399,17 @@ input[type="date"]::-webkit-calendar-picker-indicator
 			border-bottom: 2px solid currentColor
 			transform: rotate(45deg) translateY(-50%)
 			z-index: 3
-		.form-field
-			position: absolute
-			// height: 63px
-			background-color: #fff
-			width: calc(100% - 80px)
-			pointer-events: auto
-			z-index: 2
+		.form
+			&-field
+				position: absolute
+				// height: 63px
+				background-color: #fff
+				color: #151339
+				width: calc(100% - 80px)
+				pointer-events: auto
+				z-index: 2
+			&-input
+				background-color: inherit
 		&.isactive
 			display: flex
 			.promo-select__radiobtn::after
@@ -417,4 +424,5 @@ input[type="date"]::-webkit-calendar-picker-indicator
 			color: #fff
 			background: linear-gradient(352.78deg, #EA3589 -15.59%, #FF7EBA 110.86%)
 		&--gray
+			color: #151339
 			background: linear-gradient(180deg, #FFFFFF -24.76%, #DFDCF6 100%)
