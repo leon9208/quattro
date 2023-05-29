@@ -5,10 +5,7 @@ if (promoSelect) {
 	promoSelect.forEach(prS => {
 		prS.addEventListener('click', () => {
 			prS.classList.add('isopen')
-			hideOnClickOutside(prS)
 		});
-	
-	
 		prS.querySelectorAll('.promo-select__item').forEach(el => {
 			el.addEventListener('click', (e) => {
 				prS.querySelectorAll('.promo-select__item').forEach(el => el.classList.remove('isactive'))
@@ -22,9 +19,13 @@ if (promoSelect) {
 
 const heroSlider = new Swiper('.hero-slider', {
   speed: 400,
+	spaceBetween: 100,
+	effect: 'fade',
+  fadeEffect: {
+    crossFade: true
+  },
   pagination: {
     el: '.hero-slider .swiper-pagination',
 		clickable: true
-    // type: 'bullets',
   },
 });

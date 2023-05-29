@@ -3,6 +3,7 @@
 	+xs()
 		margin-bottom: 16px
 	&-slider
+		overflow: unset
 		position: relative
 		.swiper-pagination
 			bottom: 55px !important
@@ -21,7 +22,6 @@
 		background-size: cover
 		background-position: center
 		background-repeat: no-repeat
-		overflow: hidden
 		+sm()
 			min-height: unset
 		&::after
@@ -32,6 +32,7 @@
 			left: 0
 			top: 0
 			opacity: 0.68
+			pointer-events: none
 			+dark()
 				background: linear-gradient(152.29deg, rgba(27, 28, 48, 0.5) -6.12%, rgba(37, 39, 62, 0.5) 42.72%, rgba(37, 39, 62, 0.5) 75.05%, rgba(27, 28, 48, 0.5) 96.42%)
 		&__content
