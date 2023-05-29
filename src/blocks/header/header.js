@@ -8,35 +8,44 @@ formInputText.forEach(inp => {
 	inpFilled()
 });
 
+document.addEventListener('click', (e) => {
+	let isOpenSelector = document.querySelectorAll('.isopen')
+	if (isOpenSelector) {
+		isOpenSelector.forEach(item => {
+			if (!item.contains(e.target)) {
+				item.classList.remove('isopen')
+			}
+		})
+	}
+})
+
+// if(document.documentElement.classList.remove('_scroll-lock')) {
+// 	document.documentElement.classList.remove('_scroll-lock')
+// }
+
+document.querySelector('._overlay').addEventListener('click', () => document.documentElement.classList.remove('_scroll-lock'))
 
 // header dropdown
-const headerDropdown = document.querySelectorAll('.header-mnu')
+const headerDropdown = document.querySelectorAll('.header-mnu__btn')
 
 if (headerDropdown) {
 	headerDropdown.forEach(el => {
-		el.addEventListener('click', () => {
-			el.classList.contains('isopen') ? el.classList.remove('isopen') : el.classList.add('isopen')
-			hideOnClickOutside(el)
+		el.addEventListener('click', (e) => {
+			let elParent = el.closest('.header-mnu')
+
+			if (elParent.classList.contains('isopen')) {
+				elParent.classList.remove('isopen')
+				if(window.innerWidth < 578) {
+					document.documentElement.classList.remove('_scroll-lock')
+				}
+			} else {
+				elParent.classList.add('isopen')
+				if(window.innerWidth < 578) {
+					document.documentElement.classList.add('_scroll-lock')
+				}
+			}
 		});
 	})
-};
-
-function hideOnClickOutside(element) {
-	const outsideClickListener = event => {
-		var removeClass = document.querySelector('.isopen')
-			if (!element.contains(event.target)) {
-				if(removeClass){
-					removeClass.classList.remove('isopen')
-				}
-				removeClickListener();
-			}
-	}
-
-	const removeClickListener = () => {
-			document.removeEventListener('click', outsideClickListener);
-	}
-
-	document.addEventListener('click', outsideClickListener);
 };
 
 
@@ -75,8 +84,8 @@ const bCarousel = () => {
 				pagination: {
 					enabled: caouselPagination != null ? true : false,
 					el: caouselPagination,
-					dynamicBullets: true,
-					dynamicMainBullets: 4,
+					// dynamicBullets: true,
+					// dynamicMainBullets: 4,
 					clickable: true
 				},
 				breakpoints: {
@@ -166,10 +175,10 @@ const customSelect = document.querySelectorAll('.form-select')
 if (customSelect) {
 	customSelect.forEach(cs => {
 		cs.addEventListener('click', (e) => {
+			e.stopPropagation()
 			cs.classList.toggle('isopen')
-			hideOnClickOutside(cs)
 		});
-	
+
 		let csCurrent = cs.querySelector('.form-select__current span')
 		let csInput = cs.querySelector('input')
 		let csItems = cs.querySelectorAll('.form-select__item')

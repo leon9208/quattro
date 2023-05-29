@@ -13,6 +13,15 @@ html
 	height: auto
 	min-height: 100%
 	overflow-x: hidden
+	&._scroll-lock
+		overflow: hidden
+		._overlay
+			opacity: 1
+			pointer-events: auto
+			visibility: visible
+		body
+			overflow: hidden
+
 body
 	background-color: var(--body-bg)
 	color: var(--base-color)
@@ -23,15 +32,27 @@ body
 	overflow-x: hidden
 	&.inner
 		padding-top: var(--header-height)
-*
-	// scrollbar-width: thin
-	// scrollbar-color: #6969dd #e0e0e0
+
 ::-webkit-scrollbar
 	width: 8px
 ::-webkit-scrollbar-track
 	background-color: var(--nav-bg-base)
 ::-webkit-scrollbar-thumb
 	background-color: var(--nav-bg-hover)
+
+._overlay
+	position: fixed
+	height: 100%
+	width: 100%
+	top: 0
+	left: 0
+	background: rgba(21, 19, 57, 0.86)
+	z-index: 25
+	transition: 0.25s ease
+	opacity: 0
+	pointer-events: none
+	visibility: hidden
+
 
 ul, ul ul
 	padding: 0

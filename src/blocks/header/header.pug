@@ -13,25 +13,26 @@ header.header.header--fixed
 		else
 			+logo('logo--header', 'quattro', false, true)
 	.header-side.header-side--right
-		.header-account
-			if pageType != 'main'
+		if pageType != 'main'
+			.header-account
 				a.btn.header-btn.btn--square.btn--secondary(href="#")
 					+xlink('user', 'btn')
-			else
-				.btn.header-btn.btn--secondary.header-mnu
+		else
+			.header-account.header-mnu
+				.btn.header-btn.btn--secondary.header-mnu__btn
 					+xlink('user', 'btn')
-			.header-dropdown
-				.header-dropdown__head 
-					+xlink('user', 'btn')
-					span Hello, denis
-				a.btn.btn--xs.btn--gray(href="#") Balances
-				a.btn.btn--xs.btn--gray(href="#") Personal info
-				a.btn.btn--xs.btn--primary(href="#" data-count="6") Bonuses
-				a.btn.btn--xs.btn--gray(href="#") History
-				a.btn.btn--xs.btn--gray(href="#") Settings
+				.header-dropdown
+					.header-dropdown__head 
+						+xlink('user', 'btn')
+						span Hello, denis
+					a.btn.btn--xs.btn--gray(href="#") Balances
+					a.btn.btn--xs.btn--gray(href="#") Personal info
+					a.btn.btn--xs.btn--primary(href="#" data-count="6") Bonuses
+					a.btn.btn--xs.btn--gray(href="#") History
+					a.btn.btn--xs.btn--gray(href="#") Settings
 		.header-balance
-			.balance
-				.balance-btn.header-mnu
+			.balance.header-mnu
+				.balance-btn.header-mnu__btn
 					.balance-btn__text 1245.03€
 				.header-dropdown
 					.balance-info

@@ -18,7 +18,7 @@
 		left: 0
 	&--fixed
 		position: fixed
-		z-index: 20
+		z-index: 26
 		gap: 10px
 		background-repeat: no-repeat
 		background-position: center
@@ -70,7 +70,7 @@
 		align-self: center
 	&-side
 		display: flex
-		align-items: center
+		// align-items: center
 		flex: 1
 		gap: 5px
 		+sm()
@@ -101,32 +101,38 @@
 			border-radius: 0 3px 3px 0
 
 	&-mnu
-		position: relative
-		display: flex
-		align-items: center
-		gap: 8px
-		padding: 0 10px
-		&::after
-			content: ''
-			flex: none
-			right: 15px
-			width: 7px
-			height: 7px
-			margin-top: -2px
-			border-right: 2px solid
-			border-bottom: 2px solid
-			border-color: currentColor
-			transform: rotate(45deg)
-			transition: $trs
 		&.isopen
+			.header
+				&-mnu__btn::after
+					transform: rotate(225deg)
+					margin-top: 2px
+				&-dropdown
+					opacity: 1
+					visibility: visible
+					pointer-events: unset
+					top: 100%
+					&::before
+						opacity: 1
+		&__btn
+			position: relative
+			display: flex
+			align-items: center
+			padding: 0 10px
+			gap: 8px
+			overflow: hidden
 			&::after
-				transform: rotate(225deg)
-				margin-top: 2px
-			& ~ .header-dropdown
-				opacity: 1
-				visibility: visible
-				pointer-events: unset
-				top: 100%
+				content: ''
+				flex: none
+				right: 15px
+				width: 7px
+				height: 7px
+				margin-top: -2px
+				border-right: 2px solid
+				border-bottom: 2px solid
+				border-color: currentColor
+				transform: rotate(45deg)
+				transition: $trs
+		
 
 	&-dropdown
 		position: absolute
@@ -153,8 +159,20 @@
 			margin-top: 0
 			max-width: 100%
 			width: 100%
-			z-index: -1
 			box-shadow: unset
+			&::after
+				content: ''
+				position: absolute
+				height: 35px
+				width: 35px
+				margin-top: 20px
+				top: 100%
+				left: 50%
+				transform: translateX(-50%)
+				background-repeat: no-repeat
+				background-size: contain
+				pointer-events: none
+				background-image: url("data:image/svg+xml,%3Csvg width='35' height='35' viewBox='0 0 35 35' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.9745 17.5L24.9253 12.551C25.2536 12.2226 25.4381 11.7773 25.4381 11.3129C25.4381 10.8485 25.2536 10.4031 24.9253 10.0747C24.5969 9.74638 24.1515 9.5619 23.6871 9.5619C23.2227 9.5619 22.7774 9.74638 22.449 10.0747L17.5 15.0255L12.551 10.0747C12.2226 9.74638 11.7773 9.5619 11.3129 9.5619C10.8485 9.5619 10.4031 9.74638 10.0747 10.0747C9.74638 10.4031 9.5619 10.8485 9.5619 11.3129C9.5619 11.7773 9.74638 12.2226 10.0747 12.551L15.0255 17.5L10.0747 22.449C9.74638 22.7774 9.5619 23.2227 9.5619 23.6871C9.5619 24.1515 9.74638 24.5969 10.0747 24.9253C10.4031 25.2536 10.8485 25.4381 11.3129 25.4381C11.7773 25.4381 12.2226 25.2536 12.551 24.9253L17.5 19.9745L22.449 24.9253C22.7774 25.2536 23.2227 25.4381 23.6871 25.4381C24.1515 25.4381 24.5969 25.2536 24.9253 24.9253C25.2536 24.5969 25.4381 24.1515 25.4381 23.6871C25.4381 23.2227 25.2536 22.7774 24.9253 22.449L19.9745 17.5ZM7 0H28C29.8565 0 31.637 0.737498 32.9497 2.05025C34.2625 3.36301 35 5.14348 35 7V28C35 29.8565 34.2625 31.637 32.9497 32.9497C31.637 34.2625 29.8565 35 28 35H7C5.14348 35 3.36301 34.2625 2.05025 32.9497C0.737498 31.637 0 29.8565 0 28V7C0 5.14348 0.737498 3.36301 2.05025 2.05025C3.36301 0.737498 5.14348 0 7 0Z' fill='%23F7F9FB'/%3E%3C/svg%3E%0A")
 		&__head
 			display: flex
 			align-items: center
@@ -172,7 +190,7 @@
 	
 	&-btn
 		position: relative
-		height: 43px
+		min-height: 43px
 		background-color: var(--nav-bg-base)
 		padding: 10px 15px
 		border-radius: 3px 0 0 3px
