@@ -263,6 +263,9 @@
 			min-height: 170px
 			+xs()
 				min-height: 134px
+			&:hover
+				img
+					transform: scale(1.2)
 		&__img
 			pointer-events: none
 			user-select: none
@@ -270,6 +273,8 @@
 			right: 0
 			bottom: 0
 			max-width: 40%
+			img
+				transition: transform .25s ease
 		&__content
 			gap: 16px
 			position: relative
@@ -280,18 +285,19 @@
 			flex-direction: column
 			height: 100%
 			padding: 20px
-			width: 75%
+			width: 65%
 			left: 0
 			+sm()
 				padding: 13px 16px
 		&__text
 			font-weight: 900
 			font-size: 23px
+			line-height: 1
 			+sm()
 				font-size: 16px
 		&__badge
 			border-radius: 6px
-			padding: 14px
+			padding: 0.8em 1.2em
 			background-color: rgba(#fff, .2)
 			font-weight: 700
 			font-size: 12px
