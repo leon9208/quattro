@@ -478,9 +478,6 @@ a
 		gap: 10px
 		transition: $trs
 		width: 67px
-		&:not(.inform-btn--chat)
-			+sm()
-				display: none
 		&[data-count]
 			&::after
 				content: attr(data-count)
@@ -500,15 +497,18 @@ a
 				color: #fff
 				font-size: 12px
 				pointer-events: none
-		&:first-child:not(.inform-btn--chat)
+		&:first-child
 			border-radius: 3px 0 0 0
-		&:last-child:not(.inform-btn--chat)
+		&:last-child
 			border-radius: 0 0 0 3px
+		&:not(.inform-btn--chat)
+			+sm()
+				display: none
 		&--chat
 			+sm()
 				height: 54px
 				width: 54px
-				border-radius: 3px
+				border-radius: 3px !important
 		&--primary
 			background-color: color(--primary-color)
 			color: #fff
