@@ -334,6 +334,16 @@ a
 	text-decoration: none
 	&-img
 		max-width: 30px
+	&--mobilenav
+		border-radius: 50px
+		gap: 13px
+		background-color: var(--nav-bg-base)
+		font-size: 14px
+		padding: 13px 18px
+		text-transform: uppercase
+		font-weight: 700
+		.lang-img
+			max-width: 25px
 	&--nav
 		text-transform: uppercase
 		flex-direction: column
@@ -342,6 +352,7 @@ a
 		padding: 20px 0
 		border-top: 2px solid #E9E8F2
 		width: 100%
+		margin-top: 20px
 		+dark()
 			border-color: #1B1C2F
 	&--footer
@@ -353,11 +364,10 @@ a
 	flex: none
 	position: relative
 	width: 50px
-	height: 25px
+	height: 24px
 	border-radius: 50px
 	background-color: #E9E9EA
 	cursor: pointer
-	margin-bottom: 20px
 	+dark()
 		background: #1B1C2F
 		.theme-switcher__icon
@@ -384,7 +394,6 @@ a
 		opacity: 0
 		&:checked ~ .theme-switcher__icon
 			left: 27px
-			// right: 2px
 	&__icon
 		position: absolute
 		height: 21px
