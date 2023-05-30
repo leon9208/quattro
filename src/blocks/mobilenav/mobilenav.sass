@@ -1,0 +1,206 @@
+.mobilenav
+	width: 100%
+	height: 100%
+	position: fixed
+	z-index: 30
+	background-color: var(--base-bg)
+	color: var(--base-color)
+	background-image: url(../img/mobilenav-bg.svg)
+	background-repeat: no-repeat
+	background-position: top center
+	display: none
+	flex-direction: column
+	max-width: 390px
+	right: -100%
+	opacity: 0
+	transition: .35s ease
+	&::after
+		content: ''
+		position: absolute
+		width: 100%
+		bottom: 0
+		left: 0
+		height: 20px
+		background-size: contain
+		background-repeat: repeat-x
+		z-index: 1
+		background-image: url("data:image/svg+xml,%3Csvg id='Vector' xmlns='http://www.w3.org/2000/svg' width='1143.792' height='143' viewBox='0 0 1143.792 143'%3E%3Cpath d='M143,0H331L286,143H143Z' transform='translate(-143)' fill='%23151339'/%3E%3Cpath d='M35.566,0H188L143,143H0Z' fill='%233aded4'/%3E%3Cpath d='M35.257.042,143,143H0Z' fill='%23ea3589'/%3E%3Cpath d='M188,0H331L286,143H143Z' fill='%23151339'/%3E%3Cpath d='M331,0H474L429,143H286Z' transform='translate(-0.044)' fill='%23ea3589'/%3E%3Cpath d='M331,0l98,143H286Z' transform='translate(-0.042)' fill='%236766f6'/%3E%3Cpath d='M474,0H617L572,143H429Z' transform='translate(-0.067)' fill='%233aded4'/%3E%3Cpath d='M617,0H760L715,143H572Z' transform='translate(-0.089)' fill='%23151339'/%3E%3Cpath d='M572,143,760,0,715,143Z' transform='translate(-0.089)' fill='%23f4ba40'/%3E%3Cpath d='M760,0H903L858,143H715Z' transform='translate(-0.111)' fill='%23ea3589'/%3E%3Cpath d='M903,0h143l-45,143H858Z' transform='translate(-0.146)' fill='%236766f6'/%3E%3Cpath d='M903,0l98,143H858Z' transform='translate(-0.146)' fill='%233aded4'/%3E%3Cpath d='M1035.214,0h108.725V143H1001Z' transform='translate(-0.146)' fill='%23151339'/%3E%3C/svg%3E%0A")
+	+sm()
+		display: flex
+		&.isactive
+			opacity: 1
+			right: 0
+	+dark()
+		background-image: url(../img/mobilenav-bg--dark.svg)
+	.social
+		border-bottom: 0
+		margin-bottom: 30px
+		flex-direction: column
+		&-list
+			flex-direction: row
+		&-text
+			color: inherit
+			opacity: 0.5
+			align-self: center
+			align-items: center
+			flex-direction: row
+			p
+				text-align: left
+		&-link
+			flex: 1
+	&-close
+		height: 30px
+		width: 30px
+		position: absolute
+		right: 14px
+		top: 14px
+		display: flex
+		align-items: center
+		justify-content: center
+		cursor: pointer
+		&__icon
+			height: 22px
+			width: 22px
+			fill: var(--base-color)
+	&-head
+		padding: 40px 0
+		display: flex
+		align-items: center
+		justify-content: center
+	&-body
+		flex: 1
+		padding: 0 10px
+		overflow-y: auto
+	&-footer
+		padding: 0 0 70px
+		&__text
+			font-size: 12px
+			color: inherit
+			opacity: 0.5
+			font-weight: 500
+			line-height: 1.4
+	&-list
+		display: inline-flex
+		flex-wrap: wrap
+		gap: 18px 10px
+		margin-bottom: 23px
+		justify-content: center
+		align-content: center
+		max-width: 390px
+		width: 100%
+	&-item
+		max-width: 60px
+		width: calc(100% / 5 - 10px)
+	&-link
+		text-align: center
+		width: 100%
+		font-size: 13px
+		font-weight: 700
+		line-height: 1
+		color: var(--nav-color)
+		text-decoration: none
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: center
+		gap: 13px
+		&.isactive
+			color: var(--nav-color-active)
+			i
+				background-color: var(--nav-bg-active)
+			span
+				color: var(--nav-color-active)
+
+		&--orange
+			color: #fff
+			span
+				color: var(--nav-color)
+			i
+				background: linear-gradient(137.11deg, #EA4382 19.45%, #F4BA40 102.98%)
+		&--purple
+			color: #fff
+			span
+				color: var(--nav-color)
+			i
+				background: linear-gradient(295.33deg, #A62EE0 -7.11%, rgba(228, 61, 232, 0.74) 42.74%, #5538F4 106.41%)
+		&__icon
+			max-height: 24px
+			height: 50%
+			width: 50%
+			fill: currentColor
+		i
+			overflow: hidden
+			flex: none
+			display: block
+			max-width: 100%
+			width: 100%
+			display: flex
+			align-items: center
+			justify-content: center
+			border-radius: 6px
+			background-color: var(--nav-bg-base)
+			&::after
+				content: ''
+				display: block
+				padding-bottom: 100%
+	&-search
+		margin-bottom: 30px
+		&__icon
+			height: 24px
+			width: 24px
+			fill: var(--base-color)
+			opacity: 0.5
+		&__field
+			position: relative
+			i
+				top: 0
+				left: 0
+				pointer-events: none
+				position: absolute
+				width: 60px
+				height: 100%
+				display: flex
+				align-items: center
+				justify-content: center
+		&__input
+			color: var(--base-color)
+			background-color: var(--form-bg-base)
+			font-weight: 500
+			font-size: 15px
+			border-radius: 6px
+			height: 74px
+			width: 100%
+			padding: 0 15px 0 60px
+			&:focus
+				background-color: var(--form-bg-focus)
+			&:hover
+				background-color: var(--form-bg-hover)
+			&.invalid
+				background-color: var(--form-bg-error)
+
+	&-btns
+		display: flex
+		flex-wrap: wrap
+		align-items: center
+		justify-content: center
+		gap: 10px
+		margin-bottom: 40px
+	&-btn
+		display: inline-flex
+		align-items: center
+		justify-content: center
+		text-decoration: none
+		border-radius: 50px
+		background-color: var(--nav-bg-base)
+		color: var(--nav-color)
+		font-weight: 800
+		font-size: 9px
+		gap: 16px
+		padding: 1em 15px
+		height: 44px
+		&__img
+			max-width: 25px
+		&__icon
+			height: 24px
+			width: 24px
+			fill: currentColor

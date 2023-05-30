@@ -1,0 +1,87 @@
+.mobilenav#mobilenav(data-modal)
+	button.mobilenav-close(data-modal-close)
+		+xlink('close', 'mobilenav-close')
+	.mobilenav-head
+		+logo('logo--header', 'quattro', false, true)
+	.mobilenav-body
+		ul.mobilenav-list
+			li.mobilenav-item
+				a.mobilenav-link.isactive(href="#")
+					i
+						+xlink('home', 'mobilenav-link')
+					span Lobby
+			li.mobilenav-item
+				a.mobilenav-link(href="#" class=(pageType === 'inner' ? 'isactive' : ''))
+					i
+						+xlink('cherry', 'mobilenav-link')
+					span Casino
+			li.mobilenav-item
+				a.mobilenav-link(href="#")
+					i
+						+xlink('cards', 'mobilenav-link')
+					span Live Casino
+			li.mobilenav-item
+				a.mobilenav-link(href="#")
+					i
+						+xlink('ball', 'mobilenav-link')
+					span Sport
+			li.mobilenav-item
+				a.mobilenav-link.mobilenav-link--orange(href="#")
+					i
+						+xlink('spinner', 'mobilenav-link')
+					span Lucky Spin
+			li.mobilenav-item
+				a.mobilenav-link.mobilenav-link--purple(href="#" data-nav-count="6")
+					i
+						+xlink('gift', 'mobilenav-link')
+					span Promo
+			li.mobilenav-item
+				a.mobilenav-link(href="#")
+					i
+						+xlink('cup', 'mobilenav-link')
+					span Tourneys
+			li.mobilenav-item
+				a.mobilenav-link(href="#")
+					i
+						+xlink('crown', 'mobilenav-link')
+					span Vip
+			li.mobilenav-item
+				a.mobilenav-link(href="#")
+					i
+						+xlink('coins', 'mobilenav-link')
+					span Quattro Coin
+			li.mobilenav-item
+				a.mobilenav-link(href="#")
+					i
+						+xlink('shop', 'mobilenav-link')
+					span Quattro Shop
+		form.mobilenav-search
+			label.mobilenav-search__field
+				i
+					+xlink('search', 'mobilenav-search')
+				input.mobilenav-search__input(type="text" name="game-search" required placeholder="Search from more than 3000 Games")
+		.mobilenav-btns
+			a.lang.lang--mobilenav(href="#") 
+				img.lang-img(src="img/en-flag.svg", alt="")
+				.lang-text en
+			a.mobilenav-btn(href="#")
+				.live-icon.live-icon--secondary
+				.mobilenav-btn__text LIVE 
+					br
+					| SUPPORT
+			a.mobilenav-btn(href="#")
+				+xlink('chat', 'mobilenav-btn')
+			label.theme-switcher
+				input.theme-switcher__input(type="checkbox")
+				i.theme-switcher__icon
+		.mobilenav-footer
+			include ../social/social.pug
+			p.mobilenav-footer__text Quattrocasino.com
+				br
+				| Это мультивалютное онлайн-казино, в котором вы можете играть, используя биткойны и другие криптовалюты, а также множество традиционных валют, включая рубли, доллары и евро.
+				br
+				| Copyright ©2023 Quattro. Все права защищены.
+
+
+
+
