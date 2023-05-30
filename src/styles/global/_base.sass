@@ -168,6 +168,12 @@ a
 			border-radius: 6px
 			+sm()
 				background-color: var(--base-bg)
+		span
+			&::after
+				display: block
+				content: attr(data-long-title)
+				+xs()
+					content: attr(data-short-title)
 	&-head
 		display: flex
 		align-items: center
