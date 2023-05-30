@@ -1,30 +1,32 @@
-// //modal
-// const htmlTag = document.documentElement
-// var Scrollbar = window.Scrollbar;
-// Scrollbar.initAll();
+const openModal = (el) => {
+	document.documentElement.classList.add('_scroll-lock')
+	document.querySelector(el).classList.add('isactive')
+}
 
-// const closeModal = () => {
-// 	htmlTag.classList.remove('_overflow-hidden')
-// 	if(document.querySelector('.modal').classList.contains('isopen')) {
-// 		document.querySelector('.modal.isopen').classList.remove('isopen')
-// 	}
-// }
+const closeModal = () => {
+	document.documentElement.classList.remove('_scroll-lock')
+	document.querySelectorAll('[data-modal].isactive').forEach(isActiveSelector => isActiveSelector.classList.remove('isactive'))
+}
 
-// const openModal = (selector) => {
-// 	let modalSelector = document.querySelector(selector)
-// 	if(modalSelector != null) {
-// 		closeModal()
-// 		htmlTag.classList.add('_overflow-hidden')
-// 		modalSelector.classList.add('isopen')
-// 	}
-// }
+const modalTargetLink = document.querySelectorAll('[data-modal-target]')
+const modalCLoseBtn = document.querySelectorAll('[data-modal-close]')
 
-// const closeModalBtn = document.querySelectorAll('[data-modal-close]')
+if (modalTargetLink) {
+	modalTargetLink.forEach(tLink => {
+		tLink.addEventListener('click', (e) => {
+			e.preventDefault()
+			closeModal()
+			let tLinkHref = tLink.getAttribute('href')
+			openModal(tLinkHref)
+		})
+	})
+};
 
-// if (closeModalBtn.length > 0) {
-// 	closeModalBtn.addEventListener('click', closeModal)
-// }
-
-// setTimeout(
-// 	openModal('#search-modal')
-// , 3000)
+if (modalCLoseBtn) {
+	modalCLoseBtn.forEach(tClose => {
+		tClose.addEventListener('click', (e) => {
+			e.preventDefault()
+			closeModal()
+		})
+	})
+};
