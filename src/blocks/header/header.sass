@@ -29,6 +29,8 @@
 		box-shadow: 0px 3px 5px rgba(21, 19, 57, 0.1)
 		background-image: url(../img/header-bg.svg)
 		transition: top .45s ease
+		+parent('_modal-open')
+			z-index: 24
 		&:after
 			content: ''
 			pointer-events: none

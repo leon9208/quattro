@@ -179,3 +179,102 @@
 			height: 1em
 			width: 1em
 			fill: currentColor
+	&-placeholder
+		height: 14px
+		border-radius: 6px
+		background-color: var(--body-bg)
+
+
+
+.games
+	.section-head
+		margin-bottom: 20px
+	&-container
+		padding: 0 60px
+		+sm()
+			padding: 0 15px
+		+xs()
+			padding: 0 5px
+	&-grid
+		gap: 16px 6px
+		display: grid
+		grid-template-columns: repeat(5, 1fr)
+		margin-bottom: 24px
+		+lg()
+			grid-template-columns: repeat(4, 1fr)
+		+md()
+			grid-template-columns: repeat(3, 1fr)
+		+sm()
+			gap: 6px
+		+xs()
+			grid-template-columns: repeat(2, 1fr)
+		.game-title
+			+sm()
+				display: none
+		&--result
+			margin-bottom: 35px
+			+sm()
+				margin-bottom: 24px
+	&-search
+		padding: 10px
+		margin-bottom: 50px
+		+sm()
+			padding: 6px
+			margin-bottom: 24px
+		&__icon
+			position: absolute
+			top: 0
+			left: 0
+			display: flex
+			align-items: center
+			justify-content: center
+			width: 60px
+			height: 100%
+			fill: currentColor
+			opacity: 0.5
+		&__input
+			height: 74px
+			width: 100%
+			border-radius: 10px
+			font-weight: 500
+			font-size: 17px
+			background-color: var(--form-bg-base)
+			color: var(--base-color)
+			padding: 0 15px 0 60px
+			&:hover
+				background-color: var(--form-bg-hover)
+			&:focus
+				background-color: var(--form-bg-focus)
+			+xs()
+				font-size: 15px
+			&::placeholder
+				color: currentColor
+				opacity: 0.5
+		&__field
+			position: relative
+			display: block
+		&-result
+			margin-bottom: 35px
+			padding: 0 6px
+			+sm()
+				margin-bottom: 24px
+			&__title
+				align-items: center
+				justify-content: center
+				display: flex
+				flex-wrap: wrap
+				color: var(--base-color)
+				font-weight: 700
+				margin-bottom: 0.9em
+				font-size: 26px
+				gap: 9px 24px
+				+sm()
+					font-size: 20px
+			&__count
+				font-weight: 800
+				font-size: 13px
+				padding: 7px 12px
+				text-transform: uppercase
+				background-color: var(--light-bg)
+				color: var(--base-color)
+				border-radius: 3px

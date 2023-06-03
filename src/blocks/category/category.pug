@@ -9,10 +9,10 @@ mixin cNav(cIcon, cValue, cTitle, cChecked = false, cClass = false)
 		.category-head
 			.category-filter
 				.category-filter__top
-					a.category-btn(href="#")
+					a.category-btn(href="#modal-search" data-modal-target)
 						+xlink('search', 'category-btn')
 						span search
-					a.category-provider(href="#") 
+					a.category-provider(href="#modal-providers" data-modal-target) 
 						img.category-provider__icon(src="img/providers.svg", alt="")
 						.category-provider__name Providers
 				.swiper.category-nav__list

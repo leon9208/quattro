@@ -12,3 +12,73 @@
 			background-color: var(--nav-bg-active)
 		+sm()
 			background-color: var(--base-bg)
+
+.provider
+	&-search
+		&__icon
+			display: block
+			top: 0
+			left: 0
+			position: absolute
+			height: 100%
+			width: 60px
+			display: flex
+			align-items: center
+			justify-content: center
+			fill: var(--base-color)
+			opacity: 0.5
+		&__field
+			display: block
+			position: relative
+		&__input
+			font-size: 15px
+			padding: 0 15px 0 60px
+			width: 100%
+			height: 60px
+			border-radius: 3px
+			background-color: var(--form-bg-base)
+			color: var(--base-color)
+			&:hover
+				background-color: var(--form-bg-hover)
+
+	&-title
+		position: relative
+		display: flex
+		align-items: center
+		justify-content: center
+		gap: 19px
+		font-weight: 800
+		font-size: 24px
+		margin-bottom: 25px
+		&[data-count]
+			&::after
+				content: attr(data-count)
+				font-size: 13px
+				line-height: 1
+				border-radius: 6px
+				padding: .8em 0.9em
+				background-color: var(--light-bg)
+		+xs()
+			font-size: 20px
+	&-wrap
+		padding: 0 30px 30px
+		display: flex
+		flex-direction: column
+		+xs()
+			padding: 18px
+	&-grid
+		display: grid
+		grid-template-columns: repeat(4, 1fr)
+		gap: 14px
+		+xs()
+			grid-template-columns: repeat(2, 1fr)
+	&-item
+		background-color: var(--body-bg)
+		border-radius: 3px
+		height: 54px
+		display: flex
+		align-items: center
+		justify-content: center
+		cursor: pointer
+		&:hover, &.isactive
+			background-color: var(--light-bg)

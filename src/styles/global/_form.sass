@@ -12,6 +12,9 @@ textarea
 	min-height: 160px
 
 .form
+	display: flex
+	flex-direction: column
+	gap: 8px
 	&-select
 		position: relative
 		&.disabled
@@ -153,7 +156,7 @@ textarea
 		display: flex
 		gap: 4px
 	&-field
-		display: block
+		display: flex
 		position: relative
 		color: var(--base-color)
 	&-input
@@ -165,7 +168,7 @@ textarea
 		background-color: var(--form-bg-base)
 		border-radius: 3px
 		overflow: hidden
-		height: 65px
+		height: 60px
 		transition: .25s ease
 		&:hover
 			background-color: var(--form-bg-hover)
@@ -193,6 +196,36 @@ textarea
 				background: #fff !important
 			& ~ .form-label
 				color: rgba(21, 19, 57, 1)
+	&-checkbox
+		position: relative
+		height: 20px
+		width: 20px
+		border-radius: 2px
+		border: 2px solid var(--base-color)
+		cursor: pointer
+		transition: .25s ease
+		margin-right: 12px
+		flex: none
+		&::after
+			content: ''
+			position: absolute
+			height: 10px
+			width: 5px
+			top: 1px
+			left: 6px
+			border-right: 2px solid var(--light-bg)
+			border-bottom: 2px solid var(--light-bg)
+			transform: rotate(45deg)
+			opacity: 0
+			transition: .25s ease
+		+dark()
+			border-color: var(--form-bg-base)
+		&:checked
+			background-color: var(--base-color)
+			&::after
+				opacity: 1
+			+dark()
+				background-color: var(--form-bg-base)
 
 
 
@@ -325,6 +358,9 @@ input[type="date"]::-webkit-calendar-picker-indicator
 	&--lg
 		.promo-select__current, .promo-select__item
 			height: 74px
+	&--sm
+		.promo-select__current, .promo-select__item
+			height: 60px
 	&__current
 		position: relative
 		overflow: hidden
@@ -387,6 +423,8 @@ input[type="date"]::-webkit-calendar-picker-indicator
 		transition: $trs
 		gap: 10px
 		user-select: none
+		+xs()
+			font-size: 16px
 		&::after
 			content: ''
 			position: absolute
@@ -402,14 +440,15 @@ input[type="date"]::-webkit-calendar-picker-indicator
 		.form
 			&-field
 				position: absolute
-				// height: 63px
 				background-color: #fff
 				color: #151339
 				width: calc(100% - 80px)
 				pointer-events: auto
 				z-index: 2
+				height: 90%
 			&-input
 				background-color: inherit
+				height: 100%
 		&.isactive
 			display: flex
 			.promo-select__radiobtn::after
@@ -426,3 +465,48 @@ input[type="date"]::-webkit-calendar-picker-indicator
 		&--gray
 			color: #151339
 			background: linear-gradient(180deg, #FFFFFF -24.76%, #DFDCF6 100%)
+
+
+
+.autorisation
+
+	&__title
+		font-weight: 800
+		text-transform: uppercase
+		font-size: 21px
+		margin-bottom: 13px
+	&__text
+		font-size: 15px
+		font-weight: 500
+		a
+			b
+				font-weight: 800
+	&-nav
+		margin-bottom: 46px
+		padding: 20px 24px 0
+		+xs()
+			padding: 16px
+		.tab-switcher__item
+			flex: 1
+	&-content
+		height: 100%
+		overflow: auto
+		padding: 0 24px
+		+xs()
+			padding: 0 16px
+		.promo-select::before
+			left: -22px
+		&__item
+			height: 100%
+			flex: 1
+			display: none
+			flex-direction: column
+			&.isactive
+				display: flex
+
+	&-head
+		margin-bottom: 24px
+	&-main
+		flex: 1
+	&-footer
+		margin-top: auto

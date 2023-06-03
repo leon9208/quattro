@@ -70,7 +70,14 @@ if (slideTabNav) {
 	}
 
 	tabItem.forEach((item, index) => {
-		item.addEventListener('click', (e) => { handleIndicator(item)});
+		item.addEventListener('click', (e) => {
+			e.preventDefault()
+			if(item.getAttribute('href') != null) {
+				document.querySelectorAll('[data-tab-content]').forEach(tabContent => tabContent.classList.remove('isactive'))
+				document.querySelector(item.getAttribute('href')).classList.add('isactive')
+			}
+			handleIndicator(item)
+		});
 		item.classList.contains('is-active') && handleIndicator(item);
 	});
 })

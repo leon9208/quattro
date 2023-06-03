@@ -2,7 +2,7 @@
 	button.mobilenav-close(data-modal-close)
 		+xlink('close', 'mobilenav-close')
 	.mobilenav-head
-		+logo('logo--header', 'quattro', false, true)
+		+logo('logo--mobilenav', 'quattro', false, true)
 	.mobilenav-body
 		ul.mobilenav-list
 			li.mobilenav-item
@@ -61,7 +61,7 @@
 					+xlink('search', 'mobilenav-search')
 				input.mobilenav-search__input(type="text" name="game-search" required placeholder="Search from more than 3000 Games")
 		.mobilenav-btns
-			a.lang.lang--mobilenav(href="#") 
+			a.lang.lang--mobilenav(href="#modal-lang" data-modal-target) 
 				img.lang-img(src="img/en-flag.svg", alt="")
 				.lang-text en
 			a.mobilenav-btn(href="#")

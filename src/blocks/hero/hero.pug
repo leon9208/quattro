@@ -4,9 +4,9 @@
 		.header-center
 			+logo('logo--index', 'quattro', false, true)
 		.header-side.header-side--right
-			a.btn.btn--xs.btn--primary.text-uppercase(href="#")
+			button.btn.btn--xs.btn--primary.text-uppercase(onclick="openModal('#modal-autorisation', console.log('Register opened'))")
 				span Register
-			a.btn.btn--xs.btn--secondary.text-uppercase(href="#")
+			button.btn.btn--xs.btn--secondary.text-uppercase(onclick="openModal('#modal-autorisation', console.log('Register opened'))")
 				span.d-sm-none Login
 				+xlink('user', 'btn')
 			a.btn.btn--xs.btn--gray.text-uppercase.d-none.d-sm-flex(href="#mobilenav" data-modal-target)

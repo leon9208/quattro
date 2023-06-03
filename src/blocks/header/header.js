@@ -19,11 +19,13 @@ document.addEventListener('click', (e) => {
 	}
 })
 
-// if(document.documentElement.classList.remove('_scroll-lock')) {
-// 	document.documentElement.classList.remove('_scroll-lock')
-// }
-
-document.querySelector('._overlay').addEventListener('click', () => document.documentElement.classList.remove('_scroll-lock'))
+document.querySelector('._overlay').addEventListener('click', () =>{
+	document.documentElement.classList.remove('_scroll-lock')
+	document.documentElement.classList.remove('_modal-open')
+	if (document.querySelector('[data-modal].isactive')) {
+		document.querySelector('[data-modal].isactive').classList.remove('isactive')
+	}
+})
 
 // header dropdown
 const headerDropdown = document.querySelectorAll('.header-mnu__btn')
@@ -35,12 +37,12 @@ if (headerDropdown) {
 
 			if (elParent.classList.contains('isopen')) {
 				elParent.classList.remove('isopen')
-				if(window.innerWidth < 578) {
+				if(window.innerWidth < 821) {
 					document.documentElement.classList.remove('_scroll-lock')
 				}
 			} else {
 				elParent.classList.add('isopen')
-				if(window.innerWidth < 578) {
+				if(window.innerWidth < 821) {
 					document.documentElement.classList.add('_scroll-lock')
 				}
 			}
