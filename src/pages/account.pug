@@ -6,19 +6,29 @@ block vars
 block content
 	.inner__content
 		.container
-			.inner__head
-				h1.inner__head-title My account
-				a.btn.btn--xs.btn--white(href="#") 
-					span Log Out
-					+xlink('logout', 'btn')
+			.inner-head
+				.inner-head__side
+					h1.inner-head__title
+						+xlink('user', 'inner')
+						span Hello, denis
+				.inner-head__side
+					a.btn.btn--xs.btn--white(href="#") 
+						span Log Out
+						+xlink('logout', 'btn')
 			.tab
 				.tab-nav
+					a.tab-nav__link.isactive(href="#balances") Balances
 					a.tab-nav__link.isactive(href="#personal-info") Personal info
 					a.tab-nav__link(href="#bonuses") Bonuses
-					a.tab-nav__link(href="#balance-history") Balance history
-					a.tab-nav__link(href="#bets-history") Bets history
-					a.tab-nav__link(href="#alerts") Alerts
+					a.tab-nav__link(href="#history") History
+					a.tab-nav__link(href="#settings") Settings
 				.tab-content
+					.tab-content__item.isactive#balances
+						.account
+							.account-head
+								h2.account-head__title Balances
+								+xlink('logo', 'account-head')
+							.account-content
 					.tab-content__item.isactive#personal-info
 						.account
 							.account-head
@@ -31,10 +41,10 @@ block content
 								h2.account-head__title Bonuses
 								+xlink('logo', 'account-head')
 							.account-content
-					.tab-content__item#balance-history
+					.tab-content__item#history
 						.account
 							.account-head
-								h2.account-head__title Balance history
+								h2.account-head__title History
 								+xlink('logo', 'account-head')
 							.account-content.account-content--half
 								.account-content__head
@@ -129,10 +139,10 @@ block content
 												td New
 												td Card
 												td Credit
-					.tab-content__item#bets-history
+					.tab-content__item#settings
 						.account
 							.account-head
-								h2.account-head__title Bets history
+								h2.account-head__title Settings
 								+xlink('logo', 'account-head')
 							.account-content.account-content--half
 								.account-content__head
@@ -176,9 +186,3 @@ block content
 													td Sugar Rush
 								.account-content__footer
 									include ../blocks/pagination/pagination.pug
-					.tab-content__item#alerts
-						.account
-							.account-head
-								h2.account-head__title Alerts
-								+xlink('logo', 'account-head')
-							.account-content

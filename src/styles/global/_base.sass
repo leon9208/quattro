@@ -116,17 +116,28 @@ a
 		border-bottom: 2px solid var(--light-bg)
 
 .inner
+	&__icon
+		flex: none
+		height: 28px
+		width: 26px
+		fill: currentColor
 	&__content
 		padding: 50px 0
-	&__head
+	&-head
 		display: flex
 		align-items: center
 		justify-content: space-between
 		margin-bottom: 40px
-		&-title
+		&__title
+			gap: 18px
+			align-items: center
+			display: flex
 			font-size: 30px
 			font-weight: 800
 			text-transform: uppercase
+		&__side
+			display: flex
+			align-items: center
 
 .section
 	margin-bottom: 14px
