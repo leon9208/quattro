@@ -1,5 +1,4 @@
 const openModal = (el, callback) => {
-	console.log(el)
 	document.documentElement.classList.add('_scroll-lock')
 	document.documentElement.classList.add('_modal-open')
 	document.querySelector(el).classList.add('isactive')
@@ -35,4 +34,16 @@ if (modalCLoseBtn) {
 	})
 };
 
+const autoriastionTab = (el) => {
+	let activeClass = document.querySelectorAll('.autorisation.isactive, .autorisation-content__item.isactive')
+	if(activeClass.length > 0) {
+		activeClass.forEach(item => item.classList.remove('isactive'))
+	}
+	document.querySelector(`[href="${el}"]`).click()
+}
 
+const remoteClick = (selector) => {
+	if(selector) {
+		document.querySelector(selector).click()
+	}
+};

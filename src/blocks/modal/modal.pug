@@ -111,12 +111,15 @@
 .modal.modal--sm.modal--topbtn(id="modal-autorisation" data-modal)
 	.modal-content.pattern.autorisation
 		.modal-content__row
-			.modal-content__left
-				img(src="img/modal-img1.jpg", alt="")
+			.modal-content__left.autorisation-img
+				.autorisation-img__content
+					img(src="img/modal-img1.jpg", alt="")
+				.autorisation-img__content
+					img(src="img/modal-img2.jpg", alt="")
 			.modal-content__right
 				.autorisation-nav
 					.tab-switcher.tab-switcher--bg
-						a.tab-switcher__item.is-active(href="#autorisation-registration")
+						a.tab-switcher__item.isactive(href="#autorisation-registration")
 							span.text-uppercase registration
 						a.tab-switcher__item(href="#autorisation-login")
 							span.text-uppercase login
@@ -126,7 +129,7 @@
 						.autorisation-head.text-center
 							.autorisation__title Registration
 							.autorisation__text Already have an account? 
-								a(href="#")
+								a(href="#" onclick='remoteClick(`[href="#autorisation-login"]`)')
 									b Log In
 						.autorisation-main
 							form.form
@@ -189,7 +192,7 @@
 						.autorisation-head.text-center
 							.autorisation__title login
 							.autorisation__text Don’t have an account? 
-								a(href="#")
+								a(href="#" onclick='remoteClick(`[href="#autorisation-registration"]`)')
 									b Register
 						.autorisation-main
 							form.form

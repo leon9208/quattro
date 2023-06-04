@@ -57,7 +57,7 @@ if (slideTabNav) {
 
 	function handleIndicator(el) {
 		tabItem.forEach(item => {
-			item.classList.remove('is-active');
+			item.classList.remove('isactive');
 			item.removeAttribute('style');
 		});
 
@@ -65,7 +65,7 @@ if (slideTabNav) {
 		tabItemIndicator.style.left = `${el.offsetLeft}px`;
 		tabItemIndicator.style.backgroundColor = el.getAttribute('active-color');
 		
-		el.classList.add('is-active');
+		el.classList.add('isactive');
 		el.style.color = el.getAttribute('active-color');
 	}
 
@@ -78,7 +78,7 @@ if (slideTabNav) {
 			}
 			handleIndicator(item)
 		});
-		item.classList.contains('is-active') && handleIndicator(item);
+		item.classList.contains('isactive') && handleIndicator(item);
 	});
 })
 }
