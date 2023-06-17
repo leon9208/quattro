@@ -35,26 +35,59 @@ mixin cNav(cIcon, cValue, cTitle, cChecked = false, cClass = false)
 						+cNav('star', 'popular', 'Popular')
 						+cNav('dice', 'baccarat-dice', 'Baccarat & Dice')
 		.category-body
-			h2.category-body__title All games
+			h2.category-body__title(data-count="659")
+				if catTitle
+					span=catTitle
+					.loader
+						span
+						span
+						span
+					span(data-category-title) All games
+				else
+					span(data-category-title) All games
 			.category-grid
-				+game(false, 'top', false, true)
-				- for (let x = 0; x < 1; x++)
-					+game(false, 'top')
-				- for (let x = 0; x < 2; x++)
-					+game(false, 'new')
-				- for (let x = 0; x < 2; x++)
-					+game(false, 'bonus')
-				- for (let x = 0; x < 2; x++)
-					+game(false, 'live')
-				- for (let x = 0; x < 2; x++)
-					+game(false, 'instant')
-				- for (let x = 0; x < 2; x++)
-					+game(false, 'roulette')
-				- for (let x = 0; x < 2; x++)
-					+game(false, 'blackjack')
-				- for (let x = 0; x < 2; x++)
-					+game(false, 'shows')
-				- for (let x = 0; x < 1; x++)
-					+game(false, 'poker')
+				if catTitle
+					+game(false, 'top', true, true)
+					- for (let x = 0; x < 1; x++)
+						+game(false, 'top', true)
+					- for (let x = 0; x < 2; x++)
+						+game(false, 'new', true)
+					- for (let x = 0; x < 2; x++)
+						+game(false, 'bonus', true)
+					- for (let x = 0; x < 2; x++)
+						+game(false, 'live', true)
+					- for (let x = 0; x < 2; x++)
+						+game(false, 'instant', true)
+					- for (let x = 0; x < 2; x++)
+						+game(false, 'roulette', true)
+					- for (let x = 0; x < 2; x++)
+						+game(false, 'blackjack', true)
+					- for (let x = 0; x < 2; x++)
+						+game(false, 'shows', true)
+					- for (let x = 0; x < 1; x++)
+						+game(false, 'poker', true)
+				else
+					+game(false, 'top', false, true)
+					- for (let x = 0; x < 1; x++)
+						+game(false, 'top')
+					- for (let x = 0; x < 2; x++)
+						+game(false, 'new')
+					- for (let x = 0; x < 2; x++)
+						+game(false, 'bonus')
+					- for (let x = 0; x < 2; x++)
+						+game(false, 'live')
+					- for (let x = 0; x < 2; x++)
+						+game(false, 'instant')
+					- for (let x = 0; x < 2; x++)
+						+game(false, 'roulette')
+					- for (let x = 0; x < 2; x++)
+						+game(false, 'blackjack')
+					- for (let x = 0; x < 2; x++)
+						+game(false, 'shows')
+					- for (let x = 0; x < 1; x++)
+						+game(false, 'poker')
 		.category-footer
-			a.category__btn.btn.btn--base.btn--center(href="#") go to ALL GAMES
+			if catTitle
+				button.category__btn.btn.btn--base.btn--center(type="button") Load more
+			else
+				a.category__btn.btn.btn--base.btn--center(href="#") go to ALL GAMES

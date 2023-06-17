@@ -1,0 +1,27 @@
+mixin bonus(bClass, bHref)
+	a.bonus(class=bClass href=bHref data-modal-target)
+		.bonus-img
+			+lazyJpg('bonus', 'bonus')
+		.bonus-status
+		.bonus-btn
+		.bonus-wrap
+			.bonus-wrap__head 
+				+xlink('cherry', 'bonus')
+				span Casino Bonus
+			.bonus-wrap__contnet
+				.bonus-wrap__title 150% up to 1000€ and 120FS
+				.bonus-wrap__text First Deposit Casino Bonus
+			.bonus-wrap__info
+				.bonus-info
+					.bonus-info__item.bonus-info__item--half.bonus-info__item--green
+						span Deposit
+						b 150%
+					.bonus-info__item.bonus-info__item--half.bonus-info__item--yellow
+						span Wager
+						b x40
+					.bonus-info__item
+						span Freespins
+						b up to 120
+					.bonus-info__item
+						span Freespins wager
+						b X40

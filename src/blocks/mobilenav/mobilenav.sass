@@ -11,6 +11,7 @@
 	display: none
 	flex-direction: column
 	max-width: 390px
+	top: 0
 	right: -100%
 	opacity: 0
 	transition: .35s ease
@@ -143,43 +144,6 @@
 				content: ''
 				display: block
 				padding-bottom: 100%
-	&-search
-		margin-bottom: 30px
-		&__icon
-			height: 24px
-			width: 24px
-			fill: var(--base-color)
-			opacity: 0.5
-		&__field
-			position: relative
-			display: block
-			width: 100%
-			i
-				top: 0
-				left: 0
-				pointer-events: none
-				position: absolute
-				width: 60px
-				height: 100%
-				display: flex
-				align-items: center
-				justify-content: center
-		&__input
-			color: var(--base-color)
-			background-color: var(--form-bg-base)
-			font-weight: 500
-			font-size: 15px
-			border-radius: 6px
-			height: 74px
-			width: 100%
-			padding: 0 15px 0 60px
-			&:focus
-				background-color: var(--form-bg-focus)
-			&:hover
-				background-color: var(--form-bg-hover)
-			&.invalid
-				background-color: var(--form-bg-error)
-
 	&-btns
 		display: flex
 		flex-wrap: wrap

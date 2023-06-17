@@ -1,0 +1,15 @@
+mixin search(fClass, fMob=false)
+	form.search(class=fClass)
+		label.search-field
+			.search-field__icon
+				+xlink('search', 'search')
+			input.search-input(type="text" required placeholder="Search from more than 3000 Games")
+			.search__btns
+				button.search-clear(type="button")
+					+xlink('clear', 'search-clear')
+				if fMob == false
+					button.btn.btn--primary.search-btn(type="submit") Search
+		if fMob == false
+			a.btn.btn--primary.search-btn(href="#") 
+				span(data-tippy-content="Play random game" data-tippy-placement="bottom") I'm feeling lucky
+				+xlink('clover', 'btn')

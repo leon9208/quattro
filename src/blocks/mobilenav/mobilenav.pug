@@ -11,7 +11,7 @@
 						+xlink('home', 'mobilenav-link')
 					span Lobby
 			li.mobilenav-item
-				a.mobilenav-link(href="#" class=(pageType === 'inner' ? 'isactive' : ''))
+				a.mobilenav-link(href="slots.html" class=(pageType === 'inner' ? 'isactive' : ''))
 					i
 						+xlink('cherry', 'mobilenav-link')
 					span Casino
@@ -55,11 +55,7 @@
 					i
 						+xlink('shop', 'mobilenav-link')
 					span Quattro Shop
-		form.mobilenav-search
-			label.mobilenav-search__field
-				i
-					+xlink('search', 'mobilenav-search')
-				input.mobilenav-search__input(type="text" name="game-search" required placeholder="Search from more than 3000 Games")
+		+search('search--mobilenav', true)
 		.mobilenav-btns
 			a.lang.lang--mobilenav(href="#modal-lang" data-modal-target) 
 				img.lang-img(src="img/en-flag.svg", alt="")

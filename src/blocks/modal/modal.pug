@@ -1,3 +1,97 @@
+.modal.modal--sm(id="modal-bonus-active" data-modal)
+	.modal-content.pattern
+		.modal-banner
+			.modal-banner__img
+				+lazyJpg('bonus-banner', 'bonus')
+			.modal-banner__nav
+				.modal-logo
+					+xlink('logo', 'modal')
+				button.modal-btn.d-xs-none(data-modal-close)
+					+xlink('close-rounded', 'modal')
+		
+		.modal-body
+			.modal-container
+				h3.modal-container__title First Deposit Casino Bonus
+				.bonus-offer
+					.bonus-offer__info
+						.bonus-offer__item
+							span Balance
+							b.text-primary € 1150
+						.bonus-offer__item
+							span Freespins
+							b 10
+								span /100
+					.bonus-wager
+						p.bonus-wager__text Wager progress: 
+							b 35%
+						.bonus-wager__row
+							span € 0
+							.bonus-progress
+								.bonus-progress__bar(style="width: 35%")
+							span € 34500
+				p
+					b 100% + 100 FS in the game to choose from: Cleocatra, Fruit Party!
+				ul
+					li Minimum deposit amount - 1000 RUB / 45 BYN;
+					li Maximum bonus amount - 25000 RUB / 1000 BYN;
+					li Maximum winnings after bonus wagering is x10 of the original bonus amount;
+					li Wager - x45;
+					li Wagering is available from real and bonus balance;
+					li All winnings from bets that are made to meet the bonus wagering requirements are credited to the bonus balance;
+					li The wagering time is 7 days.
+				button.btn.btn--sm.btn--secondary.btn--fullwidth.mt-2.text-uppercase(type="button") Cancel bonus
+			.modal-footer
+				.modal-footer__info
+					.modal-footer__brand QUATTRO
+					.modal-footer__text © 2023 Quattro
+						br
+						| All rights reserved and protected by law.
+
+.modal.modal--sm(id="modal-bonus" data-modal)
+	.modal-content.pattern
+		.modal-banner
+			.modal-banner__img
+				+lazyJpg('bonus-banner', 'bonus')
+			.modal-banner__nav
+				.modal-logo
+					+xlink('logo', 'modal')
+				button.modal-btn.d-xs-none(data-modal-close)
+					+xlink('close-rounded', 'modal')
+		
+		.modal-body
+			.modal-container
+				h3.modal-container__title First Deposit Casino Bonus
+				.bonus-info.mb-2
+					.bonus-info__item.bonus-info__item--half.bonus-info__item--green
+						span Deposit
+						b 150%
+					.bonus-info__item.bonus-info__item--half.bonus-info__item--yellow
+						span Wager
+						b x40
+					.bonus-info__item.bonus-info__item--gray
+						span Freespins
+						b up to 120
+					.bonus-info__item.bonus-info__item--gray
+						span Freespins wager
+							b X40
+				p
+					b 100% + 100 FS in the game to choose from: Cleocatra, Fruit Party!
+				ul
+					li Minimum deposit amount - 1000 RUB / 45 BYN;
+					li Maximum bonus amount - 25000 RUB / 1000 BYN;
+					li Maximum winnings after bonus wagering is x10 of the original bonus amount;
+					li Wager - x45;
+					li Wagering is available from real and bonus balance;
+					li All winnings from bets that are made to meet the bonus wagering requirements are credited to the bonus balance;
+					li The wagering time is 7 days.
+				button.btn.btn--sm.btn--primary.btn--fullwidth.mt-2.text-uppercase(type="button") Activate bonus
+			.modal-footer
+				.modal-footer__info
+					.modal-footer__brand QUATTRO
+					.modal-footer__text © 2023 Quattro
+						br
+						| All rights reserved and protected by law.
+
 .modal.modal--sm(id="modal-lang" data-modal)
 	.modal-content.pattern
 		.modal-head
@@ -28,7 +122,6 @@
 						br
 						| All rights reserved and protected by law.
 
-
 .modal.modal--sm(id="modal-providers" data-modal)
 	.modal-content.pattern
 		.modal-head
@@ -40,11 +133,7 @@
 			.provider-title(data-count="59")
 				img(src="img/providers.svg", alt="")
 				span Providers
-			form.provider-search
-				label.provider-search__field
-					.provider-search__icon
-						+xlink('search', 'search')
-					input.provider-search__input(type="text" name="provider-search")
+			+search('search--providers', true)
 		.modal-body
 			.provider-wrap
 				.provider-grid
@@ -68,14 +157,11 @@
 						br
 						| All rights reserved and protected by law.
 
-.modal.modal--lg(id="modal-search" data-modal)
+.modal.modal--lg.modal--topbtn(id="modal-search" data-modal)
 	.modal-content.pattern
 		.games
-			form.games-search
-				label.games-search__field
-					.games-search__icon
-						+xlink('search', 'search')
-					input.games-search__input(type="text" name="games-search" placeholder="Search from more than 3000 Games")
+			.games__top
+				+search('search--games', true)
 			.games-search-result
 				.games-search-result__title.text-center
 					span Search result 
@@ -114,13 +200,40 @@
 			.modal-content__left.autorisation-img
 				.autorisation-img__content
 					img(src="img/modal-img1.jpg", alt="")
+					.autorisation-img__info
+						.autorisation-img__title Welcome bonus
+						.autorisation-img__text up to €1000 
+							br
+							| + 120 FS
+						ul.autorisation-list
+							li.autorisation-item.autorisation-item--green
+								+xlink('payment', 'autorisation-item')
+								.autorisation-item__title Fast payments
+							li.autorisation-item.autorisation-item--orange
+								+xlink('license', 'autorisation-item')
+								.autorisation-item__title Licensed providers
+							li.autorisation-item.autorisation-item--purple
+								+xlink('promotion', 'autorisation-item')
+								.autorisation-item__title Regular promotions
 				.autorisation-img__content
 					img(src="img/modal-img2.jpg", alt="")
+					.autorisation-img__info
+						.autorisation-img__title Welcome back!
+						ul.autorisation-list
+							li.autorisation-item.autorisation-item--green
+								+xlink('payment', 'autorisation-item')
+								.autorisation-item__title Fast payments
+							li.autorisation-item.autorisation-item--orange
+								+xlink('license', 'autorisation-item')
+								.autorisation-item__title Licensed providers
+							li.autorisation-item.autorisation-item--purple
+								+xlink('promotion', 'autorisation-item')
+								.autorisation-item__title Regular promotions
 			.modal-content__right
 				.autorisation-nav
 					.tab-switcher.tab-switcher--bg
-						a.tab-switcher__item.isactive(href="#autorisation-registration")
-							span.text-uppercase registration
+						a.tab-switcher__item.is-active(href="#autorisation-registration")
+							span.text-uppercase Registration
 						a.tab-switcher__item(href="#autorisation-login")
 							span.text-uppercase login
 						.tab-switcher__indicator
@@ -129,7 +242,7 @@
 						.autorisation-head.text-center
 							.autorisation__title Registration
 							.autorisation__text Already have an account? 
-								a(href="#" onclick='remoteClick(`[href="#autorisation-login"]`)')
+								a(href="javascript:void(0)" onclick='remoteClick(`[href="#autorisation-login"]`)')
 									b Log In
 						.autorisation-main
 							form.form
@@ -160,28 +273,35 @@
 													.promo-select__text Without Bonus
 												.promo-select__radiobtn
 								label.form-field
-									input.form-input(type="email" name="email" required)
+									input.form-input.form-input--label(type="email" name="email" required)
 									span.form-label E-mail
-								.form-select
-									input(type="hidden" name="currency")
-									.form-select__current
-										.form-select__label Currency
-										span EUR
-									.form-select__list
-										.form-select__item(data-select-value="rub") RUB
-										.form-select__item(data-select-value="eur") EUR
-										.form-select__item(data-select-value="usd") USD
-										.form-select__item(data-select-value="kzt") KZT
+								label.cs-select
+									select(name="currency")
+										option(value="" selected disabled) Currency
+										option(value="rub") RUB
+										option(value="eur") EUR
+										option(value="usd") USD
+										option(value="kzt") KZT
 								button.btn.btn--primary.btn--md.text-uppercase.mt-1.mb-1(type="submit") Register
-								label.form-field
+								label.form-field.d-flex
 									input.form-checkbox(type="checkbox" name="policy" required)
 									small I accept the current 
 										a(href="#") Agreement 
 										| and 
 										a(href="#") Privacy Policy
-								label.form-field
+								label.form-fieldd.d-flex
 									input.form-checkbox(type="checkbox" name="policy" required)
 									small 🎁 Get exclusive offers and promotions from Quattro Сasino
+							ul.autorisation-list.mt-2.d-none.d-sm-flex
+								li.autorisation-item.autorisation-item--green
+									+xlink('payment', 'autorisation-item')
+									.autorisation-item__title Fast payments
+								li.autorisation-item.autorisation-item--orange
+									+xlink('license', 'autorisation-item')
+									.autorisation-item__title Licensed providers
+								li.autorisation-item.autorisation-item--purple
+									+xlink('promotion', 'autorisation-item')
+									.autorisation-item__title Regular promotions
 						.autorisation-footer
 							.modal-footer__info
 								.modal-footer__brand QUATTRO
@@ -192,24 +312,200 @@
 						.autorisation-head.text-center
 							.autorisation__title login
 							.autorisation__text Don’t have an account? 
-								a(href="#" onclick='remoteClick(`[href="#autorisation-registration"]`)')
+								a(href="javascript:void(0)" onclick='remoteClick(`[href="#autorisation-registration"]`)')
 									b Register
 						.autorisation-main
 							form.form
 								label.form-field
-									input.form-input(type="email" name="email" required)
+									input.form-input.form-input--label(type="email" name="email" required)
 									span.form-label E-mail
 								label.form-field
-									input.form-input(type="password" name="password" required)
+									input.form-input.form-input--label(type="password" name="password" required)
 									span.form-label Password
 
 								button.btn.btn--secondary.btn--md.text-uppercase.mt-1.mb-1(type="submit") Login
 								a.text-center(href="#") 
 									b 
 										small Forgot your password?
+							ul.autorisation-list.mt-2.d-none.d-sm-flex
+								li.autorisation-item.autorisation-item--green
+									+xlink('payment', 'autorisation-item')
+									.autorisation-item__title Fast payments
+								li.autorisation-item.autorisation-item--orange
+									+xlink('license', 'autorisation-item')
+									.autorisation-item__title Licensed providers
+								li.autorisation-item.autorisation-item--purple
+									+xlink('promotion', 'autorisation-item')
+									.autorisation-item__title Regular promotions
 						.autorisation-footer
 							.modal-footer__info
 								.modal-footer__brand QUATTRO
 								.modal-footer__text © 2023 Quattro
 									br
 									| All rights reserved and protected by law.
+
+
+
+.modal.modal--sm.modal--topbtn(id="modal-cashier" data-modal)
+	.modal-content.pattern.cashier
+		.modal-content__row
+			.modal-content__left
+				.cashier-wrap
+					.cashier-wrap__head
+						+xlink('logo', 'cashier')
+						span Payment methods 
+							br
+							| for the region 
+							b RU
+					.cashier-wrap__body
+						.cashier-card
+							label.cashier-card__item
+								input(type="radio", name="card" value="cards" checked)
+								.cashier-card__btn
+									img(src="img/card1.svg", alt="")
+									span Cards
+							label.cashier-card__item
+								input(type="radio", name="card" value="astropay")
+								.cashier-card__btn
+									img(src="img/card2.svg", alt="")
+									span AstroPay
+							label.cashier-card__item
+								input(type="radio", name="card" value="anotherpay")
+								.cashier-card__btn
+									img(src="img/card2.svg", alt="")
+									span AnotherPay
+
+			.modal-content__right
+				.cashier-nav
+					.tab-switcher.tab-switcher--bg
+						a.tab-switcher__item.is-active(href="#cashier-deposit")
+							span.text-uppercase Deposit
+						a.tab-switcher__item(href="#cashier-withdraw")
+							span.text-uppercase Withdraw
+						.tab-switcher__indicator
+				.cashier-content
+					.cashier-content__item(data-tab-content id="cashier-deposit")
+						.cashier-head
+							p.mb-1 Amount of one deposit: 
+								b 10 € - 10 000 €
+						.cashier-main
+							form.form
+								.d-none.d-sm-block.mb-1
+									p.mb-1 Payment methods for the region 
+										b RU
+									.cashier-card
+										label.cashier-card__item
+											input(type="radio", name="card" value="cards" checked)
+											.cashier-card__btn
+												img(src="img/card1.svg", alt="")
+												span Cards
+										label.cashier-card__item
+											input(type="radio", name="card" value="astropay")
+											.cashier-card__btn
+												img(src="img/card2.svg", alt="")
+												span AstroPay
+										label.cashier-card__item
+											input(type="radio", name="card" value="anotherpay")
+											.cashier-card__btn
+												img(src="img/card2.svg", alt="")
+												span AnotherPay
+								p Deposit amount
+								label.form-controll
+									.form-controll__text Card
+									input(type="tel" class="amount-input" name="deposit-amount" value="10" required)
+								.form-row.mb-1
+									button.form__btn.btn--dark(type="button" data-count="10") 10 €
+									button.form__btn.btn--dark(type="button" data-count="50") 50 €
+									button.form__btn.btn--dark(type="button" data-count="100") 100 €
+									button.form__btn.btn--dark(type="button" data-count="1000") 1000 €
+								label.form-field
+									input.form-input.form-input--label(type="text" name="promocode")
+									span.form-label Promocode (optional)
+								button.btn.btn--primary.btn--md.text-uppercase.mb-1(type="submit") Deposit
+
+								a.text-center(href="#history" onclick='closeModal(), remoteClick(`[href="#balance-history"]`)') 
+									b Balance history
+
+						.autorisation-footer
+							.modal-footer__info
+								.modal-footer__brand QUATTRO
+								.modal-footer__text © 2023 Quattro
+									br
+									| All rights reserved and protected by law.
+					.cashier-content__item.isactive(data-tab-content id="cashier-withdraw")
+						.cashier-main
+							form.form
+								.cashier-info
+									.cashier-info__item
+										.cashier-info__title Real balance
+										.cashier-info__bottom 
+											b 1245€
+											.balance-info__tooltip(data-tippy-content="Бонусный баланс недоступен для вывода до момента отыгрыша. Бонусный баланс зависит от активного в данный момент бонуса. Активный бонус вы можете посмотреть во вкладке <a href='#bonuses'>Бонусы</a>." data-tippy-placement="bottom")
+												+xlink('question', 'balance-info')
+									.cashier-info__item
+										.cashier-info__title Casino bonus
+										.cashier-info__bottom 
+											b 10245€
+											.balance-info__tooltip(data-tippy-content="Бонусный баланс недоступен для вывода до момента отыгрыша. Бонусный баланс зависит от активного в данный момент бонуса. Активный бонус вы можете посмотреть во вкладке <a href='#bonuses'>Бонусы</a>." data-tippy-placement="bottom")
+												+xlink('question', 'balance-info')
+									.cashier-info__item
+										.cashier-info__title Sport bonus
+										.cashier-info__bottom 
+											b 10245€
+											.balance-info__tooltip(data-tippy-content="Бонусный баланс недоступен для вывода до момента отыгрыша. Бонусный баланс зависит от активного в данный момент бонуса. Активный бонус вы можете посмотреть во вкладке <a href='#bonuses'>Бонусы</a>." data-tippy-placement="bottom")
+												+xlink('question', 'balance-info')
+								label.form-field
+									input.form-input.form-input--label(type="tel" name="card-number" required)
+									span.form-label Card Number
+									small(class="form-message") Текст ошибки
+								label.form-field
+									input.form-input.form-input--label(type="text" name="cardholder-name" required)
+									span.form-label Card Holder Name
+									small(class="form-message") Текст ошибки
+								label.form-field
+									input.form-input.form-input--label(type="text" name="card-date" required)
+									span.form-label Card Expire Date DD/YY
+									small(class="form-message") Текст ошибки
+								label.form-field.mb-1
+									input.form-input.form-input--label(type="text" name="bank-name" required)
+									span.form-label Bank Name
+									small(class="form-message") Текст ошибки
+								.d-none.d-sm-block.mb-1
+									p.mb-1 Payment methods for the region 
+										b RU
+									.cashier-card
+										label.cashier-card__item
+											input(type="radio", name="card" value="cards" checked)
+											.cashier-card__btn
+												img(src="img/card1.svg", alt="")
+												span Cards
+										label.cashier-card__item
+											input(type="radio", name="card" value="astropay")
+											.cashier-card__btn
+												img(src="img/card2.svg", alt="")
+												span AstroPay
+										label.cashier-card__item
+											input(type="radio", name="card" value="anotherpay")
+											.cashier-card__btn
+												img(src="img/card2.svg", alt="")
+												span AnotherPay
+								p Withdrawal amount
+								label.form-controll
+									.form-controll__text Card
+									input(type="tel" class="amount-input" name="deposit-amount" value="10" requried)
+								.form-row.mb-1
+									button.form__btn.btn--dark(type="button" data-count="10") 10 €
+									button.form__btn.btn--dark(type="button" data-count="50") 50 €
+									button.form__btn.btn--dark(type="button" data-count="100") 100 €
+									button.form__btn.btn--dark(type="button" data-count="1000") 1000 €
+								button.btn.btn--secondary.btn--md.text-uppercase.mb-1(type="submit") Deposit
+
+								a.text-center(href="#history" onclick='closeModal(), remoteClick(`[href="#balance-history"]`)') 
+									b Balance history
+						.autorisation-footer
+							.modal-footer__info
+								.modal-footer__brand QUATTRO
+								.modal-footer__text © 2023 Quattro
+									br
+									| All rights reserved and protected by law.
+						

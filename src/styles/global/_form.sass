@@ -15,125 +15,108 @@ textarea
 	display: flex
 	flex-direction: column
 	gap: 8px
-	&-select
+	&__btn
+		border-radius: 3px
+		font-size: 13px
+		display: inline-flex
+		padding: 8px 10px
+		cursor: pointer
+	&-controll
 		position: relative
-		&.disabled
-			pointer-events: none
-			cursor: not-allowed
-			filter: brightness(90%)
-			color: #ccc
-		&.isopen
-			.form-select__list
-				opacity: 1
-				visibility: visible
-				pointer-events: auto
-				top: 100%
-			.form-select__current::after
-				transform: rotate(225deg)
-		&__label
-			position: absolute
-			left: 20px
-			top: 50%
-			transform: translateY(-100%) scale(0.5)
-			transform-origin: left
-			font-weight: 500
-			font-size: inherit
-			color: inherit
+		display: flex
+		background-color: var(--form-bg-base)
+		border-radius: 3px
+		height: 60px
+		&__text
+			color: var(--base-color)
 			opacity: 0.5
-			user-select: none
-		&__current
-			position: relative
-			height: 100%
-			width: 100%
-			border-radius: 3px
-			cursor: pointer
-			display: flex
+			padding: 0 20px
+			font-weight: 500
+			margin: 15px 0
+			border-right: 1px solid
+			display: inline-flex
 			align-items: center
-			padding-right: 20px
-			font-weight: inherit
-			font-size: 16px
-			padding: 30px 20px 10px
-			gap: 16px
-			background-color: var(--form-bg-base)
-			transition: .25s ease
-			&:hover
-				background-color: var(--form-bg-hover)
+		&:hover
+			background-color: var(--form-bg-hover)
+		input
+			padding: 1rem
+			width: 100%
+			font-size: 15px
+			font-weight: 500
+			color: var(--base-color)
+	&-switcher
+		display: block
+		flex: none
+		position: relative
+		width: 50px
+		height: 24px
+		border-radius: 50px
+		background-color: var(--base-color)
+		cursor: pointer
+		&__input
+			&:checked::after
+				left: 27px
 			&::after
 				content: ''
-				flex: none
-				height: 8px
-				width: 8px
-				border-right: 2px solid
-				border-bottom: 2px solid
-				transform: rotate(45deg)
-				align-self: flex-start
-				transition: $trs
-			span
-				display: flex
-				align-items: center
-				width: 100%
-				height: 100%
-				font-weight: 500
-				font-size: inherit
-				user-select: none
-		&--xl
-			min-width: 140px
-			.form-select__current
-				height: 74px
-				font-size: 19px
-				font-weight: 700
-				span
-					font-weight: inherit
+				position: absolute
+				height: 21px
+				width: 21px
+				background-color: #fff
+				border-radius: 50px
+				top: 50%
+				transform: translateY(-50%)
+				left: 2px
+				transition: 0.25s ease
+				z-index: 1
+				pointer-events: none
 
-		&--light
-			color: #151339
-			.form-select__list
-				background-color: #fff
-			.form-select__current
-				background-color: #fff
-			.form-select__item
-				&:hover
-					background-color: rgba(#E9E9EA, .5)
-				&.selected
-					background-color: #E9E9EA
-		&__list
+
+		+dark()
+			background: #1B1C2F
+			.form-switcher__icon
+				background-color: #424564
+	&-pass-btn
+		top: 15px
+		right: 10px
+		position: absolute
+		display: flex
+		align-items: center
+		justify-content: center
+		position: absolute
+		cursor: pointer
+		height: 30px
+		width: 30px
+		&.show
+			.form-pass-btn__icon
+				&:nth-child(1)
+					display: none
+				&:nth-child(2)
+					display: block
+		&__icon
 			position: absolute
-			z-index: 2
-			border-radius: 3px
-			min-width: 100%
-			margin-top: 3px
-			top: 110%
-			overflow: hidden
-			overflow-y: auto
-			max-height: 220px
-			transition: .25s ease
-			opacity: 0
-			visibility: hidden
-			pointer-events: none
-			background-color: var(--base-bg)
-			box-shadow: 0px 0px 15px rgba(44, 52, 57, 0.15)
-		&__item
+			width: 24px
+			height: 24px
+			fill: var(--base-color)
+			opacity: 0.5
+			&:nth-child(2)
+				display: none
+	&-row
+		flex-direction: row
+		gap: 4px
+		+xs()
 			width: 100%
-			padding: 15px 20px
-			cursor: pointer
-			font-weight: inherit
-			font-size: inherit
-			user-select: none
-			transition: .25s ease
-			font-size: inherit
-			font-weight: inherit
-			font-weight: 500
-			&:hover
-				background-color: var(--form-bg-hover)
-			&.selected
-				background-color: var(--form-bg-focus)
+			flex-direction: column
+			b
+				display: none
+	&-column
+		gap: 10px
+		flex-direction: column
 	&-label
 		pointer-events: none
 		position: absolute
 		font-size: 15px
 		font-weight: 500
-		top: 50%
-		transform: translateY(-50%)
+		top: 20px
 		color: inherit
 		font-size: inherit
 		left: 20px
@@ -146,7 +129,7 @@ textarea
 	&-message
 		margin-top: 3px
 		top: 100%
-		position: absolute
+		position: relative
 		font-weight: 500
 		font-size: 10px
 		font-weight: 500
@@ -156,13 +139,21 @@ textarea
 		display: flex
 		gap: 4px
 	&-field
-		display: flex
+		flex: 1
 		position: relative
 		color: var(--base-color)
+		& > .btn
+			position: absolute
+			right: 4px
+			top: 4px
+			height: 52px
+			& ~ input
+				padding-right: 150px
+				+xs()
+					padding-right: 80px
 	&-input
 		height: 100%
 		width: 100%
-		padding: 30px 20px 10px 20px
 		color: inherit
 		font-size: inherit
 		background-color: var(--form-bg-base)
@@ -170,12 +161,18 @@ textarea
 		overflow: hidden
 		height: 60px
 		transition: .25s ease
+		padding: 10px 20px
+		&--label
+			padding: 30px 20px 10px 20px
+		&[type="password"]
+			padding-right: 50px
 		&:hover
 			background-color: var(--form-bg-hover)
 		&:focus, &.isfilled
 			background-color: var(--form-bg-base)
 			& ~ .form-label
-				transform: translateY(-100%) scale(.6)
+				transform: translateY(-.6em)
+				font-size: 10px
 		&::placeholder
 			opacity: 0
 		&.invalid
@@ -189,6 +186,16 @@ textarea
 			height: 74px
 			font-size: 19px
 			font-weight: 700
+			padding: 30px 60px 10px 20px
+			& ~ .form-label
+				height: 74px
+				display: flex
+				align-items: center
+				top: 0
+			&:focus, &.isfilled
+				& ~ .form-label
+					transform: translateY(-10px)
+					font-size: 12px
 		&--light
 			color: rgba(21, 19, 57, 1) !important
 			background: #fff !important
@@ -227,77 +234,6 @@ textarea
 			+dark()
 				background-color: var(--form-bg-base)
 
-
-
-	 
-
-.search
-	&--index
-		z-index: 2
-		position: relative
-		display: flex
-		gap: 8px
-		margin-top: -50px
-		margin-bottom: 24px
-		+sm()
-			display: none
-	&-clear
-		cursor: pointer
-		&__icon
-			height: 24px
-			width: 24px
-			fill: var(--light-bg)
-	&__btns
-		display: flex
-		gap: 25px
-		opacity: 0
-		pointer-events: none
-	&-btn
-		font-size: 17px
-	&__icon
-		height: 23px
-		width: 23px
-		flex: none
-	&-field
-		position: relative
-		flex: 1
-		display: flex
-		justify-content: space-between
-		background-color: var(--base-bg)
-		border-radius: 3px
-		padding: 4px
-		height: 74px
-		&__icon
-			height: inherit
-			display: flex
-			align-items: center
-			justify-content: center
-			width: 60px
-			height: 100%
-			fill: var(--base-color)
-			opacity: 0.5
-			+dark()
-				opacity: 1
-				fill: #4F516F
-		
-
-	&-input
-		flex: 1
-		font-size: 18px
-		color: var(--base-color)
-		padding-right: 16px
-		&.isfilled ~ .search__btns
-			opacity: 1
-			pointer-events: auto
-		&:focus::placeholder
-			opacity: 0
-		&::placeholder
-			transition: opacity .25s ease
-			color: var(--base-color)
-			opacity: 0.5
-			+dark()
-				color: #4F516F
-				opacity: 1
 
 // @media (hover: hover)
 // 	select
@@ -469,7 +405,44 @@ input[type="date"]::-webkit-calendar-picker-indicator
 
 
 .autorisation
-
+	&-list
+		display: flex
+		gap: 9px
+	&-item
+		padding: 18px 15px 16px 15px
+		border-radius: 6px
+		font-size: 12px
+		font-weight: 500
+		color: #fff
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: center
+		text-align: center
+		gap: 15px
+		flex: 1
+		&__icon 
+			flex: none
+			fill: currentColor
+			height: 36px
+			width: 36px
+		&--green
+			background: linear-gradient(304.38deg, #3ADED4 -5.98%, #72F49F 103.49%)
+		&--orange
+			background: linear-gradient(137.11deg, #EA4382 19.45%, #F4BA40 102.98%)
+		&--purple
+			background: linear-gradient(342.55deg, #A62EE0 -12.05%, #E43DE8 55.92%, #5538F4 122.49%)
+	// &.isactive
+	// 	.autorisation-img__content
+	// 		position: absolute
+	// 		top: 0
+	// 		left: 0
+	// 		width: 100%
+	// 		height: 100%
+	// 		&:first-child
+	// 			opacity: 0
+	// 		&:last-child
+	// 			opacity: 1
 	&__title
 		font-weight: 800
 		text-transform: uppercase
@@ -486,8 +459,10 @@ input[type="date"]::-webkit-calendar-picker-indicator
 		padding: 20px 24px 0
 		+xs()
 			padding: 16px
-		.tab-switcher__item
-			flex: 1
+		.tab-switcher
+			width: 100%
+			&__item
+				flex: 1
 	&-content
 		height: 100%
 		overflow: auto
@@ -510,3 +485,56 @@ input[type="date"]::-webkit-calendar-picker-indicator
 		flex: 1
 	&-footer
 		margin-top: auto
+	&-img
+		color: #fff
+		img
+			border-radius: 10px 0 0 0
+			position: absolute
+			left: 0
+			top: 0
+			height: 100%
+			width: 100%
+			object-position: top center
+			object-fit: cover
+		
+		&__info
+			position: absolute
+			top: 0
+			left: 0
+			height: 100%
+			width: 100%
+			padding: 20px 24px 70px
+			display: flex
+			flex-direction: column
+			align-items: flex-end
+			justify-content: flex-end
+			z-index: 2
+			text-align: right
+			gap: 25px
+		&__content
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			opacity: 0
+			transition: .25s ease
+			&:first-child
+				opacity: 1
+			&::after
+				content: ''
+				position: absolute
+				top: 0
+				left: 0
+				height: 100%
+				width: 100%
+				background: linear-gradient(176.88deg, rgba(21, 19, 57, 0) -15.02%, #151339 98.16%)
+				pointer-events: none
+		&__title
+			font-weight: 800
+			font-size: 64px
+			line-height: 0.9
+		&__text
+			font-weight: 500
+			font-size: 50px
+			line-height: 0.9

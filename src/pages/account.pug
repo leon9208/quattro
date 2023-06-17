@@ -12,133 +12,263 @@ block content
 						+xlink('user', 'inner')
 						span Hello, denis
 				.inner-head__side
-					a.btn.btn--xs.btn--white(href="#") 
+					.account-id ID 470031693
+					a.btn.btn--xs.btn--white.d-sm-none(href="#") 
 						span Log Out
 						+xlink('logout', 'btn')
 			.tab
 				.tab-nav
-					a.tab-nav__link.isactive(href="#balances") Balances
-					a.tab-nav__link.isactive(href="#personal-info") Personal info
-					a.tab-nav__link(href="#bonuses") Bonuses
+					a.tab-nav__link.is-show(href="#balances") Balances
+					a.tab-nav__link(href="#personal-info") Personal info
+					a.tab-nav__link(href="#bonuses" data-count="6") Bonuses
 					a.tab-nav__link(href="#history") History
 					a.tab-nav__link(href="#settings") Settings
 				.tab-content
-					.tab-content__item.isactive#balances
+					.tab-content__item.is-show#balances
 						.account
 							.account-head
 								h2.account-head__title Balances
 								+xlink('logo', 'account-head')
 							.account-content
-					.tab-content__item.isactive#personal-info
+								.account-row
+									.balance-col.account-col
+										.balance-info
+											.balance-info__top
+												.balance-info__head
+													.balance-info__title Main balance
+												.balance-info__main
+													.balance-info__cost 1245€
+										button.btn.btn--md.btn--primary(onclick="openModal('#modal-cashier', remoteClick(`[href='#cashier-deposit']`))") Deposit
+										button.btn.btn--md.btn--dark(onclick="openModal('#modal-cashier', remoteClick(`[href='#cashier-withdraw']`))") Withdraw
+									.balance-col.account-col
+										.balance-info
+											.balance-info__top
+												.balance-info__head
+													.balance-info__title Casino bonus balance
+													.balance-info__tooltip(data-tippy-content="Бонусный баланс недоступен для вывода до момента отыгрыша. Бонусный баланс зависит от активного в данный момент бонуса. Активный бонус вы можете посмотреть во вкладке <a href='#bonuses'>Бонусы</a>." data-tippy-placement="bottom")
+														+xlink('question', 'balance-info')
+												.balance-info__main
+													.balance-info__cost 0€
+											.balance-info__footer
+												.balance-info__text Бонусный баланс Казино зависит от активного в данный момент бонуса. Активный бонус вы можете посмотреть во вкладке 
+													a(href="#bonuses") Бонусы.
+									.balance-col.account-col
+										.balance-info
+											.balance-info__top
+												.balance-info__head
+													.balance-info__title Sport bonus balance
+													.balance-info__tooltip(data-tippy-content="Бонусный баланс недоступен для вывода до момента отыгрыша. Бонусный баланс зависит от активного в данный момент бонуса. Активный бонус вы можете посмотреть во вкладке <a href='#bonuses'>Бонусы</a>." data-tippy-placement="bottom")
+														+xlink('question', 'balance-info')
+												.balance-info__main
+													.balance-info__cost 0€
+											.balance-info__footer
+												.balance-info__text Бонусный баланс Спорта зависит от активного в данный момент бонуса. Активный бонус вы можете посмотреть во вкладке 
+													a(href="#bonuses") Бонусы.
+									.balance-col.account-col
+										.balance-info
+											.balance-info__top
+												.balance-info__head
+													.balance-info__title My level
+													.balance-info__tooltip(data-tippy-content="Бонусный баланс недоступен для вывода до момента отыгрыша. Бонусный баланс зависит от активного в данный момент бонуса. Активный бонус вы можете посмотреть во вкладке <a href='#bonuses'>Бонусы</a>." data-tippy-placement="bottom")
+														+xlink('question', 'balance-info')
+												.balance-info__main
+													.balance-info__cost.text-primary Newbie
+											.balance-info__footer
+												.balance-info__text Бонусный баланс Спорта зависит от активного в данный момент бонуса. Активный бонус вы можете посмотреть во вкладке 
+													a(href="#bonuses") Бонусы.
+					.tab-content__item#personal-info
 						.account
 							.account-head
 								h2.account-head__title Personal info
 								+xlink('logo', 'account-head')
 							.account-content
+								form.account-row
+									.account-col
+										h3.account-col__title.text-uppercase Main info
+										.row.form-column
+											label.form-field
+												input.form-input.form-input--label(type="text" name="first-name")
+												span.form-label First name
+												small.form-message Текст ошибки
+											label.form-field
+												input.form-input.form-input--label(type="text" name="last-name")
+												span.form-label Last name
+												small.form-message Текст ошибки
+											label.form-field
+												button.btn.btn--secondary(type="button") Verify
+												input.form-input.form-input--label(type="email" name="email")
+												span.form-label E-mail
+												small.form-message Текст ошибки
+											.form-group
+												label.cs-select
+													select(name="phone-code")
+														option(value="+7" selected) +7
+														option(value="+1") +1
+														option(value="+81") +81
+														option(value="+99") +99
+												label.form-field
+													button.btn.btn--secondary(type="button") Verify
+													input.form-input.form-input--label(type="tel" name="phone-number")
+													span.form-label Phone
+													small.form-message Текст ошибки
+											small 
+												b Date of birth
+											.form-group
+												.cs-select
+													select(name="birth-day")
+														option(value="" selected disabled) Birth day
+														- for (let x = 1; x < 31; x++)
+															option(value=x)=x
+												.cs-select
+													select(name="birth-month")
+														option(value="" selected disabled) Birth month
+														- var months = ['January', 'February', 'March', 'April', 'June', 'July', 'August', 'September ', 'October', 'November', 'December']
+														- for (let x = 0; x < months.length; x++)
+															option(value=months[x])=months[x]
+												.cs-select
+													select(name="birth-year")
+														option(value="" selected disabled) Birth year
+														- for (let x = 1970; x < 2023; x++)
+															option(value=x)=x
+											.form-group
+												label.cs-select
+													select(name="gender")
+														option(value="" selected disabled) Gender
+														option(value="male") Male
+														option(value="female") Female
+									.account-col
+										h3.account-col__title.text-uppercase Location
+										.row.form-column
+											label.cs-select
+												select(name="country")
+													option(value="Russian Federation" selected) Russian Federation
+													option(value="Kazakhstan") Kazakhstan
+													option(value="Belarus") Belarus
+													option(value="Brasil") Brasil
+											label.form-field
+												input.form-input.form-input--label(type="text" name="postal-code")
+												span.form-label Postal code
+												small.form-message Текст ошибки
+											label.form-field
+												input.form-input.form-input--label(type="text" name="city")
+												span.form-label City
+												small.form-message Текст ошибки
+											label.form-field
+												textarea.form-input.form-input--label(type="text" name="address")
+												span.form-label Address
+												small.form-message Текст ошибки
+									.account-col
+										h3.account-col__title.text-uppercase Password
+										.row.form-column
+											label.form-field
+												input.form-input.form-input--label(type="password" name="current-password")
+												span.form-label Current password
+												small.form-message Текст ошибки
+												button.form-pass-btn(type="button")
+													+xlink('eye', 'form-pass-btn')
+													+xlink('eye-line', 'form-pass-btn')
+
+											label.form-field
+												input.form-input.form-input--label(type="password" name="new-password")
+												span.form-label New password
+												small.form-message Текст ошибки
+												button.form-pass-btn(type="button")
+													+xlink('eye', 'form-pass-btn')
+													+xlink('eye-line', 'form-pass-btn')
+
+											label.form-field
+												input.form-input.form-input--label.invalid(type="password" name="confirm-password")
+												span.form-label Confirm password
+												small.form-message Текст ошибки
+												button.form-pass-btn(type="button")
+													+xlink('eye', 'form-pass-btn')
+													+xlink('eye-line', 'form-pass-btn')
+									.account-row
+										button.btn.btn--sm.btn--primary(type="submit") Save Information
 					.tab-content__item#bonuses
 						.account
 							.account-head
 								h2.account-head__title Bonuses
 								+xlink('logo', 'account-head')
 							.account-content
+								h3.account-title
+									+xlink('promo', 'account-title')
+									span.text-uppercase Promocode
+								.row
+									form.d-inline-flex
+										label.form-field
+											button.btn.btn--secondary(type="submit") Activate
+											input.form-input.form-input--label(type="text" required)
+											span.form-label Enter Promocode
+								.section.mb-2.bonus-wrapper
+									.section-head.mb-1
+										.section-head__side-left
+											h2.section-title(data-count="6")
+												+xlink('checkmark', 'fill-primary section-title')
+												span Casino bonuses
+										.section-head__side-right
+											a.section-head__link(href="#")
+												span(data-text-sm="all" data-text-md="see all")
+									.swiper(data-bonus-carousel)
+										.swiper-wrapper
+											.swiper-slide
+												+bonus('active', '#modal-bonus')
+											.swiper-slide
+												+bonus('active', '#modal-bonus')
+										.swiper-pagination
+								.section.mb-2.bonus-wrapper
+									.section-head.mb-1
+										.section-head__side-left
+											h2.section-title(data-count="2")
+												+xlink('gift', 'fill-secondary section-title')
+												span Casino bonuses
+										.section-head__side-right
+											a.section-head__link(href="#")
+												span(data-text-sm="all" data-text-md="see all")
+									.swiper(data-bonus-carousel)
+										.swiper-wrapper
+											.swiper-slide
+												+bonus('', '#modal-bonus')
+											.swiper-slide
+												+bonus('', '#modal-bonus')
+											.swiper-slide
+												+bonus('', '#modal-bonus')
+											.swiper-slide
+												+bonus('', '#modal-bonus')
+											.swiper-slide
+												+bonus('', '#modal-bonus')
+											.swiper-slide
+												+bonus('', '#modal-bonus')
+										.swiper-pagination
 					.tab-content__item#history
 						.account
 							.account-head
 								h2.account-head__title History
 								+xlink('logo', 'account-head')
-							.account-content.account-content--half
+							.account-content
 								.account-content__head
-									form.account-content__form
-										.row
-											.form-controll
-												p Start date
-												.form-field
-													input.form-input(type="date")
-											.form-controll
-												p End date
-												.form-field
-													input.form-input(type="date")
-											.form-controll
-												p Providers
-												.form-field
-													select(name="providers")
-														option(value="all") All
-														option(value="pragmatic") Pragmatic Play
+									.tab-switcher.tab-switcher--bg
+										a.tab-switcher__item.is-active(href="#balance-history") 
+											span.text-uppercase Balance history
+										a.tab-switcher__item(href="#bets-history") 
+											span.text-uppercase Bets history
+										a.tab-switcher__item(href="#bonus-history") 
+											span.text-uppercase Bonus history
+										.tab-switcher__indicator
 
-												
 								.account-content__body
-									table
-										thead
-											tr
-												th Transaction time
-												th Amount
-												th Status
-												th Method
-												th Type
-										tbody
-											tr
-												td 20:29:18 24-03-2023
-												td
-													b.text-green ₽860.80
-												td New
-												td Card
-												td Credit
-											tr
-												td 20:29:18 24-03-2023
-												td
-													b.text-red - ₽860.80
-												td Complete
-												td Visa/MC
-												td Debit
-											tr
-												td 20:29:18 24-03-2023
-												td
-													b.text-green ₽860.80
-												td New
-												td Card
-												td Credit
-											tr
-												td 20:29:18 24-03-2023
-												td
-													b.text-green ₽860.80
-												td New
-												td Card
-												td Credit
-											tr
-												td 20:29:18 24-03-2023
-												td
-													b.text-red - ₽860.80
-												td Canceled by user
-												td Visa/MC
-												td Debit
-											tr
-												td 20:29:18 24-03-2023
-												td
-													b.text-green ₽860.80
-												td New
-												td Card
-												td Credit
-											tr
-												td 20:29:18 24-03-2023
-												td
-													b.text-red - ₽860.80
-												td Rejected
-												td Visa/MC
-												td Debit
-											tr
-												td 20:29:18 24-03-2023
-												td
-													b.text-green ₽860.80
-												td New
-												td Card
-												td Credit
-											tr
-												td 20:29:18 24-03-2023
-												td
-													b.text-green ₽860.80
-												td New
-												td Card
-												td Credit
+									.tab-content
+										div.tab-switcher__content.isactive(data-tab-content id="balance-history")
+											h3.text-uppercase Balance history
+											+historyTable()
+										div.tab-switcher__content(data-tab-content id="bets-history")
+											h3.text-uppercase Bets history
+											+historyTable()
+										div.tab-switcher__content(data-tab-content id="bonus-history")
+											h3.text-uppercase Bonus history
+											form
+												.form
+											+historyTable()
 					.tab-content__item#settings
 						.account
 							.account-head
@@ -149,40 +279,22 @@ block content
 
 								.account-content__body
 									table
-										thead
-											tr
-												th Bet time
-												th Amount
-												th Provider
-												th Game
 										tbody
-											- for (let x = 0; x < 3; x++)
-												tr
-													td 20:29:18 24-03-2023
-													td
-														b.text-green ₽20.00
-													td Pragmatic Play
-													td Sugar Rush
-											- for (let x = 0; x < 3; x++)
-												tr
-													td 20:29:18 24-03-2023
-													td
-														b.text-red - ₽20.00
-													td Pragmatic Play
-													td Sugar Rush
-											- for (let x = 0; x < 3; x++)
-												tr
-													td 20:29:18 24-03-2023
-													td
-														b.text-green ₽20.00
-													td Pragmatic Play
-													td Sugar Rush
-											- for (let x = 0; x < 3; x++)
-												tr
-													td 20:29:18 24-03-2023
-													td
-														b.text-red - ₽20.00
-													td Pragmatic Play
-													td Sugar Rush
-								.account-content__footer
-									include ../blocks/pagination/pagination.pug
+											tr
+												td
+													p Сообщать об акциях и новостях по Email
+												td
+													label.form-switcher
+														input.form-switcher__input(type="checkbox")
+														span.form-switcher__icon
+											tr
+												td
+													p Сообщать об акциях и новостях по Sms
+												td
+													label.form-switcher
+														input.form-switcher__input(type="checkbox")
+														span.form-switcher__icon
+
+				a.btn.btn--xs.btn--white.d-none.d-sm-flex(href="#") 
+					span Log Out
+					+xlink('logout', 'btn')

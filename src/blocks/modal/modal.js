@@ -17,7 +17,7 @@ const modalCLoseBtn = document.querySelectorAll('[data-modal-close]')
 if (modalTargetLink) {
 	modalTargetLink.forEach(tLink => {
 		tLink.addEventListener('click', (e) => {
-			// e.preventDefault()
+			e.preventDefault()
 			closeModal()
 			let tLinkHref = tLink.getAttribute('href')
 			openModal(tLinkHref)

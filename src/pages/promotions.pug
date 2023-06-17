@@ -1,0 +1,67 @@
+extends ../templates/template
+block vars
+	- var title = 'Promotions Title';
+	- var description = 'Promotions Description';
+	- var pageLink = '/promotions.html'
+	- var pageType = 'inner'
+	- var catTitle = 'Promotions'
+block content
+	.inner-banner
+		+lazyJpg('bnr')
+		h1.inner-banner__title
+			+xlink('gift', 'inner')
+			span Promotions
+	.inner__content
+		.section.mb-2.promo-wrapper
+			.container
+				.tab-switcher.tab-switcher--bg.mb-2
+					.tab-switcher__item.is-active
+						span.text-uppercase All
+					.tab-switcher__item
+						+xlink('gift', 'tab-switcher')
+						span.text-uppercase.d-xs-none Bonuses
+					.tab-switcher__item
+						+xlink('cap', 'tab-switcher')
+						span.text-uppercase.d-xs-none Tournaments
+					.tab-switcher__indicator
+				.section-head.mb-1
+					.section-head__side-left
+						h2.section-title(data-count="6")
+							+xlink('cherry', 'section-title')
+							span Casino bonuses
+					.section-head__side-right
+						a.section-head__link(href="#")
+							span(data-text-sm="all" data-text-md="see all")
+				.swiper(data-bonus-carousel)
+					.swiper-wrapper
+						.swiper-slide
+							+bonus('', '#modal-bonus')
+						.swiper-slide
+							+bonus('', '#modal-bonus')
+						.swiper-slide
+							+bonus('', '#modal-bonus')
+						.swiper-slide
+							+bonus('', '#modal-bonus')
+						.swiper-slide
+							+bonus('', '#modal-bonus')
+						.swiper-slide
+							+bonus('', '#modal-bonus')
+					.swiper-pagination
+	
+		.section.mb-2.promo-wrapper
+			.container
+				.section-head.mb-1
+					.section-head__side-left
+						h2.section-title(data-count="2")
+							+xlink('ball', 'section-title')
+							span Sports bonuses 
+					.section-head__side-right
+						a.section-head__link(href="#")
+							span(data-text-sm="all" data-text-md="see all")
+				.swiper(data-bonus-carousel)
+					.swiper-wrapper
+						.swiper-slide
+							+bonus('', '#modal-bonus')
+						.swiper-slide
+							+bonus('', '#modal-bonus')
+					.swiper-pagination

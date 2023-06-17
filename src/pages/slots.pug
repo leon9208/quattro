@@ -1,0 +1,19 @@
+extends ../templates/template
+block vars
+	- var title = 'Slots Title';
+	- var description = 'Slots Description';
+	- var pageLink = '/slots.html'
+	- var pageType = 'inner'
+	- var catTitle = 'Slots'
+block content
+	.inner__content
+		//category
+		include ../blocks/category/category.pug
+		//bets
+		.games-stats
+			.games-stats__text You've viewed 30 of 345 games
+			.games-progress
+				.games-progress__bar(style="width: 30%")
+			
+		.container
+			+search('search--slots')

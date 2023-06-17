@@ -31,6 +31,7 @@ var paths = {
 	},
 	css: {
 		libsCSS: [
+			'./node_modules/tippy.js/dist/tippy.css',
 			'./node_modules/swiper/swiper-bundle.min.css',
 			'./src/styles/libs/**/*.css',
 		],
@@ -40,7 +41,8 @@ var paths = {
 	},
 	js: {
 		libsJS: [
-			'./node_modules/smooth-scrollbar/dist/smooth-scrollbar.js',
+			'./node_modules/@popperjs/core/dist/umd/popper.min.js',
+			'./node_modules/tippy.js/dist/tippy-bundle.umd.min.js',
 			'./node_modules/lazysizes/lazysizes.min.js',
 			'./node_modules/swiper/swiper-bundle.min.js',
 			'./src/libs/*.js'],

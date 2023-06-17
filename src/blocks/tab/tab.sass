@@ -1,6 +1,8 @@
 .tab
 	display: flex
 	gap: 20px
+	+md()
+		flex-direction: column
 	&-container
 		padding: 0 30px
 	&-nav
@@ -9,6 +11,10 @@
 		gap: 10px
 		width: 120px
 		flex: none
+		+md()
+			flex-direction: row
+			overflow: auto
+			width: 100%
 		&__link
 			text-decoration: none
 			display: flex
@@ -17,13 +23,37 @@
 			text-align: center
 			position: relative
 			font-weight: 500
-			font-size: 14px
+			font-size: 13px
 			text-align: center
-			background-color: #fff
+			background-color: var(--base-bg)
 			min-height: 60px
 			padding: 1em
 			width: 100%
-			&::after
+			border-radius: 3px
+			overflow: hidden
+			gap: 10px
+			+xs()
+				white-space: nowrap
+				min-width: 96px
+				width: auto
+				flex: none
+			&[data-count]
+				&::after
+					content: attr(data-count)
+					height: 23px
+					width: 23px
+					display: flex
+					align-items: center
+					justify-content: center
+					text-align: center
+					font-weight: 800
+					font-size: 12px
+					border-radius: 50px
+					flex: none
+					background-color: color(--primary-color)
+					color: #fff
+					line-height: 1
+			&::before
 				content: ''
 				position: absolute
 				height: 0
@@ -32,15 +62,15 @@
 				bottom: 0
 				background-color: color(--secondary-color)
 				transition: $trs
-			&.isactive, &:hover
+			&.is-show, &:hover
 				text-shadow: 0.5px 0px 0px var(--base-color)
-				&::after
+				&::before
 					height: 4px
 	&-content
 		width: 100%
 		&__item
 			display: none
-			&.isactive
+			&.is-show
 				display: block
 		&__title
 			font-weight: 800
@@ -50,13 +80,26 @@
 
 	&-switcher
 		position: relative
-		display: flex
+		display: inline-flex
 		align-items: center
 		z-index: 1
 		border-radius: 6px
+		&__icon
+			height: 20px
+			width: 20px
+			fill: currentColor
 		+xs()
+			flex-wrap: wrap
 			width: 100%
 			justify-content: center
+		&__content
+			display: none
+			h3
+				font-size: 16px
+				font-weight: 800
+				margin-bottom: 0.8em
+			&.isactive
+				display: block
 		&--bg
 			background-color: rgba(21, 19, 57, 0.1)
 			+dark()
@@ -74,11 +117,11 @@
 					color: var(--base-color)
 					padding: 0 30px
 					height: 55px
-					&.isactive
+					&.is-active
 						color: var(--nav-color-active)
 						span
 							opacity: 1
-					&:hover:not(.isactive)
+					&:hover:not(.is-active)
 						span
 							opacity: 0.8
 					+xs()
@@ -96,10 +139,10 @@
 					padding: 5px 0
 					+xs()
 						font-size: 15px
-					&.isactive
+					&.is-active
 						span
 							opacity: 1
-					&:hover:not(.isactive)
+					&:hover:not(.is-active)
 						span
 							opacity: 0.8
 
@@ -116,6 +159,7 @@
 			justify-content: center
 			gap: 14px
 			text-decoration: none
+			text-align: center
 		span
 			transition: .25s ease
 			color: inherit

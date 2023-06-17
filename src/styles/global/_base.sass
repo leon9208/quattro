@@ -35,6 +35,7 @@ body
 
 ::-webkit-scrollbar
 	width: 8px
+	height: 6px
 ::-webkit-scrollbar-track
 	background-color: var(--nav-bg-base)
 ::-webkit-scrollbar-thumb
@@ -114,20 +115,60 @@ a
 .bd
 	&-b
 		border-bottom: 2px solid var(--light-bg)
-
+.fill
+	&-primary
+		fill: color(--primary-color) !important
+	&-secondary
+		fill: color(--secondary-color) !important
 .inner
+	&-banner
+		position: relative
+		user-select: none
+		height: 100%
+		min-height: 170px
+		display: flex
+		align-items: center
+		justify-content: center
+		+xs()
+			min-height: 100px
+		img
+			position: absolute
+			left: 0
+			top: 0
+			height: 100%
+			width: 100%
+		img
+			object-fit: cover
+		&__title
+			position: relative
+			text-transform: uppercase
+			font-weight: 700
+			color: #fff
+			font-size: 26px
+			display: flex
+			align-items: center
+			gap: 14px
+			+xs()
+				font-size: 20px
 	&__icon
 		flex: none
 		height: 28px
 		width: 26px
 		fill: currentColor
+		+xs()
+			height: 20px
+			width: 20px
 	&__content
 		padding: 50px 0
+		+xs()
+			padding: 30px 0
 	&-head
 		display: flex
 		align-items: center
 		justify-content: space-between
 		margin-bottom: 40px
+		+xs()
+			margin-bottom: 30px
 		&__title
 			gap: 18px
 			align-items: center
@@ -135,9 +176,13 @@ a
 			font-size: 30px
 			font-weight: 800
 			text-transform: uppercase
+			+xs()
+				gap: 10px
+				font-size: 19px
 		&__side
 			display: flex
 			align-items: center
+			gap: 16px
 
 .section
 	margin-bottom: 14px
@@ -157,10 +202,6 @@ a
 		.swiper
 			+sm()
 				overflow: unset
-			// &-pagination
-			// 	position: relative
-			// 	&-bullet:not(.swiper-pagination-bullet-active-main)
-			// 		opacity: 0
 	&-title
 		display: flex
 		align-items: center
@@ -170,6 +211,10 @@ a
 		text-transform: uppercase
 		+xs()
 			font-size: 17px
+		&__icon
+			height: 24px
+			width: 24px
+			fill: currentColor
 		&[data-count]::after
 			content: attr(data-count)
 			font-weight: 800
@@ -255,63 +300,6 @@ a
 				+sm()
 					flex: unset
 
-.account
-	position: relative
-	background-color: #fff
-	border-radius: 3px
-	overflow: hidden
-	display: flex
-	flex-direction: column
-	gap: 20px
-	box-shadow: 0px 0px 15px rgba(132, 123, 203, 0.2)
-	z-index: 1
-	&-head
-		display: flex
-		align-items: center
-		justify-content: space-between
-		color: #DFDCF6
-		background-color: #151339
-		padding: 18px 33px
-		&__title
-			font-weight: 800
-			font-size: 18px
-		&__icon
-			height: 23px
-			width: 23px
-			flex: none
-			fill: currentColor
-	&-content
-		padding: 0 33px 30px 33px
-		display: flex
-		flex-direction: column
-		gap: 30px
-		&--half
-			&::after
-				content: ''
-				z-index: -1
-				right: 0
-				bottom: 0
-				width: 50%
-				height: calc(100% - 80px)
-				background-repeat: no-repeat
-				background-image: url("data:image/svg+xml,%3Csvg width='738' height='702' viewBox='0 0 738 702' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='82.0078' y='243.474' width='204.096' height='204.096' transform='rotate(10.3594 82.0078 243.474)' fill='%23F9FAFB'/%3E%3Crect x='571.844' y='333.026' width='204.096' height='204.096' transform='rotate(10.3594 571.844 333.026)' fill='%23F9FAFB'/%3E%3Crect x='281.52' y='533.633' width='204.096' height='204.096' transform='rotate(10.3594 281.52 533.633)' fill='%23F9FAFB'/%3E%3Crect x='371.309' y='42.6216' width='204.096' height='204.096' transform='rotate(10.3594 371.309 42.6216)' fill='%23F9FAFB'/%3E%3Cpath d='M327.671 34.645L290.97 235.414L90.2014 198.713C169.632 144.418 248.782 89.7236 327.671 34.645Z' fill='%23F9FAFB'/%3E%3Cpath d='M780.823 324.964L580.054 288.264L616.755 87.4949C671.05 166.926 725.744 246.075 780.823 324.964Z' fill='%23F9FAFB'/%3E%3Cpath d='M37.1345 488.989L237.903 525.69L201.202 726.459C146.907 647.028 92.2131 567.879 37.1345 488.989Z' fill='%23F9FAFB'/%3E%3Cpath d='M520.631 577.37L721.399 614.07L684.698 814.839C630.403 735.408 575.709 656.259 520.631 577.37Z' fill='%23F9FAFB'/%3E%3C/svg%3E%0A")
-				background-size: contain
-				background-position: right bottom
-				position: absolute
-				pointer-events: none
-.account
-	table
-		font-size: 14px
-		text-align: left
-		color: #54517A
-		th, td
-			padding-bottom: 20px
-			&:not(:last-child)
-				padding-right: 50px
-		b
-			font-weight: 500
-			white-space: nowrap
-
 .coin
 	position: relative
 	display: flex
@@ -376,6 +364,8 @@ a
 
 .m
 	&t
+		&-2
+			margin-top: 2em
 		&-1
 			margin-top: 1em
 		&-auto
@@ -383,10 +373,26 @@ a
 	&b
 		&-1
 			margin-bottom: 1em
+		&-2
+			margin-bottom: 2em
 
 .d
+	&-inline-flex
+		display: inline-flex
+	&-flex
+		display: flex
 	&-none
 		display: none !important
+	&-xs
+		&-flex
+			+xs()
+				display: flex !important
+		&-block
+			+xs()
+				display: block !important
+		&-none
+			+xs()
+				display: none !important
 	&-sm
 		&-flex
 			+sm()
@@ -514,3 +520,220 @@ a
 				display: none
 		b
 			font-size: 1.55em
+
+.as
+	&-center
+		align-self: center
+
+.slot
+	display: flex
+	background-color: #151339
+	background-image: url(../img/slot-bg.png)
+	min-height: calc(100vh - var(--header-height))
+	padding: 20px 0
+	margin-bottom: 40px
+	+xs()
+		padding: 0
+	&-nav
+		display: flex
+		align-items: center
+		margin-left: auto
+		gap: 33px
+		&__item
+			position: relative
+			cursor: pointer
+			height: 22px
+			width: 22px
+		&__icon
+			height: 100%
+			width: 100%
+			fill: #7C78A6
+
+	&-logo
+		font-family: var(--accen-font)
+		font-style: italic
+		color: #383463
+		white-space: nowrap
+		font-size: 34px
+	&-container
+		max-width: 1920px
+		width: 100%
+		padding: 0 94px
+		margin: 0 auto
+		display: flex
+		+sm()
+			padding: 0 20px
+		+xs()
+			padding: 0
+		&__wrap
+			flex: 1
+			box-shadow: 0px 0px 30px #050325
+			display: flex
+			flex-direction: column
+		&__frame
+			position: relative
+			background-color: #151339
+			flex: 1
+			width: 100%
+			background-image: url("data:image/svg+xml,%3Csvg width='252' height='219' viewBox='0 0 252 219' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M27.1677 77.6019H90.4565L69.8165 141.087H6.52771L27.1677 77.6019Z' fill='%231D1B44'/%3E%3Cpath d='M181.576 77.6368H244.865L224.225 141.122H160.936L181.576 77.6368Z' fill='%231D1B44'/%3E%3Cpath d='M104.224 155.204H167.513L146.873 218.689H83.5837L104.224 155.204Z' fill='%231D1B44'/%3E%3Cpath d='M104.19 0H167.479L146.839 63.4852H83.5505L104.19 0Z' fill='%231D1B44'/%3E%3Cpath d='M83.9288 0L63.2888 63.4852H0C83.9288 0 0 63.4852 83.9288 0Z' fill='%231D1B44'/%3E%3Cpath d='M230.762 63.4852H167.474L188.114 0C230.762 63.4852 188.114 0 230.762 63.4852Z' fill='%231D1B44'/%3E%3Cpath d='M179.743 155.204H252L231.36 218.689C179.743 155.204 231.36 218.689 179.743 155.204Z' fill='%231D1B44'/%3E%3Cpath d='M20.6398 155.204H83.9286L63.2886 218.689C20.6398 155.204 63.2886 218.689 20.6398 155.204Z' fill='%231D1B44'/%3E%3C/svg%3E%0A")
+			background-repeat: no-repeat
+			background-position: center
+			+sm()
+				background-size: 30%
+			iframe
+				top: 0
+				left: 0
+				position: absolute
+				height: 100%
+				width: 100%
+				border: 0
+		&__bottom
+			padding: 0 35px
+			flex: none
+			height: 70px
+			background: rgba(73, 70, 135, 0.05)
+			backdrop-filter: blur(10px)
+			display: flex
+			align-items: center
+			gap: 15px
+			+sm()
+				display: none
+		&__side
+			display: flex
+			align-items: center
+			flex: 1
+	&-switcher
+		font-weight: 500
+		font-size: 14px
+		display: flex
+		align-items: center
+		gap: 14px
+		span
+			transition: .25s ease
+			color: #C4C1E6
+			&:nth-of-type(1)
+				order: -1
+			&:nth-of-type(2)
+				color: #7C78A6
+		&__input
+			position: relative
+			height: 25px
+			width: 45px
+			border-radius: 50px
+			flex: none
+			background-color: #7C78A6
+			cursor: pointer
+			&::after
+				content: ''
+				position: absolute
+				height: 21px
+				width: 21px
+				background-color: #C4C1E6
+				border-radius: 50px
+				left: 2px
+				top: 2px
+				transition: .25s ease
+			&:checked
+				&::after
+					left: 22px
+				& ~ span
+					&:nth-of-type(1)
+						color: #7C78A6
+					&:nth-of-type(2)
+						color: #C4C1E7
+
+.cashier
+	&__icon
+		height: 33px
+		width: 38px
+		fill: #fff
+	&-wrap
+		display: flex
+		flex-direction: column
+		gap: 34px
+		&__head
+			display: flex
+			align-items: center
+			gap: 30px
+			color: #fff
+			padding: 0 20px
+	&-card
+		display: flex
+		flex-wrap: wrap
+		gap: 10px
+		+xs()
+			gap: 4px
+		&__item
+			input:checked ~ .cashier-card__btn
+				border-color: #151339
+		&__btn
+			padding: 10px 15px
+			display: flex
+			flex-direction: column
+			border-radius: 3px
+			gap: 6px
+			background-color: #fff
+			border: 2px solid #fff
+			cursor: pointer
+			font-weight: 500
+			font-size: 13px
+			height: 100%
+			+xs()
+				min-height: 60px
+				min-width: 90px
+				max-width: 96px
+				background-color: var(--light-bg)
+				border-color: var(--light-bg)
+				padding: 10px
+				+dark()
+					background-color: #fff
+					border-color: #fff
+			span
+				margin-top: auto
+				color: #151339
+	&-nav
+		padding: 20px 24px
+		+xs()
+			padding: 16px
+		.tab-switcher
+			width: 100%
+			&__item
+				flex: 1
+	&-content
+		height: 100%
+		overflow-y: auto
+		&__item
+			height: 100%
+			display: flex
+			flex-direction: column
+			padding: 20px 24px
+			display: none
+			+xs()
+				padding: 16px
+			&.isactive
+				display: flex
+	&-info
+		display: flex
+		background-color: var(--light-bg)
+		border-radius: 3px
+		width: 100%
+		justify-content: space-between
+		gap: 10px
+		padding: 14px
+		&__item
+			display: flex
+			flex-direction: column
+			gap: 10px
+			&:not(:first-child)
+				b
+					opacity: 0.7
+		&__title
+			font-weight: 500
+			font-size: 12px	
+		&__bottom
+			display: flex
+			align-items: center
+			gap: 10px
+			b
+				font-size: 17px
+				font-weight: 800

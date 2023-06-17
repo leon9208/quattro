@@ -60,45 +60,74 @@
 		&-disabled
 			opacity: 0.5
 
-[data-tooltip]:hover > .tooltip
-	opacity: 1
-	visibility: visible
-	filter: brightness(100%)
-.btn > .tooltip
-	top: 80%
-.tooltip
-	position: absolute
-	font-weight: 500
-	font-size: 12px
-	background-color: var(--base-bg)
-	color: var(--base-color)
-	border-radius: 3px
-	box-shadow: 0px 0px 15px rgba(132, 123, 203, 0.2)
-	padding: 1em 1.5em
-	pointer-events: none
-	user-select: none
-	max-width: 280px
-	opacity: 0
-	visibility: hidden
-	transition: .25s ease
-	top: 70%
-	&--top
-		bottom: 100%
-		&::after
-			bottom: -6px
-			border-width: 6px 6px 0 6px
-			border-color: var(--base-bg) transparent transparent transparent
-	&--bottom
-		top: 100%
-		&::after
-			top: -6px
-			border-width: 0 6px 6px 6px
-			border-color: transparent transparent var(--base-bg) transparent
-	&::after
-		content: ''
-		left: 50%
-		transform: translateX(-50%)
-		position: absolute
-		width: 0
-		height: 0
-		border-style: solid
+
+.tippy
+	&-box
+		box-shadow: 0px 0px 15px rgba(132, 123, 203, 0.2)
+		font-weight: 500
+		font-size: 12px
+		background-color: var(--base-bg)
+		color: var(--base-color)
+		max-width: 264px !important
+	&-arrow
+		color: var(--base-bg)
+	&-content
+		padding: 14px
+
+.bonus-wrapper
+	.section-head__side-right
+		display: none
+		+sm()
+			display: flex
+	.swiper
+		&-pagination
+			position: relative
+		&-slide
+			max-width: 364px
+		&-nav
+			+xs()
+				display: none
+		&-wrapper
+			padding: 15px 0
+			display: grid
+			gap: 20px
+			grid-template-columns: repeat(4, 1fr)
+			+to(1600px)
+				grid-template-columns: repeat(3, 1fr)
+			+to(1300px)
+				gap: 16px
+				grid-template-columns: repeat(2, 1fr)
+			+to(980px)
+				grid-template-columns: repeat(2, 1fr)
+			+sm()
+				display: flex
+				gap: unset
+
+.promo-wrapper
+	.section-head__side-right
+		display: none
+		+sm()
+			display: flex
+	.swiper
+		&-pagination
+			position: relative
+		&-slide
+			max-width: 364px
+		&-nav
+			+xs()
+				display: none
+		&-wrapper
+			padding: 15px 0
+			display: grid
+			gap: 20px
+			grid-template-columns: repeat(5, 1fr)
+			+to(1600px)
+				grid-template-columns: repeat(4, 1fr)
+			+to(1300px)
+				gap: 16px
+				grid-template-columns: repeat(3, 1fr)
+			+to(980px)
+				grid-template-columns: repeat(2, 1fr)
+			+sm()
+				display: flex
+				gap: unset

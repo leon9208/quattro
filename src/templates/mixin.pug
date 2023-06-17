@@ -1,6 +1,8 @@
 include ../blocks/game/game.pug
 include ../blocks/logo/logo.pug
 include ../blocks/providers/providers.pug
+include ../blocks/search/search.pug
+include ../blocks/bonus/bonus.pug
 
 mixin lazyJpg(image, altTag, lWidth, lHeight)
 	picture
@@ -82,17 +84,87 @@ mixin slider(sCLass, longTitle, shortTitle, sBreakpoints=false, sVert = false, s
 								+game(sVert)
 
 
-mixin search()
-	form.search.search--index
-		label.search-field
-			.search-field__icon
-				+xlink('search', 'search')
-			input.search-input(type="text" name="game-search" required placeholder="Search from more than 3000 Games")
-			.search__btns
-				button.search-clear(type="button")
-					+xlink('clear', 'search-clear')
-				button.btn.btn--primary.search-btn(type="submit") Search
-		a.btn.btn--primary.search-btn(href="#" data-tooltip="Play random game") 
-			span I'm feeling lucky
-			+xlink('clover', 'btn')
 
+
+mixin historyTable()
+	form
+		.form-row.d-inline-flex
+			label.form-field
+				input.form-input(type="date" value="2023-06-09")
+				span.form-message Текст ошибки
+			b.as-center - 
+			label.form-field
+				input.form-input(type="date" value="2023-06-18")
+				span.form-message Текст ошибки
+			.cs-select
+				select(name="balance-status")
+					option(value="" selected disabled) Status
+					option(value="all") All
+					option(value="new") New
+					option(value="complete") Complete
+					option(value="canceled") Canceled
+					option(value="rejected") Rejected
+	table.fullwidth
+		thead
+			tr
+				th Transaction time
+				th Amount
+				th Status
+				th Method
+				th Type
+		tbody
+			tr
+				td 20:29:18 24-03-2023
+				td.text-green ₽860.80
+				td New
+				td Card
+				td Credit
+			tr
+				td 20:29:18 24-03-2023
+				td.text-red - ₽860.80
+				td Complete
+				td Visa/MC
+				td Debit
+			tr
+				td 20:29:18 24-03-2023
+				td.text-green ₽860.80
+				td New
+				td Card
+				td Credit
+			tr
+				td 20:29:18 24-03-2023
+				td.text-green ₽860.80
+				td New
+				td Card
+				td Credit
+			tr
+				td 20:29:18 24-03-2023
+				td.text-red - ₽860.80
+				td Canceled by user
+				td Visa/MC
+				td Debit
+			tr
+				td 20:29:18 24-03-2023
+				td.text-green ₽860.80
+				td New
+				td Card
+				td Credit
+			tr
+				td 20:29:18 24-03-2023
+				td.text-red - ₽860.80
+				td Rejected
+				td Visa/MC
+				td Debit
+			tr
+				td 20:29:18 24-03-2023
+				td.text-green ₽860.80
+				td New
+				td Card
+				td Credit
+			tr
+				td 20:29:18 24-03-2023
+				td.text-green ₽860.80
+				td New
+				td Card
+				td Credit
+	button.btn.btn--gray.btn--sm.text-uppercase(type="button") Load more

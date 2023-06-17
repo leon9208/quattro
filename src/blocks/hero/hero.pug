@@ -55,16 +55,24 @@
 										label.form-field
 											input.form-input.form-input--xl.form-input--light(type="tel" value="50" maxlength="7")
 											span.form-label Deposit amount
-										.form-select.form-select--xl.form-select--light
-											input(type="hidden" name="currency")
-											.form-select__current
-												.form-select__label Currency
-												span EUR
-											.form-select__list
-												.form-select__item(data-select-value="rub") RUB
-												.form-select__item.selected(data-select-value="eur") EUR
-												.form-select__item(data-select-value="usd") USD
-												.form-select__item(data-select-value="kzt") KZT
+										label.form-field
+											.cs-select.cs-select--light.cs-select--xl
+												select(name="currency")
+													option(value="" selected disabled) Currency
+													option(value="rub") RUB
+													option(value="eur") EUR
+													option(value="usd") USD
+													option(value="kzt") KZT
+										//- .form-select.form-select--xl.form-select--light
+										//- 	input(type="hidden" name="currency")
+										//- 	.form-select__current
+										//- 		.form-select__label Currency
+										//- 		span EUR
+										//- 	.form-select__list
+										//- 		.form-select__item(data-select-value="rub") RUB
+										//- 		.form-select__item.selected(data-select-value="eur") EUR
+										//- 		.form-select__item(data-select-value="usd") USD
+										//- 		.form-select__item(data-select-value="kzt") KZT
 									
 									button.btn.btn--lg.btn--secondary(type="submit") Play with €125 and 120FS
 

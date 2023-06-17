@@ -1,0 +1,211 @@
+.bonus
+	display: block
+	position: relative
+	overflow: hidden
+	border-radius: 3px
+	transition: transform .25s ease
+	transform: translate3d(0, 0, 0)
+	will-change: transform
+	max-width: 364px
+	width: 100%
+	&:not(.active):hover
+		transform: translate3d(0, -10px, 0)
+		.bonus-wrap__info
+			max-height: 1000px
+		.bonus-btn
+			opacity: 1
+	&.active
+		.bonus-status
+			opacity: 1
+	&-status
+		position: absolute
+		top: 0
+		right: 0
+		bottom: 0
+		left: 0
+		background-color: rgba(#151339, .7)
+		display: flex
+		align-items: center
+		justify-content: center
+		opacity: 0
+		&::after
+			content: ''
+			flex: none
+			border-radius: 50px
+			height: 50px
+			width: 50px
+			background-color: #EA4382
+			box-shadow: 0px 6px 14px rgba(234, 67, 130, 0.64)
+			background-image: url("data:image/svg+xml,%3Csvg width='26' height='20' viewBox='0 0 26 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10L4 6L10 12L22 0L26 4L10 20L0 10Z' fill='white'/%3E%3C/svg%3E%0A")
+			background-repeat: no-repeat
+			background-position: center
+	&-btn
+		opacity: 0
+		transition: .25s ease
+		top: 20px
+		right: 20px
+		position: absolute
+		height: 32px
+		width: 32px
+		border-radius: 50px
+		z-index: 1
+		border: 2px solid #fff
+		background-repeat: no-repeat
+		background-position: center
+		background-color: #EA3589
+		background-image: url("data:image/svg+xml,%3Csvg width='6' height='15' viewBox='0 0 6 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 0C1.76166 0 0.757983 1.00368 0.757983 2.24202C0.757983 3.48036 1.76166 4.48403 3 4.48403C4.23834 4.48403 5.24202 3.48036 5.24202 2.24202C5.24202 1.00368 4.23834 0 3 0ZM0.757983 5.97871C0.658952 5.97731 0.56063 5.99561 0.468731 6.03254C0.376832 6.06946 0.293189 6.12429 0.222663 6.19383C0.152137 6.26336 0.0961341 6.34622 0.0579094 6.43759C0.0196847 6.52896 0 6.62701 0 6.72605C0 6.82509 0.0196847 6.92315 0.0579094 7.01451C0.0961341 7.10588 0.152137 7.18874 0.222663 7.25828C0.293189 7.32781 0.376832 7.38264 0.468731 7.41957C0.56063 7.45649 0.658952 7.47479 0.757983 7.47339H1.50532V13.4521H0.757983C0.658952 13.4507 0.56063 13.469 0.468731 13.5059C0.376832 13.5429 0.293189 13.5977 0.222663 13.6672C0.152137 13.7368 0.0961341 13.8196 0.0579094 13.911C0.0196847 14.0023 0 14.1004 0 14.1994C0 14.2985 0.0196847 14.3965 0.0579094 14.4879C0.0961341 14.5793 0.152137 14.6621 0.222663 14.7317C0.293189 14.8012 0.376832 14.856 0.468731 14.893C0.56063 14.9299 0.658952 14.9482 0.757983 14.9468H5.24202C5.34105 14.9482 5.43937 14.9299 5.53127 14.893C5.62317 14.856 5.70681 14.8012 5.77734 14.7317C5.84786 14.6621 5.90387 14.5793 5.94209 14.4879C5.98032 14.3965 6 14.2985 6 14.1994C6 14.1004 5.98032 14.0023 5.94209 13.911C5.90387 13.8196 5.84786 13.7368 5.77734 13.6672C5.70681 13.5977 5.62317 13.5429 5.53127 13.5059C5.43937 13.469 5.34105 13.4507 5.24202 13.4521H4.49468V6.72605C4.49468 6.31352 4.15987 5.97871 3.74734 5.97871H2.25266H0.757983Z' fill='white'/%3E%3C/svg%3E%0A")
+	&__icon
+		height: 18px
+		width: 18px
+		fill: #fff
+	&-grid
+		display: grid
+		gap: 20px
+		grid-template-columns: repeat(4, 1fr)
+	&-img
+		position: relative
+		display: block
+		overflow: hidden
+		width: 100%
+		img
+			position: absolute
+			top: 0
+			left: 0
+			height: 100%
+			width: 100%
+			object-fit: cover
+		&::after
+			content: ""
+			padding-bottom: 130%
+			display: block
+		
+	&-wrap
+		position: absolute
+		width: 100%
+		z-index: 1
+		bottom: 0
+		color: #fff
+		display: flex
+		flex-direction: column
+		align-items: center
+		background: rgba(21, 19, 57, 0.1)
+		backdrop-filter: blur(35px)
+		border-radius: 3px
+		&__head
+			padding: 15px 15px 0
+			border-top-right-radius: 30px
+			border-top-left-radius: 30px
+			font-weight: 700
+			font-size: 15px
+			display: flex
+			align-items: center
+			gap: 8px
+		&__contnet
+			padding: 15px
+			text-align: center
+			display: flex
+			flex-direction: column
+			align-items: center
+			justify-content: center
+			gap: 8px
+		&__title
+			font-weight: 800
+			font-size: 17px
+		&__text
+			font-weight: 500
+			font-size: 15px
+			line-height: 1.2
+		&__info
+			width: 100%
+			height: 100%
+			max-height: 0
+			overflow: hidden
+			transition: .25s ease-out
+			padding: 0 15px
+
+	&-info
+		display: flex
+		flex-wrap: wrap
+		font-size: 14px
+		color: #151339
+		padding: 15px 0
+		gap: 6px
+		&__item
+			gap: 4px
+			border-radius: 3px
+			display: flex
+			align-items: center
+			justify-content: space-between
+			padding: 7px 10px
+			width: 100%
+			background-color: #fff
+			&--green
+				background-color: #3ADED4
+			&--yellow
+				background-color: #F4BA40
+			&--gray
+				background-color: #F1F2F4
+			&--half
+				flex: 1
+			span
+				// opacity: 0.5
+				font-weight: 500
+	&-offer
+		display: flex
+		flex-direction: column
+		gap: 20px
+		&__info
+			display: flex
+			gap: 30px
+			+xs()
+				justify-content: space-between
+		&__item
+			color: var(--base-color)
+			display: flex
+			flex-direction: column
+			gap: 10px
+			& > span
+				font-size: 16px
+				font-weight: 500
+			b
+				font-size: 21px
+				font-weight: 800
+				span
+					opacity: 0.5
+
+	&-wager
+		margin-bottom: 30px
+		&__text
+			font-size: 14px
+			margin-bottom: 10px
+		&__row
+			display: flex
+			gap: 10px
+			align-items: center
+			font-weight: 800
+			font-size: 21px
+	&-progress
+		position: relative
+		flex: 1
+		border-radius: 3px
+		position: relative
+		background: rgba(21, 19, 57, 0.1)
+		overflow: hidden
+		height: 16px
+		width: 100%
+		&__bar
+			position: absolute
+			top: 0
+			left: 0
+			width: 0
+			height: 100%
+			background-color: var(--base-color)
+			background-image: repeating-linear-gradient(-45deg, transparent, transparent 10px, #363457 10px, #363457 20px)
+			background-size: 200% 100%
+			animation: loading-slide 3s linear infinite
+
+@keyframes loading-slide
+	from 
+		background-position: left
+	to
+		background-position: right

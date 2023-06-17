@@ -1,102 +1,24 @@
-extends ../templates/template
-block vars
-	- var title = 'Form';
-	- var description = 'Form Description';
-	- var pageType = 'inner'
-block content
-	.container
-		form.form
-			label.form-field
-				span.form-label First name
-				input.form-input.form-input--fill(type="text" value="")
-			label.form-field
-				span.form-label Last name
-				input.form-input.form-input--fill(type="text" value="")
-			label.form-field
-				span.form-label Your text
-				textarea.form-input.form-input--fill(type="text" value="")
-			button.btn.btn--xs.btn--primary Кнопка
-			.form-field
-				select(name="gender" value="" required data-select-label="Gender*")
-					option(value="" disabled selected) Gender*
-					option(value="male") Male
-					option(value="female") Female
-			.form-field
-				select(name="country" value="" required data-select-label="Counrty*")
-					option(value="" disabled selected) Counrty*
-					option(value="rf") Russian Federation
-					option(value="usa") USA
-					option(value="canada") Canada
+//- extends ../templates/template
+//- block vars
+//- 	- var title = 'Form';
+//- 	- var description = 'Form Description';
+//- 	- var pageType = 'inner'
+//- block content
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		title Document
+		link(rel="stylesheet", href="css/style.css")
+	body 
+		.container
 			.form-group
-				//- .form-field
-				//- 	select(name="day" value="" required data-select-label="Day*")
-				//- 		option(value="" disabled selected) Day*
-				//- 		option(value="1") 1
-				//- 		option(value="2") 2
-				//- 		option(value="3") 3
-				//- 		option(value="4") 4
-				//- 		option(value="5") 5
-				//- 		option(value="6") 6
-				//- 		option(value="7") 7
-				//- 		option(value="8") 8
-				//- 		option(value="9") 9
-				//- 		option(value="10") 10
-				//- 		option(value="11") 11
-				//- 		option(value="12") 12
-				//- 		option(value="13") 13
-				//- 		option(value="14") 14
-				//- 		option(value="15") 15
-				//- 		option(value="16") 16
-				//- 		option(value="17") 17
-				//- 		option(value="18") 18
-				//- 		option(value="19") 19
-				//- 		option(value="20") 20
-				//- 		option(value="21") 21
-				//- 		option(value="22") 22
-				//- 		option(value="23") 23
-				//- 		option(value="24") 24
-				//- 		option(value="25") 25
-				//- 		option(value="26") 26
-				//- 		option(value="27") 27
-				//- 		option(value="28") 28
-				//- 		option(value="29") 29
-				//- 		option(value="30") 30
-				//- 		option(value="31") 31
-				//- .form-field
-				//- 	select(name="month" value="" required data-select-label="Month*")
-				//- 		option(value="" disabled selected) Month*
-				//- 		option(value="1") January
-				//- 		option(value="2") February
-				//- 		option(value="3") March
-				//- 		option(value="4") April
-				//- 		option(value="5") May
-				//- 		option(value="6") June
-				//- 		option(value="7") July
-				//- 		option(value="8") September
-				//- 		option(value="9") August
-				//- 		option(value="10") October
-				//- 		option(value="11") November
-				//- 		option(value="12") December
-				//- .form-field
-					select(name="year" value="" required data-select-label="Year*")
-						option(value="" disabled selected) Year*
-						option(value="1990") 1990
-						option(value="1991") 1991
-						option(value="1992") 1992
-						option(value="1993") 1993
-						option(value="1994") 1994
-						option(value="1995") 1995
-						option(value="1996") 1996
-						option(value="1997") 1997
-						option(value="1998") 1998
-						option(value="1999") 1999
-						option(value="2000") 2000
-						option(value="2001") 2001
-						option(value="2002") 2002
-						option(value="2003") 2003
-						option(value="2004") 2004
-						option(value="2005") 2005
-				.form-field
-					input.form-input.form-input--outline(type="date", name="")
-				.form-field
-					input.form-input.form-input--outline(type="date", name="" reqruired)
+				label.cs-select
+					select(name="gender")
+						//- option(value="" selected disabled) Gender
+						option(value="male" selected) Male
+						option(value="female") Female
+		script(src="js/swiper-bundle.min.js") 
+		script(src="js/scripts.js") 

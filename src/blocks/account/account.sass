@@ -1,0 +1,204 @@
+.account
+	position: relative
+	background-color: var(--base-bg)
+	border-radius: 3px
+	display: flex
+	flex-direction: column
+	gap: 20px
+	box-shadow: 0px 0px 15px rgba(132, 123, 203, 0.2)
+	+xs()
+		gap: 16px
+	+dark()
+		box-shadow: unset
+	&-id
+		font-weight: 500
+		font-size: 13px
+		opacity: 0.5
+	&-row
+		width: 100%
+		display: flex
+		flex-wrap: wrap
+		gap: 20px
+		+sm()
+			gap: 10px
+	&-head
+		display: flex
+		align-items: center
+		justify-content: space-between
+		color: #fff
+		background-color: var(--base-color)
+		padding: 18px 33px
+		border-radius: 3px 3px 0 0
+		+xs()
+			padding: 11px 16px
+		+dark()
+			background-color: var(--nav-bg-active)
+		&__title
+			font-weight: 800
+			font-size: 18px
+			+xs()
+				font-size: 16px
+		&__icon
+			height: 23px
+			width: 23px
+			flex: none
+			fill: currentColor
+	&-content
+		padding: 0 33px 30px 33px
+		display: flex
+		flex-direction: column
+		gap: 30px
+		+sm()
+			padding: 0 10px 40px
+	&-col
+		+xs()
+			width: 100%
+		&__title
+			font-size: 16px
+			margin-bottom: 1.1em
+			font-weight: 800
+			+xs()
+				margin-bottom: 0.8em
+	&-title
+		position: relative
+		display: flex
+		align-items: center
+		gap: 14px
+		font-weight: 800
+		&[data-count]:after
+			content: attr(data-count)
+			font-weight: 800
+			font-size: 13px
+			padding: 7px 13px
+			background-color: var(--light-bg)
+			color: var(--base-color)
+			border-radius: 6px
+		&__icon
+			height: 24px
+			width: 24px
+			fill: currentColor
+	table
+		font-size: 13px
+		text-align: left
+		color: var(--base-color)
+		border-collapse: collapse
+		border-collapse: separate
+		border-spacing: 0 8px
+		margin-bottom: 30px
+		&.fullwidth
+			width: 100%
+		tr:nth-child(even)
+			position: relative
+			td
+				&::before
+					opacity: 0.03
+		th
+			font-size: 10px
+			text-transform: uppercase
+			font-weight: 800
+			opacity: 0.5
+		td
+			position: relative
+			font-weight: 700
+			overflow: hidden
+			&::before
+				background-color: var(--base-color)
+				content: ""
+				position: absolute
+				top: 0
+				left: 0
+				bottom: 0
+				right: 0
+				opacity: 0
+
+		th, td
+			padding: 15px 22px
+		b
+			font-weight: 500
+			white-space: nowrap
+
+
+
+.balance
+	position: relative
+	user-select: none
+	+xs()
+		position: unset
+	&-btn
+		position: relative
+		min-height: 43px
+		background-color: var(--nav-bg-base)
+		padding: 10px 15px
+		border-radius: 3px 0 0 3px
+		cursor: pointer
+		&__text
+			font-weight: 700
+			font-size: 14px
+			color: var(--base-color)
+	&-info
+		display: flex
+		flex-direction: column
+		border-radius: 3px
+		height: auto
+		flex: 1
+		&__tooltip
+			cursor: pointer
+		&__item
+			display: flex
+			align-items: center
+			justify-content: space-between
+			padding: 14px 7px
+			&:not(:last-of-type)
+				border-bottom: 1px solid var(--nav-bg-hover)
+			span
+				color: var(--base-color)
+				font-size: 14px
+				font-weight: 500
+				opacity: 0.8
+			b
+				font-weight: 800
+				text-align: right
+		&__icon
+			height: 15px
+			width: 15px
+			fill: #7E8096
+		&__top
+			background-color: rgba(21, 19, 57, 0.05)
+			+dark()
+				background-color: var(--nav-bg-hover)
+		&__head
+			display: flex
+			align-items: center
+			gap: 6px
+			padding: 15px 23px 10px
+			justify-content: space-between
+		&__main
+			padding: 10px 23px 15px
+		&__footer
+			flex: 1
+			margin-top: auto
+			padding: 23px
+			background-color: rgba(21, 19, 57, 0.1)
+			border-radius: 0px 0px 3px 3px
+			+dark()
+				background-color: var(--nav-bg-base)
+		&__title
+			font-weight: 500
+			font-size: 13px
+		&__cost
+			font-weight: 800
+			font-size: 33px
+		&__text
+			color: var(--base-color)
+			opacity: 0.5
+			font-size: 13px
+			font-weight: 500
+	&-col
+		max-width: 264px
+		width: 100%
+		display: flex
+		flex-direction: column
+		gap: 9px
+		+xs()
+			max-width: 100%
+		

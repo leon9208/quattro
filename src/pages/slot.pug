@@ -1,0 +1,36 @@
+extends ../templates/template
+block vars
+	- var title = 'Slot Title';
+	- var description = 'Slot Description';
+	- var pageLink = '/slot.html'
+	- var pageType = 'inner'
+	- var catTitle = 'Slot'
+block content
+	//- .inner__content
+	.slot
+		.slot-container
+			.slot-container__wrap
+				.slot-container__frame
+					//- iframe(src="http://camomile.site/") 
+				.slot-container__bottom
+					.slot-container__side
+						label.slot-switcher
+							input.slot-switcher__input(type="checkbox")
+							span Real Money Mode
+							span Fun Mode
+					.slot-container__center
+						.slot-logo Quattro
+					.slot-container__side
+						.slot-nav
+							button.slot-nav__item(data-tippy-content="Add to favourites")
+								+xlink('heart-outline', 'slot-nav')
+							button.slot-nav__item
+								+xlink('fullscreen', 'slot-nav')
+							button.slot-nav__item
+								+xlink('close', 'slot-nav')
+	.section
+		.container
+			include ../blocks/bets/bets.pug
+	br
+	+prCarousel()
+	+slider('section-carousel--bg', '🥇 Top Games', '🥇 Top Games', '{"xxl":7,"xl":6,"lg":5,"md":4,"sm":4,"xs":2.3}', true)

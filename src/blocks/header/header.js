@@ -1,13 +1,3 @@
-const formInputText = document.querySelectorAll('.form-input')
-
-formInputText.forEach(inp => {
-	function inpFilled() {
-		inp.value != '' ? inp.classList.add('isfilled') : inp.classList.remove('isfilled')
-	}
-	inp.addEventListener('blur', inpFilled)
-	inpFilled()
-});
-
 document.addEventListener('click', (e) => {
 	let isOpenSelector = document.querySelectorAll('.isopen')
 	if (isOpenSelector) {
@@ -19,13 +9,15 @@ document.addEventListener('click', (e) => {
 	}
 })
 
-document.querySelector('._overlay').addEventListener('click', () =>{
-	document.documentElement.classList.remove('_scroll-lock')
-	document.documentElement.classList.remove('_modal-open')
-	if (document.querySelector('[data-modal].isactive')) {
-		document.querySelector('[data-modal].isactive').classList.remove('isactive')
-	}
-})
+if (document.querySelector('._overlay')) {
+	document.querySelector('._overlay').addEventListener('click', () =>{
+		document.documentElement.classList.remove('_scroll-lock')
+		document.documentElement.classList.remove('_modal-open')
+		if (document.querySelector('[data-modal].isactive')) {
+			document.querySelector('[data-modal].isactive').classList.remove('isactive')
+		}
+	})
+}
 
 // header dropdown
 const headerDropdown = document.querySelectorAll('.header-mnu__btn')
@@ -86,8 +78,6 @@ const bCarousel = () => {
 				pagination: {
 					enabled: caouselPagination != null ? true : false,
 					el: caouselPagination,
-					// dynamicBullets: true,
-					// dynamicMainBullets: 4,
 					clickable: true
 				},
 				breakpoints: {
@@ -140,8 +130,52 @@ const bCarousel = () => {
 	})
 };
 
+const promoCarousel = () => {
+	document.querySelectorAll('[data-bonus-carousel]').forEach((slider)=>{
+		let caouselPagination = slider.querySelector('.swiper-pagination')
+		const promoSlide = new Swiper(slider, {
+			spaceBetween: 8,
+			slidesPerView: 'auto',
+			touchMoveStopPropagation: true,
+			touchReleaseOnEdges: true,
+			enabled: false,
+			watchOverflow: true,
+			mousewheel: {
+				forceToAxis: true,
+			},
+			freeModeSticky: true,
+			freeMode: {
+				enabled: true,
+				sticky: true,
+			},
+			pagination: {
+				enabled: false,
+				el: caouselPagination,
+				clickable: true
+			},
+			breakpoints: {
+				320: {
+					slidesPerView: 1.2,
+					enabled: true,
+				},
+				580: {
+					slidesPerView: 'auto',
+					enabled: true,
+					pagination: {
+						enabled: true,
+					}
+				},
+				820: {
+					enabled: false,
+				}
+			},
+		});
+	})
+};
+
 document.addEventListener("DOMContentLoaded", function(event) { 
-	bCarousel()
+	bCarousel();
+	promoCarousel()
 });
 
 
@@ -150,63 +184,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 window.addEventListener('scroll', () => {
 
 	window.scrollY > 80 ? document.documentElement.classList.add('_window-scrolled') : document.documentElement.classList.remove('_window-scrolled')
-
 })
 
-
-var indexSearch = document.querySelector('.search-input')
-
-if (indexSearch) {
-	indexSearch.addEventListener('input', function() {
-		if (this.value != '') {
-			this.classList.add('isfilled')
-		} else {
-			this.classList.remove('isfilled')
-		}
-	});
-
-	document.querySelector('.search-clear').addEventListener('click', function() {
-		indexSearch.value = ''
-	})
-}
-
-/* custom select */
-
-const customSelect = document.querySelectorAll('.form-select')
-
-if (customSelect) {
-	customSelect.forEach(cs => {
-		cs.addEventListener('click', (e) => {
-			e.stopPropagation()
-			cs.classList.toggle('isopen')
-		});
-
-		let csCurrent = cs.querySelector('.form-select__current span')
-		let csInput = cs.querySelector('input')
-		let csItems = cs.querySelectorAll('.form-select__item')
-	
-		csItems.forEach(csI => {
-			csI.addEventListener('click', () => {
-				let csInputValue = csI.dataset.selectValue
-				csInput.value = csInputValue
-				csCurrent.textContent = csI.textContent
-				csItems.forEach(csi => csi.classList.remove('selected'))
-				csI.classList.add('selected')
-			})
-		});
-	});
-};
-
-const tooltips = document.querySelectorAll('[data-tooltip]')
-
-if (tooltips) {
-	tooltips.forEach(tooltip => {
-		let tooltipContent = tooltip.dataset.tooltip
-
-		let tooltipMarkup = `
-			<div class="tooltip tooltip--bottom tooltip--center">${tooltipContent}</div>
-		`
-		// tooltip.appendChild(tooltipMarkup)
-		tooltip.insertAdjacentHTML('beforeend', tooltipMarkup)
-	});
-};
+tippy('[data-tippy-content]', {
+	allowHTML: true,
+	interactive: true,
+})

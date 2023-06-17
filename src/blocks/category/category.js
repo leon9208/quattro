@@ -20,7 +20,7 @@ const fadeOut = (el, timeout) => {
 //category filter
 const categoryNav = document.querySelectorAll('.category-nav__input')
 const catGames = document.querySelectorAll('.category-grid .game[data-category]')
-const catGamesTitle = document.querySelector('.category-body__title')
+const catGamesTitle = document.querySelector('.category-body__title [data-category-title]')
 
 const filterGames = (category) => {
 	catGames.forEach(games => {

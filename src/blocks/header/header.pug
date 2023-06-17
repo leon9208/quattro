@@ -14,9 +14,18 @@ header.header.header--fixed
 			+logo('logo--header', 'quattro', false, true)
 	.header-side.header-side--right
 		if pageType != 'main'
-			.header-account
-				a.btn.header-btn.btn--square.btn--secondary(href="#")
+			.header-account.header-mnu
+				.btn.header-btn.btn--secondary.header-mnu__btn
 					+xlink('user', 'btn')
+				.header-dropdown
+					.header-dropdown__head 
+						+xlink('user', 'btn')
+						span Hello, denis
+					a.btn.btn--xs.btn--gray(href="account.html#balances") Balances
+					a.btn.btn--xs.btn--gray(href="account.html#personal-info") Personal info
+					a.btn.btn--xs.btn--primary(href="account.html#bonuses" data-count="6") Bonuses
+					a.btn.btn--xs.btn--gray(href="account.html#history") History
+					a.btn.btn--xs.btn--gray(href="account.html#settings") Settings
 		else
 			.header-account.header-mnu
 				.btn.header-btn.btn--secondary.header-mnu__btn
@@ -25,17 +34,17 @@ header.header.header--fixed
 					.header-dropdown__head 
 						+xlink('user', 'btn')
 						span Hello, denis
-					a.btn.btn--xs.btn--gray(href="#") Balances
-					a.btn.btn--xs.btn--gray(href="#") Personal info
-					a.btn.btn--xs.btn--primary(href="#" data-count="6") Bonuses
-					a.btn.btn--xs.btn--gray(href="#") History
-					a.btn.btn--xs.btn--gray(href="#") Settings
+					a.btn.btn--xs.btn--gray(href="account.html#balances") Balances
+					a.btn.btn--xs.btn--gray(href="account.html#personal-info") Personal info
+					a.btn.btn--xs.btn--primary(href="account.html#bonuses" data-count="6") Bonuses
+					a.btn.btn--xs.btn--gray(href="account.html#history") History
+					a.btn.btn--xs.btn--gray(href="account.html#settings") Settings
 		.header-balance
 			.balance.header-mnu
 				.balance-btn.header-mnu__btn
 					.balance-btn__text 1245.03€
 				.header-dropdown
-					.balance-info
+					.header-balance__info
 						.balance-info__item
 							span Main balance
 							b 1245 €
@@ -48,13 +57,13 @@ header.header.header--fixed
 						.balance-info__item
 							span Quattro Coins
 							b.coin 122245
-					a.btn.btn--xs.btn--secondary(href="#") Cashier
-					a.btn.btn--xs.btn--primary(href="#" data-count="6") Bonuses
-					a.btn.btn--xs.btn--gray(href="#") Balance history
-			a.btn.header-btn.btn--primary.text-uppercase(href="#")
+					button.btn.btn--xs.btn--secondary(onclick="openModal('#modal-cashier', remoteClick(`[href='#cashier-deposit']`))") Cashier
+					a.btn.btn--xs.btn--primary(href="account.html#bonuses" data-count="6") Bonuses
+					a.btn.btn--xs.btn--gray(href="account.html#history" onclick='closeModal(), remoteClick(`[href="#balance-history"]`)') Balance history
+			button.btn.header-btn.btn--primary.text-uppercase(onclick="openModal('#modal-cashier', remoteClick(`[href='#cashier-deposit']`))")
 				span.d-sm-none Deposit
 				+xlink('plus', 'd-none d-sm-block btn')
-		a.btn.header-btn.btn--square.btn--gray.d-sm-none(href="#")
+		a.btn.header-btn.btn--square.btn--gray.d-sm-none(href="#" data-tippy-content="My favourites")
 			+xlink('heart', 'btn')
 		a.btn.btn--xs.btn--gray.text-uppercase.d-none.d-sm-flex(href="#mobilenav" data-modal-target)
 			+xlink('menu', 'btn')

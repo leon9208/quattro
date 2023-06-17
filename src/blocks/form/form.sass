@@ -1,0 +1,165 @@
+//form
+.form
+	&-column
+		+xs()
+			width: 100%
+.cs-select
+	display: block
+	position: relative
+	font-size: 16px
+	font-weight: 500
+	+xs()
+		flex: 0 0 auto
+		&::after
+			content: ''
+			position: absolute
+			height: 6px
+			width: 6px
+			border-bottom: 2px solid
+			border-right: 2px solid
+			right: 20px
+			top: 50%
+			transform: translateY(-50%) rotate(45deg)
+			transition: .25s ease
+			pointer-events: none
+			+xs()
+				right: 15px
+	&.isopen
+		.cs-select__list
+			opacity: 1
+			visibility: visible
+			top: calc(100% + 6px)
+			pointer-events: auto
+		.cs-select__opener::after
+			transform: rotate(225deg)
+	&.ischanged
+		.cs-select__label
+			transform: translateY(-10px)
+			font-size: 12px
+	select
+		width: auto
+		height: 60px
+		padding: 0 40px 0 20px
+		opacity: 0
+		visibility: hidden
+		font-size: 16px
+		font-weight: 500
+		background-color: var(--form-bg-base)
+		color: var(--base-color)
+		border-radius: 3px
+		+xs()
+			width: 100%
+			opacity: 1
+			visibility: visible
+			padding: 0 30px 0 15px
+			font-size: 14px
+			
+	&__container
+		position: absolute
+		width: 100%
+		top: 0
+		left: 0
+		+xs()
+			display: none
+	&__opener
+		position: relative
+		cursor: pointer
+		background-color: var(--form-bg-base)
+		border-radius: 3px
+		transition: .25s ease
+		&:hover
+			background-color: var(--form-bg-hover)
+		&::after
+			content: ''
+			position: absolute
+			height: 6px
+			width: 6px
+			border-bottom: 2px solid
+			border-right: 2px solid
+			right: 20px
+			top: 50%
+			transform: translateY(-50%) rotate(45deg)
+			transition: .25s ease
+			+xs()
+				right: 15px
+	&__label
+		font-size: inherit
+		position: absolute
+		height: 100%
+		padding: 0 20px
+		display: flex
+		align-items: center
+		font-size: inherit
+		pointer-events: none
+		user-select: none
+		transition: .25s ease
+		opacity: 0.5
+		& ~ .cs-select__current
+			padding: 30px 60px 10px 20px
+	&__current
+		height: 60px
+		padding: 0 20px
+		display: flex
+		align-items: center
+		pointer-events: none
+		user-select: none
+	&__list
+		min-width: 100%
+		position: absolute
+		background-color: var(--base-bg)
+		box-shadow: 0px 0px 15px rgba(44, 52, 57, 0.15)
+		border-radius: 3px
+		max-height: 200px
+		overflow-y: auto
+		transition: .25s ease
+		opacity: 0
+		visibility: hidden
+		top: 130%
+		pointer-events: none
+		z-index: 5
+	&__item
+		height: 60px
+		display: flex
+		align-items: center
+		padding: 0 20px
+		cursor: pointer
+		user-select: none
+		transition: .25s ease
+		&:hover
+			background-color: var(--form-bg-base)
+		&.selected
+			background-color: var(--form-bg-focus)
+
+	&--light
+		select
+			background-color: #fff
+			color: #151339
+		.cs-select
+			&__opener
+				background-color: #fff
+				color: #151339
+				&:hover
+					background-color: #fff
+					color: #151339
+			&__list
+				background-color: #fff
+				color: #151339
+			&__item
+				background-color: #fff
+				&:hover
+					background-color: #EBEBEB
+				&.selected
+					background-color: #EBEBEB
+	&--xl
+		font-weight: 700
+		.cs-select__current
+			height: 74px
+			font-size: 19px
+		.cs-select__label
+			font-weight: 500
+		&::after
+			color: #151339
+		select
+			font-size: 19px
+			height: 74px
+			font-weight: inherit

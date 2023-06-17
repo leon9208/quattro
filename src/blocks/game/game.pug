@@ -5,7 +5,7 @@ mixin game(gVertical = false, gAttr = false, gbTitle = false, gFav = false)
 	- var gFavor = gFav ? 'isactive' : '';
 	.game(class=gClass data-category=gAttr)
 		.game-content
-			a.game-link(href="#") 
+			a.game-link(href="slot.html") 
 			.game-info
 				button.game-fav(class=gFavor)
 					+xlink('heart', 'game-fav')
@@ -13,7 +13,7 @@ mixin game(gVertical = false, gAttr = false, gbTitle = false, gFav = false)
 					.game-info__title=gTitle
 					.game-info__text Pragmatic
 				.game-body
-					a.game-btn(href="#")
+					a.game-btn(href="slot.html")
 						+xlink('play', 'game-btn')
 						span PLAY
 				.game-footer

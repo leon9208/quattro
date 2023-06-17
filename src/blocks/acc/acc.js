@@ -1,11 +1,7 @@
 //accordion
-
 const acc = document.querySelectorAll('.acc-item__head')
 
 if(acc.length > 0) {
-	// acc.forEach(el => {
-	// 	el.addEventListener('click', () => {el.closest('.acc-item').classList.toggle('isopen')})
-	// })
 	acc.forEach(item => {
 		item.addEventListener('click', () => {
 			var parent = item.closest('.acc-item')

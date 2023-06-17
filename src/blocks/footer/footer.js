@@ -6,26 +6,8 @@ footerNav.forEach(fNav => {
 	})
 });
 
-
-// const footerSlider = new Swiper('.footer-slider', {
-// 	slidesPerView: 'auto',
-// 	speed: 400,
-// 	spaceBetween: 100,
-// 	loop: true,
-// 	autoplay: {
-// 		enabled: true,
-// 		delay: 1,
-// 	},
-// 	freeMode: {
-// 		enabled: true,
-// 		sticky: true,
-// 	},
-// });
-
 var footerSlider = new Swiper('.footer-slider', {
-	// allowTouchMove: false,
 	pauseOnMouseEnter: false,
-	// disableOnInteraction: true,
 	slidesPerView: 'auto',
 	loop: true,
 	speed: 5000,
