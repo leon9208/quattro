@@ -87,29 +87,29 @@
 		margin-bottom: 30px
 		&.fullwidth
 			width: 100%
-		tr:nth-child(even)
-			position: relative
+			tr:nth-child(even)
+				position: relative
+				td
+					&::before
+						opacity: 0.03
+			th
+				font-size: 10px
+				text-transform: uppercase
+				font-weight: 800
+				opacity: 0.5
 			td
+				position: relative
+				font-weight: 700
+				overflow: hidden
 				&::before
-					opacity: 0.03
-		th
-			font-size: 10px
-			text-transform: uppercase
-			font-weight: 800
-			opacity: 0.5
-		td
-			position: relative
-			font-weight: 700
-			overflow: hidden
-			&::before
-				background-color: var(--base-color)
-				content: ""
-				position: absolute
-				top: 0
-				left: 0
-				bottom: 0
-				right: 0
-				opacity: 0
+					background-color: var(--base-color)
+					content: ""
+					position: absolute
+					top: 0
+					left: 0
+					bottom: 0
+					right: 0
+					opacity: 0
 
 		th, td
 			padding: 15px 22px
