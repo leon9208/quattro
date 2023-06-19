@@ -60,12 +60,6 @@ const bCarousel = () => {
 					rows: dataRow || 1,
 					fill: 'row'
 				},
-				touchMoveStopPropagation: true,
-				touchReleaseOnEdges: true,
-				mousewheel: {
-					forceToAxis: true,
-				},
-				freeModeSticky: true,
 				freeMode: {
 					enabled: true,
 					sticky: true,
@@ -136,14 +130,11 @@ const promoCarousel = () => {
 		const promoSlide = new Swiper(slider, {
 			spaceBetween: 8,
 			slidesPerView: 'auto',
-			touchMoveStopPropagation: true,
-			touchReleaseOnEdges: true,
 			enabled: false,
 			watchOverflow: true,
 			mousewheel: {
 				forceToAxis: true,
 			},
-			freeModeSticky: true,
 			freeMode: {
 				enabled: true,
 				sticky: true,
