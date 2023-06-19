@@ -101,14 +101,13 @@ block content
 												small.form-message Текст ошибки
 											.form-group
 												label.cs-select
-													select(name="phone-code")
-														option(value="+7" selected) +7
-														option(value="+1") +1
-														option(value="+81") +81
-														option(value="+99") +99
+													select.phone-code(name="phone-code")
+														option(value="ru" selected) +7
+														option(value="br") +55
+														option(value="us") +1
 												label.form-field
 													button.btn.btn--secondary(type="button") Verify
-													input.form-input.form-input--label(type="tel" name="phone-number")
+													input.form-input.form-input--label.phone-number(type="tel" name="phone-number")
 													span.form-label Phone
 													small.form-message Текст ошибки
 											small 

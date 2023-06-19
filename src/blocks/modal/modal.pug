@@ -455,16 +455,16 @@
 											.balance-info__tooltip(data-tippy-content="Бонусный баланс недоступен для вывода до момента отыгрыша. Бонусный баланс зависит от активного в данный момент бонуса. Активный бонус вы можете посмотреть во вкладке <a href='#bonuses'>Бонусы</a>." data-tippy-placement="bottom")
 												+xlink('question', 'balance-info')
 								label.form-field
-									input.form-input.form-input--label(type="tel" name="card-number" required)
+									input.form-input.form-input--label.card-number(type="tel" name="card-number" required)
 									span.form-label Card Number
 									small(class="form-message") Текст ошибки
 								label.form-field
-									input.form-input.form-input--label(type="text" name="cardholder-name" required)
+									input.form-input.form-input--label.card-holder(type="text" name="cardholder-name" required)
 									span.form-label Card Holder Name
 									small(class="form-message") Текст ошибки
 								label.form-field
-									input.form-input.form-input--label(type="text" name="card-date" required)
-									span.form-label Card Expire Date DD/YY
+									input.form-input.form-input--label.card-date(type="text" name="card-date" required)
+									span.form-label Card Expire Date MM/YY
 									small(class="form-message") Текст ошибки
 								label.form-field.mb-1
 									input.form-input.form-input--label(type="text" name="bank-name" required)

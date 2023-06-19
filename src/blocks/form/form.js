@@ -77,6 +77,7 @@ const customSelect = (selector) => {
 					nativeSelect.value = csItem.dataset.value
 					cCurrent.textContent = csItem.textContent
 					el.classList.add('ischanged')
+					nativeSelect.dispatchEvent(new Event('change'))
 				}
 			})
 
@@ -110,3 +111,52 @@ if(formAmountBtn) {
 
 
 //End custom select
+
+
+const phoneCode = document.querySelector('.phone-code')
+const phoneNum = document.querySelector('.phone-number')
+const cardNum = document.querySelector('.card-number')
+const cardHolder = document.querySelector('.card-holder')
+const cardDate = document.querySelector('.card-date')
+const amountInput = document.querySelector('.amount-input')
+const phoneCodes = {
+	// Russia +7 555 444 22 11
+	'ru': [3,3,2,2],
+	// Brasil +55 55 4444 3333
+	'br': [2,4,4],
+	// USA +1 555 444 3333
+	'us': [3,3,4],
+};
+
+if (phoneCode) {
+	var phoneMask = new Cleave(phoneNum, {
+		delimiters: [' '],
+		blocks: phoneCodes[phoneCode.value],
+		numericOnly: true,
+	});
+	
+	phoneCode.addEventListener('change', function() {
+		phoneNum.value = ''
+		phoneMask.properties.blocks = phoneCodes[this.value]
+	});
+};
+
+if (cardNum) {
+	var cardNumInp = new Cleave(cardNum, {
+		creditCard: true,
+	});
+};
+
+if (cardDate) {
+	var cardDateInp = new Cleave(cardDate, {
+		date: true,
+		datePattern: ['m', 'y']
+	});
+};
+
+if (cardHolder) {
+	cardHolder.addEventListener('input', () => {
+		cardHolder.value = cardHolder.value.replace(/[^A-Za-z ]/g, '').toUpperCase()
+	})
+};
+// End input mask
